@@ -18,7 +18,7 @@
 
     /* 1. VIEWPORT & SECTIONS */
     --section-height: 108vh;
-    --section-padding-top: 100px;
+    --section-padding-top: 70px;
     --section-padding-bottom: 40px;
     --section-padding-x: 5vw;
     --nav-height: 60px;
@@ -46,17 +46,10 @@
     --space-2xl: calc(var(--space-unit) * 6);      /* 48px */
     --space-3xl: calc(var(--space-unit) * 8);      /* 64px */
 
-    /* 4. CAROUSEL & CARDS */
-    --card-width: 300px;
-    --card-height: 280px;
-    --card-radius: 10px;
-    --card-padding: var(--space-lg);
-    --carousel-height: 320px;
-    --carousel-separation: 100px;
-    --carousel-center-scale: 1.4;
-    --carousel-side-scale: 0.85;
-    --carousel-side-opacity: 0.4;
-    --carousel-btn-size: 50px;
+/* --- 4. SYNTH PRINTER VARIABLES --- */
+  --ink-color: #1a1a1a; 
+  --paper-color: #f7f7f7; 
+  --noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.25' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E");
 
     /* 5. CHART */
     --chart-size: min(500px, 55vh);
@@ -91,7 +84,7 @@
 
     /* 9. PORTFOLIO TERMINAL */
     --tv-max-width: 600px;
-    --tv-screen-ratio: 16 / 9;
+    --tv-screen-ratio: 1 / 1;
     --tv-screen-max-h: calc(var(--section-height) - 280px);
     --tv-border: 12px;
     --tv-radius: 14px;
@@ -129,13 +122,27 @@ html {
     overflow-x: hidden;
 }
 
+/* =============================================
+   DARK POWDER-COATED METAL BACKGROUND
+   ============================================= */
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: var(--font-main);
-    font-weight: var(--body-weight);
-    overflow-x: hidden;
-    width: 100vw;
+  /* The deep dark gray base */
+  background-color: #000000; 
+  
+  /* The Texture & Lighting */
+  background-image: 
+  /* High-frequency noise for the powder-coat bumps */
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.28'/%3E%3C/svg%3E");
+  
+  background-attachment: fixed; /* Keeps the texture static when you scroll */
+  
+  /* Preserving your original layout variables */
+  color: var(--text-color);
+  font-family: var(--font-main);
+  font-weight: var(--body-weight);
+  overflow-x: hidden;
+  width: 100vw;
+  margin: 0;
 }
 
 /* =============================================
@@ -158,7 +165,7 @@ section {
 
 #hero,
 #education,
-#skills,
+#experience,
 #contact {
     position: relative;
     width: 100%;
@@ -173,7 +180,6 @@ section {
 }
 
 #about,
-#experience,
 #portfolio {
     min-height: var(--section-height);
     height: auto;
@@ -198,6 +204,30 @@ section {
     box-sizing: border-box;
 }
 
+#skills {
+    position: relative;
+    width: 100%;
+    height: var(--section-height) !important;
+    min-height: var(--section-height) !important;
+    max-height: var(--section-height) !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 0 !important;
+}
+
+#skills .sticky-frame {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* =============================================
    VIDEO MANAGER
    ============================================= */
@@ -207,7 +237,7 @@ section {
     width: 100%; height: 100%;
     z-index: -2;
     overflow: hidden;
-    background: #000;
+    background: transparent;
 }
 
 .bg-video {
@@ -220,19 +250,6 @@ section {
     filter: grayscale(70%) contrast(1.1) brightness(0.6);
 }
 .bg-video.active { opacity: 0.5; }
-
-/* =============================================
-   PARTICLES & NEURAL BG
-   ============================================= */
-#particle-canvas,
-#neural-bg {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: -1;
-    pointer-events: none;
-    background: transparent;
-}
 
 /* =============================================
    CURSOR & SPOTLIGHT
@@ -491,256 +508,548 @@ h2 { font-size: var(--text-3xl); }
     text-transform: uppercase;
 }
 
+#education .section-title {
+    position: relative;
+    z-index: 20; /* Forces header above the machine */
+    margin-bottom: 50px; /* Pushes the machine down */
+}
+
 /* =============================================
-   CAROUSEL — Education & Experience
+   SYNTHESIZER & PRINTER COMPONENT
    ============================================= */
-#education, #experience { color: #fff; overflow: hidden; }
-#experience { background-color: var(--bg-color); z-index: 2; }
+.synth-deck {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 10px auto 0 auto; /* Centers it in your section */
+  font-family: 'Courier New', Courier, monospace; /* Forces hardware font */
+  
+  background: 
+      linear-gradient(135deg, rgba(47, 50, 58, 0.72) 0%, rgba(23, 24, 28, 0.72) 100%),
+      var(--noise);
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 
+      0 30px 60px rgba(0,0,0,0.95),
+      inset 1px 1px 2px rgba(255, 255, 255, 0.15),
+      inset -2px -2px 6px rgba(0, 0, 0, 0.9),
+      0 0 0 2px #050505; 
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  z-index: 5;
+}
 
-.carousel-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
+.synth-deck input[type="radio"] { display: none; }
+
+.printer-section {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 20%), #060608;
+  border-radius: 8px;
+  border: 2px solid #000;
+  box-shadow: inset 0 15px 30px rgba(0,0,0,0.9), 0 2px 1px rgba(255,255,255,0.05); 
+  display: flex;
+  flex-direction: column;
+}
+
+.paper-zone {
+  flex-grow: 1;
+  position: relative;
+  overflow: hidden; 
+  display: flex;
+  justify-content: center;
+}
+
+.printer-slit {
+  height: 18px;
+  background: linear-gradient(180deg, #111 0%, #050505 100%);
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #2a2a2a;
+  box-shadow: inset 0 5px 5px rgba(0,0,0,1), 0 -8px 20px rgba(0,0,0,0.8);
+  z-index: 10;
+  position: relative;
+}
+
+.receipt {
+  position: absolute;
+  bottom: 0; 
+  width: 620px;
+  background: linear-gradient(rgba(247, 244, 237, 0.96), rgba(247, 244, 237, 0.96)), var(--noise);
+  padding: 35px 30px 60px 30px;
+  transform: translateY(100%); 
+  transition: transform 0.8s cubic-bezier(0.2, 0.9, 0.3, 1.3);
+  box-shadow: 0 0 30px rgba(0,0,0,0.4), inset 0 0 40px rgba(0,0,0,0.08), inset 0 -15px 15px -10px rgba(0,0,0,0.2); 
+  color: var(--ink-color);
+}
+
+.receipt::before {
+  content: '';
+  position: absolute;
+  top: -6px; left: 0;
+  width: 100%; height: 6px;
+  background: linear-gradient(135deg, transparent 33%, var(--paper-color) 34%, var(--paper-color) 66%, transparent 67%),
+              linear-gradient(45deg, transparent 33%, var(--paper-color) 34%, var(--paper-color) 66%, transparent 67%);
+  background-size: 8px 12px;
+  filter: drop-shadow(0 -1px 1px rgba(0,0,0,0.2)); 
+}
+
+.dot-matrix-text {
+  text-shadow: 0px 0px 1px rgba(74, 31, 104, 0.4); 
+}
+
+.receipt-header {
+  text-align: center;
+  border-bottom: 2px dashed rgba(74, 31, 104, 0.3);
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+.receipt-header h3 { margin: 0; font-size: 1.4rem; text-transform: uppercase; font-weight: 900; letter-spacing: -0.5px; }
+.receipt-header p { margin: 5px 0 0 0; font-size: 0.85rem; opacity: 0.8; font-weight: bold; }
+
+.receipt-body ul { list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8; font-weight: bold; text-align: left; }
+.receipt-body li { margin-bottom: 10px; text-transform: uppercase;}
+.receipt-body li::before { content: '>> '; opacity: 0.6; }
+
+.control-board {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 25px;
+  background: linear-gradient(180deg, #1b1d22 0%, #0d0e11 100%);
+  border-radius: 8px;
+  border: 1px solid #000;
+  box-shadow: inset 0 10px 20px rgba(0,0,0,0.8), 0 2px 0 rgba(255,255,255,0.05);
+}
+
+.synth-btn {
+  flex: 1;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(68, 72, 82, 0.75) 0%, rgba(42, 45, 52, 0.75) 100%), var(--noise);
+  color: #a0a0a0;
+  padding: 30px 10px 20px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  border: 1px solid #111;
+  box-shadow: 0 10px 0 #0a0a0c, 0 15px 20px rgba(0, 0, 0, 0.7), inset 0 2px 2px rgba(255, 255, 255, 0.15), inset 0 -2px 5px rgba(0,0,0,0.5);
+  transition: all 0.15s cubic-bezier(0.4, 0.0, 0.2, 1);
+  text-shadow: 0 1px 1px #000;
+}
+
+.synth-btn::before {
+  content: '';
+  position: absolute;
+  top: 10px; left: 50%;
+  transform: translateX(-50%);
+  width: 20px; height: 6px;
+  background: #111;
+  border: 1px solid #000;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.9), 0 1px 1px rgba(255,255,255,0.1);
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+/* CSS LOGIC */
+#edu1:checked ~ .control-board label[for="edu1"],
+#edu2:checked ~ .control-board label[for="edu2"],
+#edu3:checked ~ .control-board label[for="edu3"],
+#edu4:checked ~ .control-board label[for="edu4"] {
+  transform: translateY(10px); 
+  box-shadow: 0 0px 0 #0a0a0c, 0 2px 5px rgba(0, 0, 0, 0.8), inset 0 3px 8px rgba(0,0,0,0.9);
+  color: #fff;
+}
+
+/* Active LED Glow (Now Icy White) */
+#edu1:checked ~ .control-board label[for="edu1"]::before,
+#edu2:checked ~ .control-board label[for="edu2"]::before,
+#edu3:checked ~ .control-board label[for="edu3"]::before,
+#edu4:checked ~ .control-board label[for="edu4"]::before {
+  background: #ffffff; /* Bright white bulb */
+  box-shadow: 
+      0 0 10px #ffffff, /* Intense white inner glow */
+      0 0 20px rgba(255, 255, 255, 0.5), /* Softer white outer ambient glow */
+      inset 0 1px 2px rgba(255,255,255,0.8); /* Glass reflection */
+  border-color: #cccccc; /* Light grey rim */
+}
+
+#edu1:checked ~ .printer-section .paper-zone #receipt1,
+#edu2:checked ~ .printer-section .paper-zone #receipt2,
+#edu3:checked ~ .printer-section .paper-zone #receipt3,
+#edu4:checked ~ .printer-section .paper-zone #receipt4 {
+  transform: translateY(0); 
+}
+
+/* =============================================
+   STUDIO TAPE DECK (EXPERIENCE - SIDE CONTROLS)
+   ============================================= */
+.tape-deck-side {
+  position: relative;
+  width: 100%;
+  max-width: 850px; /* Slightly wider to fit side controls */
+  margin: 20px auto 0 auto;
+  
+  /* Brushed studio equipment texture */
+  background: 
+      linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 1%),
+      linear-gradient(135deg, rgba(47, 50, 58, 0.72) 0%, rgba(23, 24, 28, 0.72) 100%),
+      var(--noise);
+  border-radius: 6px;
+  padding: 40px;
+  
+  box-shadow: 0 30px 50px rgba(0,0,0,0.9), inset 0 2px 2px rgba(255, 255, 255, 0.2), inset 0 -4px 10px rgba(0, 0, 0, 0.8), 0 0 0 2px #000;
+      
+  display: flex;
+  flex-direction: row; /* Stacks window and controls side-by-side */
+  align-items: center;
+  gap: 35px;
+  z-index: 5;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.tape-deck-side input[type="radio"] { display: none; }
+
+/* --- 1. THE CASSETTE WINDOW (LEFT) --- */
+.cassette-window {
+  flex-grow: 1; /* Takes up remaining width */
+  height: 300px;
+  position: relative;
+  background: #05080f; 
+  border-radius: 8px;
+  border: 4px solid #111;
+  overflow: hidden;
+  box-shadow: inset 0 15px 30px rgba(0,0,0,1), inset 0 0 10px rgba(200, 225, 255, 0.5), 0 2px 1px rgba(255,255,255,0.7); 
+}
+
+.cassette-window::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -50%; right: -50%; bottom: 0;
+  background: linear-gradient(105deg, transparent 90%, rgba(255,255,255,0.03) 95%, rgba(255,255,255,0.08) 10%, transparent 55%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.tape-reel {
+  display: flex;
+  width: 300%; 
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.35, 1); 
+}
+
+.job-track {
+  width: 33.333%; 
+  height: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+  color: #fff;
+  opacity: 0.3; 
+  transition: opacity 0.5s ease;
+  background-image: linear-gradient(0deg, rgba(100, 150, 255, 0.05) 1px, transparent 1px);
+  background-size: 100% 20px;
+}
+
+.job-track h3 { margin: 0 0 5px 0; font-size: 1.5rem; text-shadow: 0 0 10px rgba(255,255,255,0.3); text-transform: uppercase;}
+.job-track h4 { margin: 0 0 15px 0; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;}
+.job-track ul { list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8; color: #ccc; font-weight: bold;}
+.job-track li { margin-bottom: 8px; }
+.job-track li::before { content: '>> '; font-size: 0.9em; margin-right: 5px; }
+
+/* --- 2. VERTICAL TRANSPORT CONTROLS (RIGHT) --- */
+.deck-controls-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 25px 20px;
+  background: #111216;
+  border-radius: 6px;
+  border: 1px solid #000;
+  box-shadow: inset 0 5px 15px rgba(0,0,0,0.8), 0 1px 0 rgba(255,255,255,0.05);
+  min-width: 120px; /* Keeps the column width fixed */
+}
+
+.tape-btn {
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(180deg, rgba(68, 72, 82, 0.75) 0%, rgba(42, 45, 52, 0.75) 100%), var(--noise);
+  border-radius: 4px 4px 10px 10px; 
+  position: relative;
+  cursor: pointer;
+  border: 1px solid #000;
+  box-shadow: 0 10px 0 #08080a, 0 15px 20px rgba(0, 0, 0, 0.7), inset 0 1px 2px rgba(255, 255, 255, 0.15), inset 0 -2px 5px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 10px;
+  transition: all 0.1s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.tape-btn span {
+  color: #777;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 -1px 1px #000;
+  pointer-events: none;
+}
+
+.tape-btn::before {
+  content: '';
+  position: absolute;
+  top: 10px; left: 50%;
+  transform: translateX(-50%);
+  width: 25px; height: 4px;
+  background: #111;
+  border-radius: 2px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.9), 0 1px 0 rgba(255,255,255,0.05);
+  transition: all 0.2s ease;
+}
+
+/* --- 3. CSS LOGIC --- */
+#exp1:checked ~ .deck-controls-vertical label[for="exp1"],
+#exp2:checked ~ .deck-controls-vertical label[for="exp2"],
+#exp3:checked ~ .deck-controls-vertical label[for="exp3"] {
+  transform: translateY(10px); 
+  box-shadow: 0 0px 0 #08080a, 0 2px 5px rgba(0, 0, 0, 0.8), inset 0 2px 4px rgba(255, 255, 255, 0.1), inset 0 -5px 10px rgba(0,0,0,0.8);
+}
+
+#exp1:checked ~ .deck-controls-vertical label[for="exp1"]::before,
+#exp2:checked ~ .deck-controls-vertical label[for="exp2"]::before,
+#exp3:checked ~ .deck-controls-vertical label[for="exp3"]::before {
+  background: #fff; 
+  box-shadow: 0 0 10px #66994f, 0 0 10px rgba(102, 153, 255, 0.9);
+}
+
+#exp1:checked ~ .deck-controls-vertical label[for="exp1"] span,
+#exp2:checked ~ .deck-controls-vertical label[for="exp2"] span,
+#exp3:checked ~ .deck-controls-vertical label[for="exp3"] span {
+  color: #fff;
+}
+
+#exp1:checked ~ .cassette-window .tape-reel { transform: translateX(0%); }
+#exp2:checked ~ .cassette-window .tape-reel { transform: translateX(-33.333%); }
+#exp3:checked ~ .cassette-window .tape-reel { transform: translateX(-66.666%); }
+
+#exp1:checked ~ .cassette-window .tape-reel #track1,
+#exp2:checked ~ .cassette-window .tape-reel #track2,
+#exp3:checked ~ .cassette-window .tape-reel #track3 { opacity: 1; }
+
+/* =========================================
+   B-2 TELEMETRY SKILLS RIG
+========================================= */
+
+.skills-section {
+    /* Uses your global padding variables if available, otherwise defaults */
+    padding: var(--section-padding-top, 70px) var(--section-padding-x, 5vw) var(--section-padding-bottom, 40px);
+    min-height: var(--section-height, 100vh);  
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.carousel-3d-container {
-    position: relative;
+.telemetry-rig {
+    --screen-bg: #030405;
+    --text-main: #f0f0f0;
+    --text-dim: #777;
+    --danger-red: #ff3b30;
+    --aviation-yellow: #4f4f4f;
+    
     width: 100%;
-    height: var(--carousel-height);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    perspective: 1000px;
-    margin-top: var(--space-md);
-}
-
-.carousel-track {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.carousel-card {
-    width: var(--card-width);
-    height: var(--card-height);
-    background: linear-gradient(135deg, var(--glass-bg), rgba(255,255,255,0.01));
-    backdrop-filter: blur(var(--glass-blur-heavy));
-    border: var(--glass-border);
-    border-radius: var(--card-radius);
-    padding: var(--card-padding);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    position: absolute;
-    top: 50%;
-    left: 24%;
-    transition: all 0.6s var(--ease-smooth);
-    opacity: 0;
-    transform-origin: center center;
-}
-
-.card-icon {
-    width: 50px; height: 50px;
-    background: rgba(255,255,255,0.1);
+    max-width: 950px;
+    font-family: 'Courier New', Courier, monospace; /* Overrides Space Grotesk for the terminal look */
+    
+    /* Heavy Titanium Chassis */
+    background-image: 
+        linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 30%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.35'/%3E%3C/svg%3E"), 
+        linear-gradient(135deg, #25282e 0%, #111215 100%);
     border-radius: 12px;
-    margin-bottom: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.card-icon svg { width: 26px; height: 26px; fill: white; }
-
-.carousel-card h3 { font-size: var(--text-xl); margin-top: var(--space-md); }
-.carousel-card p.sub { font-size: var(--text-sm); color: var(--text-muted); text-transform: uppercase; margin-bottom: var(--space-sm); }
-.carousel-card p.desc { font-size: var(--text-sm); line-height: 1.4; color: #ccc; }
-
-.carousel-control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: var(--carousel-btn-size);
-    height: var(--carousel-btn-size);
-    border-radius: 50%;
-    background: var(--accent-glass);
-    border: var(--glass-border);
-    backdrop-filter: blur(10px);
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: var(--text-xl);
-    z-index: 50;
-    transition: all var(--transition-normal) ease;
-    pointer-events: auto;
-    cursor: none;
-}
-.carousel-control:hover {
-    background: rgba(255,255,255,0.2);
-    border-color: #fff;
-    box-shadow: 0 0 15px rgba(255,255,255,0.3);
-}
-.carousel-control.left { left: 20px; }
-.carousel-control.right { right: 20px; }
-
-/* =============================================
-   EDU CARD — HOVER REVEAL
-   ============================================= */
-.edu-card {
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 50px;
+    border: 1px solid #000;
+    box-shadow: 
+        0 50px 80px rgba(0,0,0,0.9),
+        inset 0 4px 8px rgba(255,255,255,0.1),
+        inset 0 -8px 20px rgba(0,0,0,0.8);
     position: relative;
-    overflow: hidden;
-    padding: 0 !important;
-    background: none !important;
-    backdrop-filter: none !important;
-    border: none !important;
+    box-sizing: border-box;
 }
 
-.edu-card-bg {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 1;
-    overflow: hidden;
+/* Faux Structural Screws */
+.rig-screw {
+    position: absolute; width: 16px; height: 16px; border-radius: 50%;
+    background: linear-gradient(135deg, #555, #111);
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.4), inset 0 -1px 2px rgba(0,0,0,0.8), 0 3px 5px rgba(0,0,0,0.9);
+}
+.rig-screw::after {
+    content: ''; position: absolute; top: 7px; left: 2px; width: 12px; height: 2px; background: #050505;
+    transform: rotate(var(--rot, 45deg)); box-shadow: inset 0 1px 1px #000, 0 1px 0 rgba(255,255,255,0.2);
 }
 
-.edu-card-bg img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    object-position: center;
-    filter: brightness(0.6) saturate(0.7);
-    transition: all 0.6s ease;
+.rig-warning {
+    position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+    color: var(--danger-red); font-size: 0.65rem; font-weight: bold; letter-spacing: 2px;
+    opacity: 0.5; text-shadow: 0 0 5px rgba(255,0,0,0.5); text-align: center; width: 90%;
 }
 
-.edu-card:hover .edu-card-bg img {
-    filter: brightness(0.35) saturate(0.5);
-    transform: scale(1.05);
+/* --- LEFT SIDE: HAZARD SCREEN --- */
+.hazard-frame {
+    background: repeating-linear-gradient(-45deg, #111, #111 15px, var(--aviation-yellow) 15px, var(--aviation-yellow) 30px);
+    padding: 6px; border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.9), inset 0 2px 5px rgba(255,255,255,0.4), 0 0 0 3px #000;
 }
 
-.edu-card-gradient {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 2;
-    border-radius: var(--card-radius);
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.5) 100%);
-    transition: background var(--transition-slow) ease;
+.screen-bezel {
+    background: #151517; border: 2px solid #2a2d34; border-radius: 4px; padding: 25px;
+    box-shadow: inset 0 5px 20px rgba(0,0,0,1); position: relative;
 }
 
-.edu-card:hover .edu-card-gradient {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.35) 35%, rgba(0,0,0,0.8) 65%, rgba(0,0,0,0.97) 100%);
+.crt-screen {
+    background: var(--screen-bg); height: 320px; border-radius: 6px; padding: 25px;
+    color: var(--text-main); overflow: hidden; position: relative;
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 1), 0 0 0 2px #000; box-sizing: border-box;
 }
 
-.edu-card-label {
-    position: absolute;
-    bottom: var(--space-lg);
-    left: var(--space-lg);
-    z-index: 5;
-    font-size: var(--text-md);
-    font-weight: var(--heading-weight);
-    color: #fff;
-    text-shadow: 0 2px 15px var(--shadow-heavy);
-    text-transform: uppercase;
-    letter-spacing: -0.5px;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
+
+.data-feed { display: none; animation: bootUp 0.15s ease-out forwards; }
+@keyframes bootUp { 0% { opacity: 0; transform: translateY(2px); } 100% { opacity: 1; transform: translateY(0); } }
+
+.data-feed h3 {
+    margin: 0 0 15px 0; font-size: 1.4rem; text-transform: uppercase;
+    border-bottom: 2px solid #333; padding-bottom: 10px; letter-spacing: 2px;
+    text-shadow: 0 0 8px rgba(255,255,255,0.4);
 }
 
-.edu-card:hover .edu-card-label { opacity: 0; }
+.data-feed ul { list-style: none; padding: 0; margin: 0; line-height: 2; font-size: 0.95rem; color: #ccc; }
+.data-feed li::before { content: '>'; margin-right: 10px; font-weight: bold; color: #fff; animation: blink 1s infinite; }
+@keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0.2; } }
 
-.edu-card-content {
-    position: relative;
-    z-index: 3;
-    width: 100%; height: 100%;
-    padding: var(--card-padding);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all var(--transition-slow) var(--ease-smooth);
+.skill-meter {
+    width: 100%; height: 16px; background: #0a0a0c; border: 1px solid #333;
+    margin-bottom: 25px; border-radius: 2px; box-shadow: inset 0 2px 5px rgba(0,0,0,1);
+}
+.skill-fill {
+    height: 100%; background: linear-gradient(90deg, #777, #fff);
+    border-right: 2px solid #fff; box-shadow: 0 0 15px rgba(255,255,255,0.5);
 }
 
-.edu-card:hover .edu-card-content {
-    opacity: 1;
-    transform: translateY(0);
+/* --- RIGHT SIDE: ANALOG DIALS --- */
+.control-board { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-content: center; }
+.dial-container { display: flex; flex-direction: column; align-items: center; gap: 15px; cursor: pointer; }
+
+.dial-housing {
+    width: 110px; height: 110px; border-radius: 50%;
+    background: conic-gradient(#444 0%, #777 15%, #222 30%, #555 50%, #222 70%, #777 85%, #444 100%);
+    padding: 8px; box-shadow: 0 20px 30px rgba(0,0,0,0.9), inset 0 2px 4px rgba(255,255,255,0.4), inset 0 -3px 8px rgba(0,0,0,0.8);
+    position: relative; box-sizing: border-box;
 }
 
-.edu-card-content h3 {
-    font-size: var(--text-lg);
-    margin-top: 0;
-    margin-bottom: var(--space-xs);
-    color: #ffffff;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+.dial-face {
+    width: 100%; height: 100%; border-radius: 50%; background: radial-gradient(circle at center, #1a1c23 0%, #050505 100%);
+    box-shadow: inset 0 8px 20px rgba(0,0,0,1), inset 0 0 0 2px #000; position: relative; overflow: hidden;
 }
 
-.edu-card-content p.sub {
-    font-size: var(--text-xs);
-    color: rgba(255,255,255,0.5);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: var(--space-sm);
+.tick-marks {
+    position: absolute; top: 4px; left: 4px; right: 4px; bottom: 4px; border-radius: 50%;
+    background: repeating-conic-gradient(from -130deg, #666 0deg 1.5deg, transparent 1.5deg 7deg);
+    -webkit-mask-image: radial-gradient(transparent 68%, black 70%);
+}
+.tick-marks-major {
+    position: absolute; top: 4px; left: 4px; right: 4px; bottom: 4px; border-radius: 50%;
+    background: repeating-conic-gradient(from -130deg, #8f8f8f 0deg 3deg, transparent 3deg 15deg);
+    -webkit-mask-image: radial-gradient(transparent 62%, black 64%);
+}
+.tick-blocker {
+    position: absolute; bottom: -5px; left: 0; width: 100%; height: 35%;
+    background: radial-gradient(circle at top, transparent, #050505 50%); z-index: 1;
 }
 
-.edu-card-content p.desc {
-    font-size: var(--text-sm);
-    line-height: 1.55;
-    color: var(--text-dim);
+.dial-face-label {
+    position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%);
+    color: #2f2f2f; font-size: 0.6rem; font-weight: bold; letter-spacing: 1px; z-index: 2;
 }
 
-.edu-card::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    border-radius: var(--card-radius);
-    border: 1px solid rgba(255,255,255,0.06);
-    z-index: 4;
-    pointer-events: none;
-    transition: border-color 0.4s ease;
-}
-.edu-card:hover::after { border-color: rgba(255,255,255,0.22); }
-
-/* =============================================
-   SKILLS — SPIDER CHART
-   ============================================= */
-#skills { align-items: center; overflow: hidden; position: relative; }
-
-.chart-container {
-    position: relative;
-    width: var(--chart-size);
-    height: var(--chart-size);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 1;
+.dial-needle-wrapper {
+    position: absolute; top: 50%; left: 50%; width: 100px; height: 100px;
+    transform: translate(-50%, -50%) rotate(-130deg); transition: transform 1.2s cubic-bezier(0.25, 1.5, 0.5, 1); z-index: 4;
 }
 
-canvas#spider-chart { z-index: 10; }
-
-.glass-tooltip {
-    position: absolute;
-    padding: 12px 16px;
-    border-radius: 12px;
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.2);
-    box-shadow: 0 8px 32px 0 var(--shadow-medium);
-    color: #fff;
-    font-family: var(--font-main);
-    font-size: var(--text-sm);
-    pointer-events: none;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity var(--transition-normal) ease, transform var(--transition-normal) ease;
-    z-index: 100;
+.dial-needle {
+    position: absolute; bottom: 50%; left: calc(50% - 2.5px); width: 5px; height: 42px;
+    background: linear-gradient(90deg, #888 0%, #eee 50%, #888 100%); border-radius: 2px 2px 0 0;
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.6);
 }
-.glass-tooltip.visible { opacity: 1; transform: translateY(0); }
+.needle-tip {
+    position: absolute; top: 0; left: 0; width: 100%; height: 14px; background: #9f6f6f; border-radius: 2px 2px 0 0; transition: 0.3s;
+}
+
+.dial-hub {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 22px; height: 22px; border-radius: 50%;
+    background: conic-gradient(#444, #777, #222, #777, #444); box-shadow: 0 5px 10px rgba(0,0,0,0.9), inset 0 1px 2px rgba(255,255,255,0.5);
+    z-index: 5; display: flex; justify-content: center; align-items: center;
+}
+.hub-screw { width: 8px; height: 8px; border-radius: 50%; background: #222; box-shadow: inset 0 1px 2px #000; }
+.hub-screw::after { content: ''; display: block; width: 6px; height: 1.5px; background: #000; margin-top: 3px; margin-left: 1px; transform: rotate(20deg); }
+
+.dial-glass {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: 50%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 40%, rgba(255,255,255,0.05) 100%);
+    box-shadow: inset 0 2px 5px rgba(255,255,255,0.4); z-index: 10; pointer-events: none;
+}
+
+.engraved-plate {
+    background: linear-gradient(180deg, #2a2a2a 0%, #111 100%); border-radius: 3px; padding: 5px 15px; color: #a0a0a0;
+    font-size: 0.75rem; font-weight: 900; letter-spacing: 2px;
+    text-shadow: -1px -1px 0px #000, 1px 1px 0px rgba(255,255,255,0.1);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.8), inset 0 1px 1px rgba(255,255,255,0.3), 0 0 0 1px #000;
+    display: flex; align-items: center; gap: 12px; transition: all 0.3s ease;
+}
+.screw-mini { width: 6px; height: 6px; border-radius: 50%; background: #000; box-shadow: inset 0 1px 2px rgba(255,255,255,0.5); position: relative; }
+.screw-mini::after { content: ''; position: absolute; top: 2.5px; left: 1px; width: 4px; height: 1px; background: #333; transform: rotate(45deg); }
+
+/* --- HOVER MAGIC --- */
+.id-idle { display: block; }
+.telemetry-rig:has(.dial-container:hover) .id-idle { display: none; }
+.dial-container:hover .dial-needle-wrapper { transform: translate(-50%, -50%) rotate(var(--val)); }
+.dial-container:hover .needle-tip { background: var(--danger-red); box-shadow: 0 0 12px var(--danger-red), 0 0 4px var(--danger-red); }
+.dial-container:hover .engraved-plate { color: #fff; background: #1a1a1a; box-shadow: 0 2px 5px rgba(0,0,0,0.9), inset 0 1px 1px rgba(255,255,255,0.1), 0 0 0 1px #111; }
+.telemetry-rig:has(.dial-container[data-target="quant"]:hover) .id-quant { display: block; }
+.telemetry-rig:has(.dial-container[data-target="tech"]:hover)  .id-tech  { display: block; }
+.telemetry-rig:has(.dial-container[data-target="strat"]:hover) .id-strat { display: block; }
+.telemetry-rig:has(.dial-container[data-target="eng"]:hover)   .id-eng   { display: block; }
+
+/* --- RESPONSIVE MOBILE FIXES --- */
+@media (max-width: 850px) {
+    .telemetry-rig {
+        grid-template-columns: 1fr; /* Stacks screen on top, dials on bottom */
+        padding: 30px 20px;
+        gap: 30px;
+    }
+    .crt-screen { height: 280px; }
+}
+
+@media (max-width: 500px) {
+    .control-board {
+        grid-template-columns: 1fr 1fr; /* Keep 2x2 grid */
+        gap: 15px; /* Tighter gap for small screens */
+    }
+    .dial-housing { width: 90px; height: 90px; padding: 6px; }
+    .dial-needle-wrapper { width: 80px; height: 80px; }
+    .dial-needle { height: 35px; }
+    .engraved-plate { font-size: 0.6rem; padding: 4px 10px; gap: 8px; }
+    .data-feed h3 { font-size: 1.2rem; }
+    .data-feed ul { font-size: 0.85rem; }
+}
+
 
 /* =============================================
    CONTACT
@@ -785,9 +1094,9 @@ canvas#spider-chart { z-index: 10; }
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(circle at 50% 30%, #1a1a24 0%, #050505 70%, #000000 100%);
+    
     overflow: hidden;
-    padding: 60px var(--section-padding-x) var(--section-padding-bottom);
+    padding: none;
     box-sizing: border-box;
     scroll-snap-align: start;
 }
@@ -806,8 +1115,8 @@ canvas#spider-chart { z-index: 10; }
     display: flex;
     flex-direction: row;
     width: 100%;
-    max-width: 1300px;
-    max-height: calc(var(--section-height) - 120px);
+    max-width: 1600px;
+    max-height: calc(var(--section-height));
     align-items: center;
     justify-content: center;
     gap: var(--space-xl);
@@ -817,7 +1126,7 @@ canvas#spider-chart { z-index: 10; }
 
 .left-wall {
     flex: 0 0 auto;
-    width: 320px;
+    width: 580px;
     max-height: calc(var(--section-height) - 180px);
     display: flex;
     flex-direction: column;
@@ -840,11 +1149,12 @@ canvas#spider-chart { z-index: 10; }
 
 /* TV Console */
 .tv-console {
+height: 100%
     width: 100%;
     max-width: var(--tv-max-width);
     background: linear-gradient(135deg, #1f1f1f 0%, #0a0a0a 100%);
     border-radius: 10px 10px 4px 4px;
-    padding: 18px 18px 28px 18px;
+    padding: 1px 1px 2px 2px;
     box-shadow:
         0 30px 40px -10px var(--shadow-heavy),
         inset 0 2px 1px rgba(255,255,255,0.15),
@@ -1007,44 +1317,97 @@ canvas#spider-chart { z-index: 10; }
 /* VHS Tapes */
 .vhs-library {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: var(--shelf-gap);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 16px 12px;
+    background: 
+        linear-gradient(180deg, rgba(0,0,0,0.3) 0%, transparent 5%),
+        linear-gradient(175deg, #0e0d0b 0%, #080706 100%);
+    border-radius: 4px;
+    border: 1px solid #111;
+    box-shadow:
+        inset 0 4px 15px rgba(0,0,0,0.9),
+        inset 0 -2px 8px rgba(0,0,0,0.5),
+        0 2px 0 rgba(255,255,255,0.02);
 }
 
 .vhs-shelf {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 8px;
-    padding-bottom: 6px;
-    border-bottom: 3px solid #111;
-    box-shadow: 0 10px 10px -8px rgba(0,0,0,0.8);
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px 6px 12px 6px;
+    position: relative;
+    /* The actual shelf plank */
+    border-bottom: 4px solid #1a1714;
+    background: 
+        linear-gradient(180deg, transparent 0%, transparent 85%, rgba(30,25,18,0.3) 100%);
+    box-shadow: 
+        /* Shelf thickness — 3D stepped edge */
+        0 4px 0 #15120e,
+        0 6px 0 #100e0a,
+        0 8px 0 #0c0a08,
+        /* Shelf shadow cast downward */
+        0 12px 20px -4px rgba(0,0,0,0.9),
+        0 20px 30px -8px rgba(0,0,0,0.6),
+        /* Subtle light on top surface */
+        inset 0 1px 0 rgba(255,255,255,0.04);
 }
 
+/* Wood grain texture on the shelf edge */
+.vhs-shelf::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0; right: 0;
+    height: 4px;
+    background: 
+        repeating-linear-gradient(
+            90deg,
+            rgba(255,255,255,0.02) 0px,
+            rgba(255,255,255,0.04) 1px,
+            transparent 1px,
+            transparent 4px
+        ),
+        linear-gradient(90deg, #1a1714, #1e1a15, #1a1714);
+    border-radius: 0 0 1px 1px;
+}
+
+/* Metal bracket on each side */
+.vhs-shelf::before {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+}
 .vhs-tape {
-    width: var(--tape-width);
-    height: var(--tape-height);
-    background: linear-gradient(to right, #111 0%, #1a1a1a 10%, #111 100%);
-    border-left: 1px solid #2a2a2a;
-    border-right: 1px solid #000;
+    width: 100%;
+    height: 28px;
+    background: linear-gradient(to bottom, #111 0%, #1a1a1a 10%, #111 100%);
+    border-top: 1px solid #2a2a2a;
+    border-bottom: 1px solid #000;
     border-radius: 3px;
     cursor: pointer;
     position: relative;
     transition: transform var(--transition-normal) var(--ease-bounce);
     box-shadow:
-        8px 10px 15px rgba(0,0,0,0.8),
-        inset -2px 0 5px rgba(0,0,0,1),
-        inset 1px 0 1px rgba(255,255,255,0.05);
+        0 4px 8px rgba(0,0,0,0.8),
+        inset 0 -2px 5px rgba(0,0,0,1),
+        inset 0 1px 1px rgba(255,255,255,0.05);
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
-.vhs-tape:hover { transform: translateY(-20px) scale(1.02); }
+
+.vhs-tape:hover { transform: translateX(15px) scale(1.01); }
 
 .vhs-label {
     position: absolute;
-    top: 15%; bottom: 15%; left: 2px; right: 2px;
+    left: 8%; right: 8%; top: 3px; bottom: 3px;
     background: #e0e0e0;
     border-radius: 2px;
     box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
@@ -1054,30 +1417,39 @@ canvas#spider-chart { z-index: 10; }
     border: 1px solid #fff;
     transition: background var(--transition-normal) ease;
 }
-.vhs-tape:hover .vhs-label { background: #fff; box-shadow: 0 0 10px rgba(255,255,255,0.2); }
+
+.vhs-tape:hover .vhs-label {
+    background: #fff;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
 
 .vhs-title {
-    writing-mode: vertical-rl;
+    writing-mode: horizontal-tb;
     text-orientation: mixed;
-    transform: rotate(180deg);
+    transform: none;
     color: #050505;
     font-size: var(--text-xs);
     font-weight: var(--heading-weight);
     letter-spacing: 1px;
     pointer-events: none;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .vhs-accent {
     position: absolute;
-    bottom: 5px;
-    width: 80%; height: 4px;
-    background: #333;
+    right: 5px;
+    width: 4px; height: 60%;
+    background: #555;
     transition: all var(--transition-normal) ease;
     border-radius: 1px;
 }
-.vhs-tape:hover .vhs-accent { background: var(--neon-cyan); box-shadow: 0 0 8px var(--neon-cyan); }
 
+.vhs-tape:hover .vhs-accent {
+    background: #fff;
+    box-shadow: 0 0 8px rgba(255,255,255,0.4);
+}
 /* =============================================
    ANIMATIONS
    ============================================= */
@@ -1119,12 +1491,24 @@ canvas#spider-chart { z-index: 10; }
 .right-desk { width: 100%; max-width: 95vw; }
 }
 
+/* =============================================
+   FIX: ALLOW 3D ARCHIVES TO EXPAND SECTION HEIGHT
+   ============================================= */
+#education, 
+#experience, 
+#education .sticky-frame, 
+#experience .sticky-frame {
+    height: auto !important;
+    min-height: var(--section-height) !important;
+    max-height: none !important; /* Removes the strict limit */
+    overflow: visible !important; /* Prevents the clipping */
+    padding-bottom: 100px; /* Gives the 3D hover animation plenty of room */
+}
+
     </style>
 <script src="https://unpkg.com/@studio-freight/lenis@1.0.29/dist/lenis.min.js"></script>
 </head>
 <body>
-<canvas id="neural-bg"></canvas>
-
     <div id="video-manager">
         <video id="vid-hero" class="bg-video active" muted loop playsinline>
             <source src="https://www.pexels.com/download/video/30875537/?fps=24.0&h=720&w=1280" type="video/mp4">
@@ -1140,8 +1524,7 @@ canvas#spider-chart { z-index: 10; }
     	</video>
     </div>
 
-    <canvas id="particle-canvas"></canvas>
-    <div id="spotlight"></div>
+        <div id="spotlight"></div>
     <div id="cursor"><div id="cursor-icon"></div></div>
 
     <nav>
@@ -1224,7 +1607,7 @@ canvas#spider-chart { z-index: 10; }
             </p>
 
             <p>
-                Currently finishing my Master's across EDHEC, Sungkyunkwan GSB, and UC Berkeley Haas. Last summer I screened 150+ MedTech startups at CRB HealthTech Fund III in Barcelona, built valuation models from scratch, and co-authored an LP report covering a €7.5B market. Before that, I ran international acceleration programs at Incubateur HEC Paris for deep-tech founders from India, South Korea, and Japan — brokering commercial conversations with TotalEnergies, L'Oréal, and Thales.
+                Currently finishing my Master's across UC Berkeley Haas School of Business, EDHEC Business Schoool and Sungkyunkwan GSB. Last summer I screened 150+ MedTech startups at CRB HealthTech Fund III (Barcelona), built valuation models from scratch, and co-authored an LP report covering a €7.5B market. Before that, I ran international acceleration programs at Incubateur HEC Paris for deep-tech founders from India, South Korea, and Japan — brokering commercial conversations with TotalEnergies, L'Oréal, and Thales.
             </p>
 
             <p>
@@ -1232,149 +1615,330 @@ canvas#spider-chart { z-index: 10; }
             </p>
 
             <div class="about-location-tag">
-                Berkeley · Paris · Barcelona · Seoul · Pune
+                Berkeley · Paris · Seoul · Pune
             </div>
 
         </div>
     </div>
 </section>
+
+
 <section id="education" data-video="vid-edu">
     <div class="sticky-frame">
-       <h2 class="scrub-anim" style="margin-bottom: 10px;">Education</h2>
-<p class="scrub-anim" style="color:#888; margin-bottom: 0px; font-size: 0.9rem;">Hover over cards to explore</p>
-        <div class="carousel-wrapper scrub-anim">
-            <div class="carousel-control left" id="edu-prev">&#10094;</div>
-            <div class="carousel-3d-container" id="edu-carousel">
-                <div class="carousel-track">
+        
+        <h2 class="scrub-anim" style="margin-bottom: 5px; position: relative; z-index: 20;">Education</h2>
+        <p class="scrub-anim" style="color:#888; margin-bottom: 40px; font-size:0.9rem; position: relative; z-index: 20;">Print academic records</p>
 
-                    <div class="carousel-card edu-card">
-    <div class="edu-card-bg">
-        <img src="haas.jpg" alt="UC Berkeley Haas">
-    </div>
-    <div class="edu-card-gradient"></div>
-    <div class="edu-card-label">UC Berkeley Haas School of Business | 2025–2026</div>
-    <div class="edu-card-content">
-        <h3>UC Berkeley Haas School of Business</h3>
-        <p class="sub">Global Access Program · 2025–2026</p>
-        <p class="desc">Quantum computing for derivatives pricing, LLM safety frameworks, stochastic financial modeling.</p>
-    </div>
-</div>
+        <div class="synth-deck scrub-anim">
+            
+            <input type="radio" name="edu-group" id="edu1" checked>
+            <input type="radio" name="edu-group" id="edu2">
+            <input type="radio" name="edu-group" id="edu3">
+            <input type="radio" name="edu-group" id="edu4">
 
-<div class="carousel-card edu-card">
-    <div class="edu-card-bg">
-        <img src="skk.jpg" alt="SKK GSB Sungkyunkwan University">
-    </div>
-    <div class="edu-card-gradient"></div>
-    <div class="edu-card-label">SKK Graduate School of Business | 2024 H1</div>
-    <div class="edu-card-content">
-        <h3>SKK GSB</h3>
-        <p class="sub">Business School Term · 2024 H1</p>
-        <p class="desc">Corporate finance, marketing, strategy, operations, analytics, and global business fundamentals.</p>
-    </div>
-</div>
+            <div class="printer-section">
+                <div class="paper-zone">
+                    
+                    <div class="receipt" id="receipt1">
+                        <div class="receipt-header dot-matrix-text">
+                            <h3>UC Berkeley Haas School of Business</h3>
+                            <p>Global Access Program</p>
+                            <p>2025 - 2026</p>
+                        </div>
+                        <div class="receipt-body dot-matrix-text">
+                            <ul>
+                                Program providing immersion in entrepreneurship, tech, and leadership merged with career-focused training, preparing for careers in consulting, finance, and startups.
+<li>Focus: Deal Valuation and Market Scoping for Americas</Li> 
+                            </ul>
+                        </div>
+                    </div>
 
-<div class="carousel-card edu-card">
-    <div class="edu-card-bg">
-        <img src="edhec.jpg" alt="EDHEC Business School">
-    </div>
-    <div class="edu-card-gradient"></div>
-    <div class="edu-card-label">EDHEC Business School | 2023 H2</div>
-    <div class="edu-card-content">
-        <h3>EDHEC Business School</h3>
-        <p class="sub">Master in Management · 2023 H2</p>
-        <p class="desc">Equity Valuation, Financial Risk Management, Corporate Finance, Financial Statement Analysis.</p>
-    </div>
-</div>
+                    <div class="receipt" id="receipt2">
+                        <div class="receipt-header dot-matrix-text">
+                            <h3>SKK GSB</h3>
+                            <p>Business Term</p>
+                            <p>2024 H1</p>
+                        </div>
+                        <div class="receipt-body dot-matrix-text">
+                            <ul>
+                                <li>Corporate Finance</li>
+                                <li>Strategy & Ops</li>
+                                <li>Business Analytics</li>
+                            </ul>
+                        </div>
+                    </div>
 
-<div class="carousel-card edu-card">
-    <div class="edu-card-bg">
-        <img src="vit.jpg" alt="VIT Pune">
-    </div>
-    <div class="edu-card-gradient"></div>
-    <div class="edu-card-label">VIT Pune | 2017-2021</div>
-    <div class="edu-card-content">
-        <h3>VIT Pune</h3>
-        <p class="sub">B.Tech Mechanical Engineering · 2017–2021</p>
-        <p class="desc">Mathematical modeling, simulation, vehicle dynamics, computational differential equations.</p>
-    </div>
-</div>
+                    <div class="receipt" id="receipt3">
+                        <div class="receipt-header dot-matrix-text">
+                            <h3>EDHEC Business</h3>
+                            <p>Master in Mgmt</p>
+                            <p>2023 H2</p>
+                        </div>
+                        <div class="receipt-body dot-matrix-text">
+                            <ul>
+                                <li>Equity Valuation</li>
+                                <li>Risk Management</li>
+                                <li>Statement Analysis</li>
+                            </ul>
+                        </div>
+                    </div>
 
+                    <div class="receipt" id="receipt4">
+                        <div class="receipt-header dot-matrix-text">
+                            <h3>VIT Pune</h3>
+                            <p>B.Tech Mech Eng</p>
+                            <p>2017 - 2021</p>
+                        </div>
+                        <div class="receipt-body dot-matrix-text">
+                            <ul>
+                                <li>Modeling & Sim</li>
+                                <li>Vehicle Dynamics</li>
+                                <li>Diff Equations</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="printer-slit"></div>
+            </div>
+
+            <div class="control-board">
+                <label for="edu1" class="synth-btn">Berkeley</label>
+                <label for="edu2" class="synth-btn">SKK GSB</label>
+                <label for="edu3" class="synth-btn">EDHEC</label>
+                <label for="edu4" class="synth-btn">VIT Pune</label>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section id="experience" data-video="none">
+    <div class="sticky-frame">
+        
+        <h2 class="scrub-anim" style="margin-bottom: 5px; position: relative; z-index: 20;">Experience</h2>
+        <p class="scrub-anim" style="color:#888; margin-bottom: 40px; font-size:0.9rem; position: relative; z-index: 20;">Playback career data</p>
+
+        <div class="tape-deck-side scrub-anim">
+            
+            <input type="radio" name="exp-deck" id="exp1" checked>
+            <input type="radio" name="exp-deck" id="exp2">
+            <input type="radio" name="exp-deck" id="exp3">
+
+            <div class="cassette-window">
+                <div class="tape-reel">
+                    
+                    <div class="job-track" id="track1">
+                        <h3>CRB HealthTech Fund III</h3>
+                        <h4>V Analyst • Jun - Aug 2025</h4>
+                        <ul>
+                            I pre-screened over 150 early-stage startups for pipeline and built financial models, including DCFs and 3-statement projections, to build Investment Memos. My market research report also helped the firm identify high-potential players in Silver-Economy sector.
+                        </ul>
+                    </div>
+
+                    <div class="job-track" id="track2">
+                        <h3>Incubateur HEC Paris</h3>
+                        <h4>Program Officer • 2024 - 2025</h4>
+                        <ul>
+                            I managed the operational roadmap and strategic partnerships for a portfolio of 57 international startups. By connecting founders with essential resources and corporate partners like TotalEnergies, I directly accelerated their growth and market entry in the European ecosystem.
+                        </ul>
+                    </div>
+
+                    <div class="job-track" id="track3">
+                        <h3>APTARA INC</h3>
+                        <h4>Instructional Designer • 2021 - 2023</h4>
+                        <ul>
+                            I designed and developed technical training e-learning content and curriculum for global enterprise clients like PwC and KPMG. By translating complex technical information into highly digestible learning modules, I helped organizations upgrade to the latest system tools faster.
+                        </ul>
                     </div>
 
                 </div>
             </div>
-            <div class="carousel-control right" id="edu-next">&#10095;</div>
-        </div>
-    </div>
-</section>
 
-<section id="experience" data-video="none">
-    <h2 class="scrub-anim" style="margin-bottom: 10px;">Experience</h2>
-<p class="scrub-anim" style="color:#888; margin-bottom: 0px;font-size: 0.9rem">Hover over cards to explore</p>
-    <div class="carousel-wrapper scrub-anim">
-        <div class="carousel-control left" id="exp-prev">&#10094;</div>
-        <div class="carousel-3d-container" id="exp-carousel">
-            <div class="carousel-track">
-
-                <div class="carousel-card edu-card">
-    <div class="edu-card-bg">
-        <img src="crb.jpg" alt="CRB HealthTech Fund">
-    </div>
-    <div class="edu-card-gradient"></div>
-    <div class="edu-card-label">CRB HealthTech Fund III | Summer 2025</div>
-    <div class="edu-card-content">
-        <h3>CRB HealthTech Fund III</h3>
-        <p class="sub">VC Analyst · Barcelona · Summer 2025</p>
-        <p class="desc">Startup screening, 3-statement valuation, bottom-up TAM modeling, LP reporting, SaaS benchmarking.</p>
-    </div>
-</div>
-
-<div class="carousel-card edu-card">
-    <div class="edu-card-bg">
-        <img src="hec.jpg" alt="Incubateur HEC Paris">
-    </div>
-    <div class="edu-card-gradient"></div>
-    <div class="edu-card-label">Incubateur HEC Paris | 2024–2025</div>
-    <div class="edu-card-content">
-        <h3>Incubateur HEC Paris</h3>
-        <p class="sub">International Program Manager · 2024–2025</p>
-        <p class="desc">Deep-tech acceleration, corporate matchmaking, demo day coordination, government ROI reporting.</p>
-    </div>
-</div>
-
-<div class="carousel-card edu-card">
-    <div class="edu-card-bg">
-        <img src="aptara.jpg" alt="Aptara Inc">
-    </div>
-    <div class="edu-card-gradient"></div>
-    <div class="edu-card-label">Aptara Inc. | 2021–2023</div>
-    <div class="edu-card-content">
-        <h3>Aptara Inc.</h3>
-        <p class="sub">Instructional Designer · Pune · 2021–2023</p>
-        <p class="desc">Technical training for PwC/KPMG, agile workflow optimization, client delivery management.</p>
-    </div>
-</div>
+            <div class="deck-controls-vertical">
+                <label for="exp1" class="tape-btn"><span>EXP 01</span></label>
+                <label for="exp2" class="tape-btn"><span>EXP 02</span></label>
+                <label for="exp3" class="tape-btn"><span>EXP 03</span></label>
             </div>
         </div>
-        <div class="carousel-control right" id="exp-next">&#10095;</div>
     </div>
 </section>
 
-<section id="skills" data-video="vid-skills">
+<section id="skills" class="skills-section" data-video="vid-skills">
     <div class="sticky-frame">
-        <h2 class="scrub-anim" style="margin-bottom: 10px;">Technical Arsenal</h2>
-        <p class="scrub-anim" style="color:#888; margin-bottom: 10px;font-size: 0.9rem">Hover to analyze stats</p>
-        <div class="chart-container scrub-anim-fade">
-            <canvas id="spider-chart"></canvas>
-            <div id="chart-tooltip" class="glass-tooltip"></div>
+        
+        <h2 class="scrub-anim" style="margin-bottom: 5px; position: relative; z-index: 20;">Skills</h2>
+        <p class="scrub-anim" style="color:#888; margin-bottom: 40px; font-size:0.9rem; position: relative; z-index: 20;">Hover over dials to discover</p>
+
+        <div class="telemetry-rig scrub-anim">
+            
+            <div class="rig-screw" style="top: 20px; left: 20px; --rot: 12deg;"></div>
+            <div class="rig-screw" style="top: 20px; right: 20px; --rot: -85deg;"></div>
+            <div class="rig-screw" style="bottom: 20px; left: 20px; --rot: 45deg;"></div>
+            <div class="rig-screw" style="bottom: 20px; right: 20px; --rot: 110deg;"></div>
+            
+            <div class="rig-warning">WARNING - HIGHLY SKILLED ASSET / AUTHORIZED PERSONNEL ONLY</div>
+
+            <div class="hazard-frame">
+                <div class="screen-bezel">
+                    <div class="crt-screen">
+                        
+                        <div class="data-feed id-idle">
+                            <h3 style="color: var(--text-dim); border-bottom-color: #333;">SYSTEM IDLE</h3>
+                            <p style="color: var(--text-main);">AWAITING TELEMETRY LINK...</p>
+                            <p style="color: var(--text-dim); font-size: 0.8rem; margin-top: 30px;">
+                                [INSTRUCTION] <br>
+                                Engage analog dials on the right panel to initialize data stream.
+                            </p>
+                        </div>
+
+                        <!-- FINANCE & VC DATA (CRB HealthTech) -->
+                        <div class="data-feed id-quant">
+                            <h3>FINANCE & VC</h3>
+                            <div class="skill-meter"><div class="skill-fill" style="width: 95%;"></div></div>
+                            <ul style="font-size: 0.85rem; line-height: 1.4;">
+                                <li><strong>Financial Valuation Modeling (LBO and DCF)</strong></li>
+                                <li><strong>Digital Health Startup Deal Sourcing</strong></li>
+                                <li><strong>Investment Committee Due Diligence Memos</strong></li>
+                                <li><strong>Cap Table and Waterfall Return Modeling</strong></li>
+                            </ul>
+                        </div>
+
+                        <!-- OPERATIONS DATA (Station F / TechEquity) -->
+                        <div class="data-feed id-tech">
+                            <h3>STARTUP OPS</h3>
+                            <div class="skill-meter"><div class="skill-fill" style="width: 90%;"></div></div>
+                            <ul style="font-size: 0.85rem; line-height: 1.4;">
+                                <li><strong>Startup Portfolio KPI and OKR Management</strong></li>
+                                <li><strong>Corporate Partnerships and Cloud Sponsor Deals</strong></li>
+                                <li><strong>Go-To-Market B2B Sales Strategy Playbooks</strong></li>
+                                <li><strong>Global Pitch Competitions and Demo Days</strong></li>
+                            </ul>
+                        </div>
+
+                        <!-- INSTRUCTIONAL & TECH COMM (Aptara / IndiaAI) -->
+                        <div class="data-feed id-strat">
+                            <h3>TECH & INSTRUCTION</h3>
+                            <div class="skill-meter"><div class="skill-fill" style="width: 85%;"></div></div>
+                            <ul style="font-size: 0.85rem; line-height: 1.4;">
+                                <li><strong>Machine Learning and Python Curriculum Development</strong></li>
+                                <li><strong>Fortune 500 Enterprise B2B Technical Onboarding</strong></li>
+                                <li><strong>SCORM Compliant Interactive E-Learning Architecture</strong></li>
+                                <li><strong>Multi-Stakeholder AI Policy Ecosystem Building</strong></li>
+                            </ul>
+                        </div>
+
+                        <!-- MECHANICAL ENGINEERING (VIT / Formula Student) -->
+                        <div class="data-feed id-eng">
+                            <h3>MECH ENGINEERING</h3>
+                            <div class="skill-meter"><div class="skill-fill" style="width: 88%;"></div></div>
+                            <ul style="font-size: 0.85rem; line-height: 1.4;">
+                                <li><strong>Formula Student Race Car Aerodynamics Design</strong></li>
+                                <li><strong>SolidWorks and ANSYS FEA/CFD Simulation</strong></li>
+                                <li><strong>Advanced CNC Machining and Carbon-Fiber Layup</strong></li>
+                                <li><strong>Track-Day Telemetry and Powertrain Validation</strong></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-board">
+                
+                <!-- FINANCE DIAL -->
+                <div class="dial-container" data-target="quant" style="--val: 120deg;">
+                    <div class="dial-housing">
+                        <div class="dial-face">
+                            <div class="tick-marks-major"></div>
+                            <div class="tick-marks"></div>
+                            <div class="tick-blocker"></div>
+                            <div class="dial-face-label">FIN</div>
+                            <div class="dial-needle-wrapper">
+                                <div class="dial-needle"><div class="needle-tip"></div></div>
+                            </div>
+                            <div class="dial-hub"><div class="hub-screw"></div></div>
+                        </div>
+                        <div class="dial-glass"></div>
+                    </div>
+                    <div class="engraved-plate">
+                        <div class="screw-mini"></div> FINANCE <div class="screw-mini"></div>
+                    </div>
+                </div>
+
+                <!-- OPERATIONS DIAL -->
+                <div class="dial-container" data-target="tech" style="--val: 100deg;">
+                    <div class="dial-housing">
+                        <div class="dial-face">
+                            <div class="tick-marks-major"></div>
+                            <div class="tick-marks"></div>
+                            <div class="tick-blocker"></div>
+                            <div class="dial-face-label">OPS</div>
+                            <div class="dial-needle-wrapper">
+                                <div class="dial-needle"><div class="needle-tip"></div></div>
+                            </div>
+                            <div class="dial-hub"><div class="hub-screw"></div></div>
+                        </div>
+                        <div class="dial-glass"></div>
+                    </div>
+                    <div class="engraved-plate">
+                        <div class="screw-mini"></div> GROWTH <div class="screw-mini"></div>
+                    </div>
+                </div>
+
+                <!-- INSTRUCTION / TECH DIAL -->
+                <div class="dial-container" data-target="strat" style="--val: 75deg;">
+                    <div class="dial-housing">
+                        <div class="dial-face">
+                            <div class="tick-marks-major"></div>
+                            <div class="tick-marks"></div>
+                            <div class="tick-blocker"></div>
+                            <div class="dial-face-label">EDU</div>
+                            <div class="dial-needle-wrapper">
+                                <div class="dial-needle"><div class="needle-tip"></div></div>
+                            </div>
+                            <div class="dial-hub"><div class="hub-screw"></div></div>
+                        </div>
+                        <div class="dial-glass"></div>
+                    </div>
+                    <div class="engraved-plate">
+                        <div class="screw-mini"></div> RELATIONS <div class="screw-mini"></div>
+                    </div>
+                </div>
+
+                <!-- ENGINEERING DIAL -->
+                <div class="dial-container" data-target="eng" style="--val: 85deg;">
+                    <div class="dial-housing">
+                        <div class="dial-face">
+                            <div class="tick-marks-major"></div>
+                            <div class="tick-marks"></div>
+                            <div class="tick-blocker"></div>
+                            <div class="dial-face-label">ENG</div>
+                            <div class="dial-needle-wrapper">
+                                <div class="dial-needle"><div class="needle-tip"></div></div>
+                            </div>
+                            <div class="dial-hub"><div class="hub-screw"></div></div>
+                        </div>
+                        <div class="dial-glass"></div>
+                    </div>
+                    <div class="engraved-plate">
+                        <div class="screw-mini"></div> ENGINEERING <div class="screw-mini"></div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 </section>
 
-<section id="portfolio">
-        <h2>My Playbook</h2>
+<section id="portfolio" data-video="none">
+<div class="sticky-frame">
+        
+        <h2 class="scrub-anim" style="margin-bottom: 5px; position: relative; z-index: 20;">Projects and Blogs</h2>
+        <p class="scrub-anim" style="color:#888; margin-bottom: 40px; font-size:0.9rem; position: relative; z-index: 20;">Click on VCR tapes to play</p>
 
-        <div class="room-layout">
+        <div class="room-layout scrub-anim">
             
             <div class="left-wall">
                 <div class="vhs-library" id="vhs-library">
@@ -1398,6 +1962,8 @@ canvas#spider-chart { z-index: 10; }
                     <button class="eject-btn" onclick="ejectTape()">⏏ EJECT</button>
                 </div>
             </div>
+</div>
+</div>
 
         </div>
     </section>
@@ -1408,6 +1974,7 @@ canvas#spider-chart { z-index: 10; }
     <p class="scrub-anim" style="color: #aaa; margin-top: 20px; font-size: 1.2rem;">Open to conversations about deep-tech investing, portfolio strategy, and what's worth building next.</p>
     <a href="https://www.linkedin.com/in/chinmay-rajendra-patil/" target="_blank" class="contact-btn scrub-anim">Connect on LinkedIn</a>
 </section>
+
 
     <script>
         const videos = {
@@ -1432,261 +1999,7 @@ canvas#spider-chart { z-index: 10; }
         }, { threshold: 0.4 });
         document.querySelectorAll('section').forEach(section => sectionObserver.observe(section));
 
-        function initCarousel(id, prevBtnId, nextBtnId, startIndex) {
-            const container = document.getElementById(id);
-            if(!container) return;
-            const track = container.querySelector('.carousel-track');
-            const prevBtn = document.getElementById(prevBtnId);
-            const nextBtn = document.getElementById(nextBtnId);
-         const rootStyles = getComputedStyle(document.documentElement);
-const centerScale = parseFloat(rootStyles.getPropertyValue('--carousel-center-scale')) || 1.1;
-const sideScale = parseFloat(rootStyles.getPropertyValue('--carousel-side-scale')) || 0.85;
-const separation = parseFloat(rootStyles.getPropertyValue('--carousel-separation')) || 250;
-const opacityInactive = parseFloat(rootStyles.getPropertyValue('--carousel-side-opacity')) || 0.4;
-// Rotate DOM so desired card lands at index 1 (center position)
-startIndex = startIndex || 0;
-const rotateBy = startIndex > 0 ? startIndex - 1 : 0;
-for (let i = 0; i < rotateBy; i++) {
-    track.appendChild(track.firstElementChild);
-}
-
-            
-function updateCards() {
-    const cards = Array.from(track.querySelectorAll('.carousel-card'));
-    
-    cards.forEach((card, index) => {
-        if (index === 1) {
-            // CENTER
-            card.style.transform = 'translate(-50%, -50%) scale(' + centerScale + ')';
-            card.style.opacity = '1';
-            card.style.zIndex = '10';
-            card.style.filter = 'blur(0px)';
-        } else if (index === 0) {
-            // LEFT
-            card.style.transform = 'translate(calc(-50% - ' + separation + 'px), -50%) scale(' + sideScale + ')';
-            card.style.opacity = opacityInactive;
-            card.style.zIndex = '5';
-            card.style.filter = 'blur(4px)';
-        } else if (index === 2) {
-            // RIGHT
-            card.style.transform = 'translate(calc(-50% + ' + separation + 'px), -50%) scale(' + sideScale + ')';
-            card.style.opacity = opacityInactive;
-            card.style.zIndex = '5';
-            card.style.filter = 'blur(4px)';
-        } else {
-            // HIDDEN
-            card.style.transform = 'translate(-50%, -50%) scale(0.7)';
-            card.style.opacity = '0';
-            card.style.zIndex = '0';
-            card.style.filter = 'blur(8px)';
-        }
-    });
-}
-            function nextSlide() {
-                const cards = Array.from(track.querySelectorAll('.carousel-card'));
-                track.appendChild(cards[0]); 
-                updateCards();
-            }
-
-            function prevSlide() {
-                const cards = Array.from(track.querySelectorAll('.carousel-card'));
-                track.insertBefore(cards[cards.length - 1], track.firstElementChild);
-                updateCards();
-            }
-            updateCards();
-            nextBtn.addEventListener('click', nextSlide);
-            prevBtn.addEventListener('click', prevSlide);
-        }
-initCarousel('edu-carousel', 'edu-prev', 'edu-next', 0);
-initCarousel('exp-carousel', 'exp-prev', 'exp-next', 1);
-
-        const chartCanvas = document.getElementById('spider-chart');
-        const ctxChart = chartCanvas.getContext('2d');
-        const tooltip = document.getElementById('chart-tooltip');
-        let chartWidth, chartHeight;
-        
-        const stats = [
-    { label: 'Valuation', value: 0.72, desc: 'DCF, Trading Comps, Precedent Transactions, 3-Statement Models' },
-    { label: 'Market Sizing', value: 0.90, desc: 'Bottom-Up TAM, Adoption Curves, Regulatory Risk Mapping' },
-    { label: 'Technical DD', value: 0.95, desc: 'AI/ML Architecture Review, Hardware BOM Analysis, Inference Cost Modeling' },
-    { label: 'Data & Code', value: 0.48, desc: 'Python (Pandas), R, Power BI, Excel (Sensitivity Analysis, Pivot Tables)' },
-    { label: 'Deal Execution', value: 0.87, desc: 'LP Reporting, IC Memos, Pipeline Screening (150+ Startups), SaaS Benchmarking' },
-    { label: 'Engineering', value: 0.99, desc: 'MATLAB, Lotus Shark, Simulation, Vehicle Dynamics, Mechanical Design' }
-];
-
-        let activePoint = null;
-        let mouse = { x: -100, y: -100 };
-
-        function resizeChart() {
-            const container = chartCanvas.parentElement;
-            chartWidth = chartCanvas.width = container.offsetWidth;
-            chartHeight = chartCanvas.height = container.offsetHeight;
-        }
-        window.addEventListener('resize', resizeChart);
-        resizeChart();
-
-        chartCanvas.addEventListener('mousemove', (e) => {
-            const rect = chartCanvas.getBoundingClientRect();
-            // Scaling logic handled by canvas element width/height matching CSS pixels (default behavior here is fine if 1:1)
-            // If high-DPI scaling issues occur, activePoint won't trigger. 
-            // For now, simple rect logic works because canvas width matches offsetWidth in resizeChart().
-            const mouseX = e.clientX - rect.left;
-            const mouseY = e.clientY - rect.top;
-            
-            mouse.x = mouseX;
-            mouse.y = mouseY;
-
-            const centerX = chartWidth / 2;
-            const centerY = chartHeight / 2;
-            const radius = Math.min(centerX, centerY) * 0.7;
-            const angleStep = (Math.PI * 2) / stats.length;
-            
-            let found = false;
-
-            stats.forEach((stat, i) => {
-                const angle = i * angleStep - Math.PI/2;
-                const x = centerX + Math.cos(angle) * (radius * stat.value);
-                const y = centerY + Math.sin(angle) * (radius * stat.value);
-                const dist = Math.hypot(mouseX - x, mouseY - y);
-                
-                if (dist < 20) {
-                    found = true;
-                    tooltip.innerHTML = `<strong>${stat.label}</strong><br><span style="font-size:0.8rem; opacity:0.8">${stat.desc}</span>`;
-                    tooltip.style.left = `${mouseX + 20}px`; // CHANGED: Positioning relative to container, not page
-                    tooltip.style.top = `${mouseY - 20}px`;
-                    tooltip.classList.add('visible');
-                    chartCanvas.style.cursor = 'pointer';
-                    activePoint = {x, y, val: stat.value}; 
-                }
-            });
-
-            if (!found) {
-                tooltip.classList.remove('visible');
-                chartCanvas.style.cursor = 'default';
-                activePoint = null;
-            }
-        });
-
-        chartCanvas.addEventListener('mouseleave', () => {
-            mouse.x = -100; mouse.y = -100;
-            tooltip.classList.remove('visible');
-            activePoint = null;
-        });
-
-        function drawChart() {
-            ctxChart.clearRect(0, 0, chartWidth, chartHeight);
-            const centerX = chartWidth / 2;
-            const centerY = chartHeight / 2;
-            const radius = Math.min(centerX, centerY) * 0.7; 
-            const sides = stats.length;
-            const angleStep = (Math.PI * 2) / sides;
-            
-            ctxChart.strokeStyle = 'rgba(255, 255, 255, 0.1)';
-            ctxChart.lineWidth = 1;
-            for(let r = 0.2; r <= 1; r += 0.2) {
-                ctxChart.beginPath();
-                for(let i = 0; i <= sides; i++) {
-                    const angle = i * angleStep - Math.PI/2;
-                    const x = centerX + Math.cos(angle) * (radius * r);
-                    const y = centerY + Math.sin(angle) * (radius * r);
-                    if(i === 0) ctxChart.moveTo(x, y); else ctxChart.lineTo(x, y);
-                }
-                ctxChart.stroke();
-            }
-
-            ctxChart.beginPath();
-            for(let i = 0; i < sides; i++) {
-                const angle = i * angleStep - Math.PI/2;
-                const x = centerX + Math.cos(angle) * radius;
-                const y = centerY + Math.sin(angle) * radius;
-                ctxChart.moveTo(centerX, centerY); ctxChart.lineTo(x, y);
-                
-                const textX = centerX + Math.cos(angle) * (radius * 1.25);
-                const textY = centerY + Math.sin(angle) * (radius * 1.25);
-                ctxChart.fillStyle = '#fff';
-                ctxChart.font = '14px Space Grotesk';
-                ctxChart.textAlign = 'center';
-                ctxChart.textBaseline = 'middle';
-                ctxChart.fillText(stats[i].label, textX, textY);
-            }
-            ctxChart.stroke();
-
-            ctxChart.beginPath();
-            const points = [];
-            stats.forEach((stat, i) => {
-                const angle = i * angleStep - Math.PI/2;
-                const x = centerX + Math.cos(angle) * (radius * stat.value);
-                const y = centerY + Math.sin(angle) * (radius * stat.value);
-                points.push({x, y});
-                if(i === 0) ctxChart.moveTo(x, y); else ctxChart.lineTo(x, y);
-            });
-            ctxChart.closePath();
-            ctxChart.fillStyle = 'rgba(0, 243, 255, 0.2)'; 
-            ctxChart.strokeStyle = '#00f3ff';
-            ctxChart.lineWidth = 2;
-            ctxChart.fill();
-            ctxChart.stroke();
-
-            points.forEach(p => {
-                const isActive = activePoint && Math.abs(p.x - activePoint.x) < 1 && Math.abs(p.y - activePoint.y) < 1;
-                ctxChart.beginPath();
-                ctxChart.arc(p.x, p.y, isActive ? 8 : 4, 0, Math.PI * 2);
-                ctxChart.fillStyle = isActive ? '#fff' : '#00f3ff';
-                ctxChart.fill();
-                if(isActive) {
-                    ctxChart.shadowBlur = 15;
-                    ctxChart.shadowColor = "#00f3ff";
-                } else {
-                    ctxChart.shadowBlur = 0;
-                }
-            });
-            ctxChart.shadowBlur = 0;
-            requestAnimationFrame(drawChart);
-        }
-        drawChart();
-
-        const canvas = document.getElementById('particle-canvas');
-        const ctx = canvas.getContext('2d');
-        let width, height;
-        let particles = [];
-        function resize() { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; }
-        window.addEventListener('resize', resize);
-        resize();
-        class Particle {
-            constructor() {
-                this.x = Math.random() * width; this.y = Math.random() * height;
-                this.vx = (Math.random() - 0.5) * 0.5; this.vy = (Math.random() - 0.5) * 0.5;
-                this.size = Math.random() * 2 + 1;
-            }
-            update() {
-                this.x += this.vx; this.y += this.vy;
-                if (this.x < 0 || this.x > width) this.vx *= -1;
-                if (this.y < 0 || this.y > height) this.vy *= -1;
-            }
-            draw() {
-                ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(255,255,255,0.4)'; ctx.fill();
-            }
-        }
-        for (let i = 0; i < 55; i++) particles.push(new Particle());
-        function animateParticles() {
-            ctx.clearRect(0, 0, width, height);
-            let mouseX = window.mouseX || -1000; let mouseY = window.mouseY || -1000;
-            particles.forEach((p, index) => {
-                p.update(); p.draw();
-                for (let j = index + 1; j < particles.length; j++) {
-                    const p2 = particles[j];
-                    const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-                    if (dist < 150) {
-                        ctx.strokeStyle = `rgba(255,255,255,${0.1 - dist/1500})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
-                    }
-                }
-            });
-            requestAnimationFrame(animateParticles);
-        }
-        animateParticles();
+   
         const cursor = document.getElementById('cursor');
         const spotlight = document.getElementById('spotlight');
         window.addEventListener('mousemove', (e) => {
@@ -1734,212 +2047,118 @@ kineticTexts.forEach(text => {
         }
         window.addEventListener('scroll', onScroll);
         onScroll();
-/* --- INTERACTIVE NEURAL NETWORK --- */
-(function() {
-    const canvas = document.getElementById('neural-bg');
-    const ctx = canvas.getContext('2d');
-    
-    // Configuration
-    const particleCount = 60;
-    const connectionDist = 150;
-    const mouseDist = 200; // How far the mouse can reach
-    const speed = 0.5;
+ 	// =============================================
+// VHS TAPE LIBRARY — PORTFOLIO
+// =============================================
+const portfolioItems = [
+    { title: "MedTech Fund III", pdf: "01.pdf" },
+    { title: "Market Sizing €7.5B", pdf: "02.pdf" },
+    { title: "LP Report Q3", pdf: "03.pdf" },
+    { title: "DCF Model", pdf: "04.pdf" },
+    { title: "IC Memo Alpha", pdf: "05.pdf" },
+    { title: "Pipeline Tracker", pdf: "06.pdf" },
+    { title: "Tech DD Report", pdf: "07.pdf" },
+    { title: "Comp Analysis", pdf: "08.pdf" },
+    { title: "Term Sheet Rev", pdf: "09.pdf" },
+    { title: "Startup Screen", pdf: "10.pdf" },
+    { title: "BOM Teardown", pdf: "11.pdf" },
+    { title: "SaaS Benchmark", pdf: "12.pdf" },
+    { title: "Inference Cost", pdf: "13.pdf" },
+    { title: "Cap Table Model", pdf: "14.pdf" },
+    { title: "Waterfall Dist", pdf: "15.pdf" },
+    { title: "Sensitivity Mod", pdf: "16.pdf" },
+    { title: "Monte Carlo Sim", pdf: "17.pdf" },
+    { title: "Cohort Analysis", pdf: "18.pdf" },
+    { title: "Unit Economics", pdf: "19.pdf" },
+    { title: "Burn Rate Proj", pdf: "20.pdf" },
+    { title: "Patent Review", pdf: "21.pdf" },
+    { title: "Robotics BOM", pdf: "22.pdf" },
+    { title: "AI Infra Audit", pdf: "23.pdf" },
+    { title: "Regulatory Map", pdf: "24.pdf" },
+    { title: "Growth Model", pdf: "25.pdf" },
+    { title: "Thesis Deep-Tech", pdf: "26.pdf" },
+    { title: "Portfolio Const", pdf: "27.pdf" },
+    { title: "Exit Analysis", pdf: "28.pdf" },
+];
 
-    let w, h;
-    let particles = [];
-    
-    // Track Mouse Position
-    let mouse = { x: null, y: null };
+const tapesPerColumn = Math.ceil(portfolioItems.length / 5);
+const vhsLibrary = document.getElementById('vhs-library');
 
-    window.addEventListener('mousemove', (e) => {
-        mouse.x = e.x;
-        mouse.y = e.y;
-    });
+if (vhsLibrary) {
+    for (let col = 0; col < 5; col++) {
+        const shelf = document.createElement('div');
+        shelf.className = 'vhs-shelf';
 
-    // Reset mouse when leaving window so lines don't get stuck
-    window.addEventListener('mouseout', () => {
-        mouse.x = null;
-        mouse.y = null;
-    });
+        const start = col * tapesPerColumn;
+        const end = Math.min(start + tapesPerColumn, portfolioItems.length);
+        const columnItems = portfolioItems.slice(start, end);
 
-    function resize() {
-        w = canvas.width = window.innerWidth;
-        h = canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resize);
-    resize();
+        columnItems.forEach(item => {
+            const tape = document.createElement('div');
+            tape.className = 'vhs-tape';
+            tape.onclick = () => loadTape(item.pdf, item.title);
 
-    class Particle {
-        constructor() {
-            this.x = Math.random() * w;
-            this.y = Math.random() * h;
-            this.vx = (Math.random() - 0.5) * speed;
-            this.vy = (Math.random() - 0.5) * speed;
-            this.size = Math.random() * 2 + 1;
-        }
+            tape.innerHTML = `
+                <div class="vhs-label">
+                    <span class="vhs-title">${item.title}</span>
+                </div>
+                <div class="vhs-accent"></div>
+            `;
 
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
-
-            if (this.x < 0 || this.x > w) this.vx *= -1;
-            if (this.y < 0 || this.y > h) this.vy *= -1;
-        }
-
-        draw() {
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-        }
-    }
-
-    for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, w, h);
-        
-        particles.forEach(p => {
-            p.update();
-            p.draw();
-
-            // 1. Connect Particles to EACH OTHER
-            particles.forEach(p2 => {
-                const dx = p.x - p2.x;
-                const dy = p.y - p2.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-
-                if (dist < connectionDist) {
-                    ctx.strokeStyle = `rgba(255, 255, 255, ${0.15 * (1 - dist/connectionDist)})`;
-                    ctx.lineWidth = 1;
-                    ctx.beginPath();
-                    ctx.moveTo(p.x, p.y);
-                    ctx.lineTo(p2.x, p2.y);
-                    ctx.stroke();
-                }
-            });
-
-            // 2. Connect Particles to MOUSE
-            if (mouse.x != null) {
-                const dx = p.x - mouse.x;
-                const dy = p.y - mouse.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-
-                if (dist < mouseDist) {
-                    // Stronger/Brighter line for mouse interaction
-                    ctx.strokeStyle = `rgba(0, 243, 255, ${0.4 * (1 - dist/mouseDist)})`; // Cyan color
-                    ctx.lineWidth = 1.5;
-                    ctx.beginPath();
-                    ctx.moveTo(p.x, p.y);
-                    ctx.lineTo(mouse.x, mouse.y);
-                    ctx.stroke();
-                    
-                    // Optional: Push particles away slightly (Repulsion effect)
-                    // if (dist < 50) {
-                    //    p.x += dx * 0.05;
-                    //    p.y += dy * 0.05;
-                    // }
-                }
-            }
+            shelf.appendChild(tape);
         });
 
-        requestAnimationFrame(animate);
+        vhsLibrary.appendChild(shelf);
     }
-    animate();
-})();
-</script>
+}
 
-<script>
+// =============================================
+// VCR TAPE LOADING
+// =============================================
+let currentTape = null;
 
-// --- HYPER-REAL TERMINAL LOGIC ---
-    const myPDFs = Array.from({ length: 28 }, (_, i) => ({
-        title: `MEMO_${(i + 1).toString().padStart(2, '0')}`,
-        url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" // Update links later
-    }));
+function loadTape(pdfUrl, title) {
+    const viewer = document.getElementById('pdf-viewer');
+    const led = document.getElementById('vcr-led');
+    const animTape = document.getElementById('anim-tape');
+    const tvScreen = document.getElementById('tv-screen');
 
-    function renderLibrary() {
-        const library = document.getElementById('vhs-library');
-        if(!library) return;
-        
-        const tapesPerShelf = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--tapes-per-shelf')) || 10; 
-        const totalShelves = Math.ceil(myPDFs.length / tapesPerShelf);
-
-        for (let i = 0; i < totalShelves; i++) {
-            const shelf = document.createElement('div');
-            shelf.className = 'vhs-shelf';
-            const tapesForShelf = myPDFs.slice(i * tapesPerShelf, (i + 1) * tapesPerShelf);
-
-            tapesForShelf.forEach((tape) => {
-                // Notice the new vhs-label wrapper to make it look like a real sticker
-                shelf.innerHTML += `
-                    <div class="vhs-tape" onclick="playTape('${tape.url}')">
-                        <div class="vhs-label">
-                            <span class="vhs-title">${tape.title}</span>
-                        </div>
-                        <div class="vhs-accent"></div>
-                    </div>
-                `;
-            });
-            library.appendChild(shelf);
-        }
+    if (currentTape) {
+        viewer.style.opacity = '0';
+        viewer.src = '';
     }
-    renderLibrary();
 
-    window.playTape = function(pdfUrl) {
-        const tv = document.getElementById('main-tv');
-        const animTape = document.getElementById('anim-tape');
-        const led = document.getElementById('vcr-led');
-        const iframe = document.getElementById('pdf-viewer');
-        const screen = document.getElementById('tv-screen');
+    animTape.classList.remove('insert-anim');
+    void animTape.offsetWidth;
+    animTape.classList.add('insert-anim');
 
-        tv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    led.textContent = 'LOAD';
+    led.style.color = 'var(--neon-cyan)';
 
-        led.innerText = "LOAD";
-        led.style.color = "#f39c12";
+    tvScreen.classList.remove('tv-flicker');
+    void tvScreen.offsetWidth;
+    tvScreen.classList.add('tv-flicker');
 
-        animTape.classList.remove('insert-anim'); 
-        void animTape.offsetWidth; 
-        animTape.classList.add('insert-anim');
+    setTimeout(() => {
+        viewer.src = pdfUrl;
+        viewer.style.opacity = '1';
+        led.textContent = '▶ PLAY';
+        currentTape = title;
+    }, 800);
+}
 
-        iframe.style.opacity = '0';
-        iframe.src = ''; 
+function ejectTape() {
+    const viewer = document.getElementById('pdf-viewer');
+    const led = document.getElementById('vcr-led');
+    const animTape = document.getElementById('anim-tape');
 
-        setTimeout(() => {
-            screen.classList.remove('tv-flicker');
-            void screen.offsetWidth;
-            screen.classList.add('tv-flicker');
-            
-            setTimeout(() => {
-                iframe.src = pdfUrl;
-                iframe.style.opacity = '1';
-                led.innerText = "PLAY";
-                led.style.color = "var(--neon-cyan)";
-            }, 800);
-        }, 800);
-    };
+    viewer.style.opacity = '0';
+    setTimeout(() => { viewer.src = ''; }, 500);
 
-    window.ejectTape = function() {
-        const animTape = document.getElementById('anim-tape');
-        const led = document.getElementById('vcr-led');
-        const iframe = document.getElementById('pdf-viewer');
-
-        iframe.style.opacity = '0';
-        setTimeout(() => { iframe.src = ''; }, 300); 
-
-        led.innerText = "EJCT";
-        led.style.color = "#e74c3c"; 
-
-        animTape.classList.remove('insert-anim');
-
-        setTimeout(() => {
-            led.innerText = "12:00";
-            led.style.color = "var(--neon-cyan)"; 
-        }, 1500);
-    };
-
-</script>
-
+    animTape.classList.remove('insert-anim');
+    led.textContent = '12:00';
+    currentTape = null;
+}
+    </script>
 </body>
 </html>
