@@ -83,9 +83,9 @@
     --transition-glacial: 1s;
 
     /* 9. PORTFOLIO TERMINAL */
-    --tv-max-width: 600px;
+    --tv-max-width: 1400px;
     --tv-screen-ratio: 1 / 1;
-    --tv-screen-max-h: calc(var(--section-height) - 280px);
+    --tv-screen-max-h: calc(var(--section-height) - 10px);
     --tv-border: 12px;
     --tv-radius: 14px;
     --vcr-height: 85px;
@@ -1086,8 +1086,8 @@ h2 { font-size: var(--text-3xl); }
    ============================================= */
 #portfolio {
     width: 100%;
-    height: var(--section-height);
-    max-height: var(--section-height);
+    height: 1000px;
+    max-height: 1000px;
     position: relative;
     z-index: 2;
     display: flex;
@@ -1116,7 +1116,7 @@ h2 { font-size: var(--text-3xl); }
     flex-direction: row;
     width: 100%;
     max-width: 1600px;
-    max-height: calc(var(--section-height));
+    max-height: 1000px;
     align-items: center;
     justify-content: center;
     gap: var(--space-xl);
@@ -1127,7 +1127,7 @@ h2 { font-size: var(--text-3xl); }
 .left-wall {
     flex: 0 0 auto;
     width: 580px;
-    max-height: calc(var(--section-height) - 180px);
+    max-height: 1000px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -1208,7 +1208,7 @@ height: 100%
     background-size: 100% 4px;
     pointer-events: none;
     z-index: 9;
-    opacity: 0.5;
+    opacity: 0.005;
 }
 
 #pdf-viewer {
@@ -1234,12 +1234,12 @@ height: 100%
 
 /* VCR Console */
 .vcr-console {
-    width: 105%;
+    width: 80%;
     height: var(--vcr-height);
     background: #0d0d0d;
     border-radius: 2px;
     box-shadow:
-        0 20px 30px rgba(0,0,0,1),
+        0 8px 10px rgba(0,0,0,1),
         inset 0 2px 1px rgba(255,255,255,0.1),
         inset 0 -2px 5px rgba(0,0,0,0.8);
     display: flex;
@@ -1669,7 +1669,7 @@ height: 100%
 
                     <div class="receipt" id="receipt3">
                         <div class="receipt-header dot-matrix-text">
-                            <h3>EDHEC Business</h3>
+                            <h3>EDHEC Business School</h3>
                             <p>Master in Management</p>
                             <p>2023 H2</p>
                         </div>
@@ -1700,16 +1700,15 @@ height: 100%
             </div>
 
             <div class="control-board">
-                <label for="edu1" class="synth-btn">Berkeley</label>
-                <label for="edu2" class="synth-btn">SKK GSB</label>
-                <label for="edu3" class="synth-btn">EDHEC</label>
-                <label for="edu4" class="synth-btn">VIT Pune</label>
+                <label for="edu1" class="synth-btn">2025 UC Berkeley</label>
+                <label for="edu2" class="synth-btn">2024 SKK GSB</label>
+                <label for="edu3" class="synth-btn">2023 EDHEC</label>
+                <label for="edu4" class="synth-btn">2017 VIT Pune</label>
             </div>
 
         </div>
     </div>
 </section>
-
 
 <section id="experience" data-video="none">
     <div class="sticky-frame">
@@ -1754,9 +1753,9 @@ height: 100%
             </div>
 
             <div class="deck-controls-vertical">
-                <label for="exp1" class="tape-btn"><span>EXP 01</span></label>
-                <label for="exp2" class="tape-btn"><span>EXP 02</span></label>
-                <label for="exp3" class="tape-btn"><span>EXP 03</span></label>
+                <label for="exp1" class="tape-btn"><span>2025</span></label>
+                <label for="exp2" class="tape-btn"><span>2024</span></label>
+                <label for="exp3" class="tape-btn"><span>2021</span></label>
             </div>
         </div>
     </div>
@@ -1933,7 +1932,7 @@ height: 100%
 <div class="sticky-frame">
         
         <h2 class="scrub-anim" style="margin-bottom: 5px; position: relative; z-index: 20;">Projects and Blogs</h2>
-        <p class="scrub-anim" style="color:#888; margin-bottom: 40px; font-size:0.9rem; position: relative; z-index: 20;">Click on VCR tapes to play</p>
+        <p class="scrub-anim" style="color:#888; margin-bottom: 10px; font-size:0.9rem; position: relative; z-index: 20;">Click on VCR tapes to play</p>
 
         <div class="room-layout scrub-anim">
             
@@ -2158,5 +2157,4 @@ function ejectTape() {
 }
     </script>
 </body>
-
 </html>
