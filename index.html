@@ -1,0 +1,2160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinmay Patil | Investments and Growth Strategy</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        
+/* --- VARIABLES & RESET --- */
+       :root {
+    /* ============================================
+       COMMAND CENTER — Tweak numbers here ONLY
+       ============================================ */
+
+    /* 1. VIEWPORT & SECTIONS */
+    --section-height: 108vh;
+    --section-padding-top: 70px;
+    --section-padding-bottom: 40px;
+    --section-padding-x: 5vw;
+    --nav-height: 60px;
+
+    /* 2. TYPOGRAPHY SCALE (change --text-base, everything else follows) */
+    --text-base: 1rem;
+    --text-xs: calc(var(--text-base) * 0.75);
+    --text-sm: calc(var(--text-base) * 0.85);
+    --text-md: calc(var(--text-base) * 1.0);
+    --text-lg: calc(var(--text-base) * 1.2);
+    --text-xl: calc(var(--text-base) * 1.6);
+    --text-2xl: calc(var(--text-base) * 2.0);
+    --text-3xl: calc(var(--text-base) * 3.0);
+    --text-hero: 6vw;
+    --heading-weight: 700;
+    --body-weight: 500;
+
+    /* 3. SPACING SCALE (change --space-unit, everything follows) */
+    --space-unit: 8px;
+    --space-xs: calc(var(--space-unit) * 0.5);   /* 4px */
+    --space-sm: var(--space-unit);                 /* 8px */
+    --space-md: calc(var(--space-unit) * 2);       /* 16px */
+    --space-lg: calc(var(--space-unit) * 3);       /* 24px */
+    --space-xl: calc(var(--space-unit) * 4);       /* 32px */
+    --space-2xl: calc(var(--space-unit) * 6);      /* 48px */
+    --space-3xl: calc(var(--space-unit) * 8);      /* 64px */
+
+/* --- 4. SYNTH PRINTER VARIABLES --- */
+  --ink-color: #1a1a1a; 
+  --paper-color: #f7f7f7; 
+  --noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.25' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E");
+
+    /* 5. CHART */
+    --chart-size: min(500px, 55vh);
+
+    /* 6. COLORS */
+    --bg-color: #050505;
+    --text-color: #ffffff;
+    --text-muted: #888888;
+    --text-dim: rgba(255, 255, 255, 0.7);
+    --neon-cyan: #00f3ff;
+    --accent-glass: rgba(255, 255, 255, 0.05);
+    --accent-glass-hover: rgba(255, 255, 255, 0.08);
+    --border-glass: rgba(255, 255, 255, 0.1);
+    --border-glass-strong: rgba(255, 255, 255, 0.15);
+    --shadow-heavy: rgba(0, 0, 0, 0.9);
+    --shadow-medium: rgba(0, 0, 0, 0.5);
+
+    /* 7. GLASS EFFECT (one place to control all glass) */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-bg-hover: rgba(255, 255, 255, 0.08);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+    --glass-blur: 16px;
+    --glass-blur-heavy: 20px;
+
+    /* 8. ANIMATION */
+    --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-bounce: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --transition-fast: 0.2s;
+    --transition-normal: 0.3s;
+    --transition-slow: 0.5s;
+    --transition-glacial: 1s;
+
+    /* 9. PORTFOLIO TERMINAL */
+    --tv-max-width: 1400px;
+    --tv-screen-ratio: 1 / 1;
+    --tv-screen-max-h: calc(var(--section-height) - 10px);
+    --tv-border: 12px;
+    --tv-radius: 14px;
+    --vcr-height: 85px;
+    --tape-width: 36px;
+    --tape-height: 140px;
+    --shelf-gap: 18px;
+    --tapes-per-shelf: 7;
+
+    /* 10. ABOUT SECTION */
+    --about-text-width: 48%;
+    --about-gradient-start: 50%;
+
+    /* 11. FONT */
+    --font-main: 'Space Grotesk', sans-serif;
+    --font-mono: 'Courier New', Courier, monospace;
+
+--cursor-size: 40px;
+}
+
+        
+/* =============================================
+   RESET
+   ============================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+}
+
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* =============================================
+   DARK POWDER-COATED METAL BACKGROUND
+   ============================================= */
+body {
+  /* The deep dark gray base */
+  background-color: #000000; 
+  
+  /* The Texture & Lighting */
+  background-image: 
+  /* High-frequency noise for the powder-coat bumps */
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.28'/%3E%3C/svg%3E");
+  
+  background-attachment: fixed; /* Keeps the texture static when you scroll */
+  
+  /* Preserving your original layout variables */
+  color: var(--text-color);
+  font-family: var(--font-main);
+  font-weight: var(--body-weight);
+  overflow-x: hidden;
+  width: 100vw;
+  margin: 0;
+}
+
+/* =============================================
+   SECTIONS — All controlled by variables
+   ============================================= */
+section {
+    height: var(--section-height);
+    width: 100vw;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    padding: var(--section-padding-top) var(--section-padding-x) var(--section-padding-bottom);
+}
+
+#hero,
+#education,
+#experience,
+#contact {
+    position: relative;
+    width: 100%;
+    height: var(--section-height) !important;
+    min-height: var(--section-height) !important;
+    max-height: var(--section-height) !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#about,
+#portfolio {
+    min-height: var(--section-height);
+    height: auto;
+    padding: var(--section-padding-top) var(--section-padding-x);
+    overflow: visible;
+}
+
+/* =============================================
+   STICKY FRAME
+   ============================================= */
+.sticky-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-height: var(--section-height);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: var(--section-padding-top);
+    box-sizing: border-box;
+}
+
+#skills {
+    position: relative;
+    width: 100%;
+    height: var(--section-height) !important;
+    min-height: var(--section-height) !important;
+    max-height: var(--section-height) !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 0 !important;
+}
+
+#skills .sticky-frame {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =============================================
+   VIDEO MANAGER
+   ============================================= */
+#video-manager {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: -2;
+    overflow: hidden;
+    background: transparent;
+}
+
+.bg-video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity var(--transition-glacial) ease-in-out;
+    filter: grayscale(70%) contrast(1.1) brightness(0.6);
+}
+.bg-video.active { opacity: 0.5; }
+
+/* =============================================
+   CURSOR & SPOTLIGHT
+   ============================================= */
+#cursor {
+    position: fixed;
+    top: 0; left: 0;
+    width: var(--cursor-size);
+    height: var(--cursor-size);
+    z-index: 9999;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+    transition: opacity var(--transition-normal) ease;
+}
+
+#cursor-icon {
+    width: 100%; 
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60' fill='white'%3E%3Cpath d='M 50 0 L 60 11 L 80 19 L 97 30 L 104 35 L 100 41 L 74 38 L 63 38 L 65 45 L 58 48 L 54 45 L 50 43 L 46 45 L 42 48 L 35 45 L 37 38 L 26 38 L 0 41 L -4 35 L 3 30 L 20 19 L 40 11 Z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotate(-25deg);
+}
+
+#spotlight {
+    position: fixed;
+    top: 0; left: 0;
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0) 50%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9998;
+}
+
+/* =============================================
+   NAV — NOTCH SYSTEM
+   ============================================= */
+nav {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 1000;
+    pointer-events: none;
+    padding-top: 0;
+}
+
+.notch {
+    pointer-events: auto;
+    background: rgba(10, 10, 10, 0.5);
+    backdrop-filter: blur(var(--glass-blur-heavy));
+    -webkit-backdrop-filter: blur(var(--glass-blur-heavy));
+    border: none;
+    border-top: none;
+    padding: 15px 40px;
+    border-radius: 0 0 25px 25px;
+    box-shadow: 0 10px 40px var(--shadow-medium);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1002;
+    height: var(--nav-height);
+    transition: transform var(--transition-normal) ease;
+}
+
+.notch .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+    font-size: var(--text-lg);
+    letter-spacing: 3px;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.notch .logo svg {
+    height: 28px;
+    width: auto;
+    display: block;
+}
+
+.brand-name {
+    font-family: var(--font-main);
+    font-size: var(--text-lg);
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: #ffffff;
+}
+
+.nav-segment {
+    pointer-events: auto;
+    display: flex;
+    gap: var(--space-xl);
+    background: var(--accent-glass);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: var(--glass-border);
+    border-top: none;
+    padding: 18px 30px;
+    border-radius: 0 0 20px 20px;
+    margin: 0 15px;
+    height: 55px;
+    align-items: center;
+    transition: all var(--transition-normal) ease;
+}
+.nav-segment:hover { background: var(--glass-bg-hover); transform: translateY(2px); }
+
+.nav-segment a {
+    text-decoration: none;
+    color: var(--text-dim);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color var(--transition-normal);
+}
+.nav-segment a:hover { color: #fff; }
+
+/* =============================================
+   SHARED TYPOGRAPHY
+   ============================================= */
+h1, h2, h3 {
+    font-weight: var(--heading-weight);
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+h2 { font-size: var(--text-3xl); }
+
+.kinetic-text {
+    display: inline-block;
+    white-space: nowrap;
+    will-change: transform;
+}
+
+/* =============================================
+   HERO
+   ============================================= */
+#hero { text-align: center; }
+
+#hero h1 {
+    background: linear-gradient(90deg, #FFFFFF 0%, #696969 80%, #414240 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+    filter: drop-shadow(0px 10px 10px rgba(25, 25, 25, 0.8));
+    font-size: var(--text-hero);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: var(--space-lg);
+    letter-spacing: -2px;
+    border: none !important;
+    padding: 0 !important;
+}
+
+#hero p {
+    font-size: var(--text-lg);
+    font-weight: var(--body-weight);
+    color: #ccc;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* =============================================
+   ABOUT — CINEMATIC
+   ============================================= */
+#about {
+    background-color: #000 !important;
+    padding: 0 !important;
+    min-height: var(--section-height) !important;
+    height: var(--section-height) !important;
+    display: block !important;
+    overflow: hidden;
+}
+
+.about-cinematic {
+    position: relative;
+    width: 100%; height: 100vh;
+    overflow: hidden;
+}
+
+.about-bg-img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: left center;
+    display: block;
+    z-index: 1;
+}
+
+.about-gradient {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 2;
+    background: linear-gradient(
+        to right,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0.15) 30%,
+        rgba(0,0,0,0.65) var(--about-gradient-start),
+        rgba(0,0,0,0.88) 65%,
+        rgba(0,0,0,0.95) 80%,
+        rgba(0,0,0,1) 100%
+    );
+}
+
+.about-overlay-text {
+    position: absolute;
+    top: 0; right: 0;
+    width: var(--about-text-width);
+    height: 100%;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--space-3xl) 80px var(--space-3xl) 40px;
+}
+
+.about-accent-line {
+    width: 50px; height: 3px;
+    background: rgba(255, 255, 255, 0.25);
+    margin-bottom: var(--space-lg);
+}
+
+.about-overlay-text h2 {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-xl);
+    color: #ffffff;
+}
+
+.about-overlay-text p {
+    font-size: var(--text-md);
+    line-height: 1.75;
+    color: var(--text-dim);
+    margin-bottom: var(--space-md);
+}
+
+.about-overlay-text p.about-lead {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: var(--text-lg);
+}
+
+.about-location-tag {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+#education .section-title {
+    position: relative;
+    z-index: 20; /* Forces header above the machine */
+    margin-bottom: 50px; /* Pushes the machine down */
+}
+
+/* =============================================
+   SYNTHESIZER & PRINTER COMPONENT
+   ============================================= */
+.synth-deck {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 10px auto 0 auto; /* Centers it in your section */
+  font-family: 'Courier New', Courier, monospace; /* Forces hardware font */
+  
+  background: 
+      linear-gradient(135deg, rgba(47, 50, 58, 0.72) 0%, rgba(23, 24, 28, 0.72) 100%),
+      var(--noise);
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 
+      0 30px 60px rgba(0,0,0,0.95),
+      inset 1px 1px 2px rgba(255, 255, 255, 0.15),
+      inset -2px -2px 6px rgba(0, 0, 0, 0.9),
+      0 0 0 2px #050505; 
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  z-index: 5;
+}
+
+.synth-deck input[type="radio"] { display: none; }
+
+.printer-section {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 20%), #060608;
+  border-radius: 8px;
+  border: 2px solid #000;
+  box-shadow: inset 0 15px 30px rgba(0,0,0,0.9), 0 2px 1px rgba(255,255,255,0.05); 
+  display: flex;
+  flex-direction: column;
+}
+
+.paper-zone {
+  flex-grow: 1;
+  position: relative;
+  overflow: hidden; 
+  display: flex;
+  justify-content: center;
+}
+
+.printer-slit {
+  height: 18px;
+  background: linear-gradient(180deg, #111 0%, #050505 100%);
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #2a2a2a;
+  box-shadow: inset 0 5px 5px rgba(0,0,0,1), 0 -8px 20px rgba(0,0,0,0.8);
+  z-index: 10;
+  position: relative;
+}
+
+.receipt {
+  position: absolute;
+  bottom: 0; 
+  width: 620px;
+  background: linear-gradient(rgba(247, 244, 237, 0.96), rgba(247, 244, 237, 0.96)), var(--noise);
+  padding: 35px 30px 60px 30px;
+  transform: translateY(100%); 
+  transition: transform 0.8s cubic-bezier(0.2, 0.9, 0.3, 1.3);
+  box-shadow: 0 0 30px rgba(0,0,0,0.4), inset 0 0 40px rgba(0,0,0,0.08), inset 0 -15px 15px -10px rgba(0,0,0,0.2); 
+  color: var(--ink-color);
+}
+
+.receipt::before {
+  content: '';
+  position: absolute;
+  top: -6px; left: 0;
+  width: 100%; height: 6px;
+  background: linear-gradient(135deg, transparent 33%, var(--paper-color) 34%, var(--paper-color) 66%, transparent 67%),
+              linear-gradient(45deg, transparent 33%, var(--paper-color) 34%, var(--paper-color) 66%, transparent 67%);
+  background-size: 8px 12px;
+  filter: drop-shadow(0 -1px 1px rgba(0,0,0,0.2)); 
+}
+
+.dot-matrix-text {
+  text-shadow: 0px 0px 1px rgba(74, 31, 104, 0.4); 
+}
+
+.receipt-header {
+  text-align: center;
+  border-bottom: 2px dashed rgba(74, 31, 104, 0.3);
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+.receipt-header h3 { margin: 0; font-size: 1.4rem; text-transform: uppercase; font-weight: 900; letter-spacing: -0.5px; }
+.receipt-header p { margin: 5px 0 0 0; font-size: 0.85rem; opacity: 0.8; font-weight: bold; }
+
+.receipt-body ul { list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8; font-weight: bold; text-align: left; }
+.receipt-body li { margin-bottom: 10px; text-transform: uppercase;}
+.receipt-body li::before { content: '>> '; opacity: 0.6; }
+
+.control-board {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 25px;
+  background: linear-gradient(180deg, #1b1d22 0%, #0d0e11 100%);
+  border-radius: 8px;
+  border: 1px solid #000;
+  box-shadow: inset 0 10px 20px rgba(0,0,0,0.8), 0 2px 0 rgba(255,255,255,0.05);
+}
+
+.synth-btn {
+  flex: 1;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(68, 72, 82, 0.75) 0%, rgba(42, 45, 52, 0.75) 100%), var(--noise);
+  color: #a0a0a0;
+  padding: 30px 10px 20px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  border: 1px solid #111;
+  box-shadow: 0 10px 0 #0a0a0c, 0 15px 20px rgba(0, 0, 0, 0.7), inset 0 2px 2px rgba(255, 255, 255, 0.15), inset 0 -2px 5px rgba(0,0,0,0.5);
+  transition: all 0.15s cubic-bezier(0.4, 0.0, 0.2, 1);
+  text-shadow: 0 1px 1px #000;
+}
+
+.synth-btn::before {
+  content: '';
+  position: absolute;
+  top: 10px; left: 50%;
+  transform: translateX(-50%);
+  width: 20px; height: 6px;
+  background: #111;
+  border: 1px solid #000;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.9), 0 1px 1px rgba(255,255,255,0.1);
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+/* CSS LOGIC */
+#edu1:checked ~ .control-board label[for="edu1"],
+#edu2:checked ~ .control-board label[for="edu2"],
+#edu3:checked ~ .control-board label[for="edu3"],
+#edu4:checked ~ .control-board label[for="edu4"] {
+  transform: translateY(10px); 
+  box-shadow: 0 0px 0 #0a0a0c, 0 2px 5px rgba(0, 0, 0, 0.8), inset 0 3px 8px rgba(0,0,0,0.9);
+  color: #fff;
+}
+
+/* Active LED Glow (Now Icy White) */
+#edu1:checked ~ .control-board label[for="edu1"]::before,
+#edu2:checked ~ .control-board label[for="edu2"]::before,
+#edu3:checked ~ .control-board label[for="edu3"]::before,
+#edu4:checked ~ .control-board label[for="edu4"]::before {
+  background: #ffffff; /* Bright white bulb */
+  box-shadow: 
+      0 0 10px #ffffff, /* Intense white inner glow */
+      0 0 20px rgba(255, 255, 255, 0.5), /* Softer white outer ambient glow */
+      inset 0 1px 2px rgba(255,255,255,0.8); /* Glass reflection */
+  border-color: #cccccc; /* Light grey rim */
+}
+
+#edu1:checked ~ .printer-section .paper-zone #receipt1,
+#edu2:checked ~ .printer-section .paper-zone #receipt2,
+#edu3:checked ~ .printer-section .paper-zone #receipt3,
+#edu4:checked ~ .printer-section .paper-zone #receipt4 {
+  transform: translateY(0); 
+}
+
+/* =============================================
+   STUDIO TAPE DECK (EXPERIENCE - SIDE CONTROLS)
+   ============================================= */
+.tape-deck-side {
+  position: relative;
+  width: 100%;
+  max-width: 850px; /* Slightly wider to fit side controls */
+  margin: 20px auto 0 auto;
+  
+  /* Brushed studio equipment texture */
+  background: 
+      linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 1%),
+      linear-gradient(135deg, rgba(47, 50, 58, 0.72) 0%, rgba(23, 24, 28, 0.72) 100%),
+      var(--noise);
+  border-radius: 6px;
+  padding: 40px;
+  
+  box-shadow: 0 30px 50px rgba(0,0,0,0.9), inset 0 2px 2px rgba(255, 255, 255, 0.2), inset 0 -4px 10px rgba(0, 0, 0, 0.8), 0 0 0 2px #000;
+      
+  display: flex;
+  flex-direction: row; /* Stacks window and controls side-by-side */
+  align-items: center;
+  gap: 35px;
+  z-index: 5;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.tape-deck-side input[type="radio"] { display: none; }
+
+/* --- 1. THE CASSETTE WINDOW (LEFT) --- */
+.cassette-window {
+  flex-grow: 1; /* Takes up remaining width */
+  height: 300px;
+  position: relative;
+  background: #05080f; 
+  border-radius: 8px;
+  border: 4px solid #111;
+  overflow: hidden;
+  box-shadow: inset 0 15px 30px rgba(0,0,0,1), inset 0 0 10px rgba(200, 225, 255, 0.5), 0 2px 1px rgba(255,255,255,0.7); 
+}
+
+.cassette-window::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -50%; right: -50%; bottom: 0;
+  background: linear-gradient(105deg, transparent 90%, rgba(255,255,255,0.03) 95%, rgba(255,255,255,0.08) 10%, transparent 55%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.tape-reel {
+  display: flex;
+  width: 300%; 
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.35, 1); 
+}
+
+.job-track {
+  width: 33.333%; 
+  height: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+  color: #fff;
+  opacity: 0.3; 
+  transition: opacity 0.5s ease;
+  background-image: linear-gradient(0deg, rgba(100, 150, 255, 0.05) 1px, transparent 1px);
+  background-size: 100% 20px;
+}
+
+.job-track h3 { margin: 0 0 5px 0; font-size: 1.5rem; text-shadow: 0 0 10px rgba(255,255,255,0.3); text-transform: uppercase;}
+.job-track h4 { margin: 0 0 15px 0; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;}
+.job-track ul { list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8; color: #ccc; font-weight: bold;}
+.job-track li { margin-bottom: 8px; }
+.job-track li::before { content: '>> '; font-size: 0.9em; margin-right: 5px; }
+
+/* --- 2. VERTICAL TRANSPORT CONTROLS (RIGHT) --- */
+.deck-controls-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 25px 20px;
+  background: #111216;
+  border-radius: 6px;
+  border: 1px solid #000;
+  box-shadow: inset 0 5px 15px rgba(0,0,0,0.8), 0 1px 0 rgba(255,255,255,0.05);
+  min-width: 120px; /* Keeps the column width fixed */
+}
+
+.tape-btn {
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(180deg, rgba(68, 72, 82, 0.75) 0%, rgba(42, 45, 52, 0.75) 100%), var(--noise);
+  border-radius: 4px 4px 10px 10px; 
+  position: relative;
+  cursor: pointer;
+  border: 1px solid #000;
+  box-shadow: 0 10px 0 #08080a, 0 15px 20px rgba(0, 0, 0, 0.7), inset 0 1px 2px rgba(255, 255, 255, 0.15), inset 0 -2px 5px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 10px;
+  transition: all 0.1s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.tape-btn span {
+  color: #777;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 -1px 1px #000;
+  pointer-events: none;
+}
+
+.tape-btn::before {
+  content: '';
+  position: absolute;
+  top: 10px; left: 50%;
+  transform: translateX(-50%);
+  width: 25px; height: 4px;
+  background: #111;
+  border-radius: 2px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.9), 0 1px 0 rgba(255,255,255,0.05);
+  transition: all 0.2s ease;
+}
+
+/* --- 3. CSS LOGIC --- */
+#exp1:checked ~ .deck-controls-vertical label[for="exp1"],
+#exp2:checked ~ .deck-controls-vertical label[for="exp2"],
+#exp3:checked ~ .deck-controls-vertical label[for="exp3"] {
+  transform: translateY(10px); 
+  box-shadow: 0 0px 0 #08080a, 0 2px 5px rgba(0, 0, 0, 0.8), inset 0 2px 4px rgba(255, 255, 255, 0.1), inset 0 -5px 10px rgba(0,0,0,0.8);
+}
+
+#exp1:checked ~ .deck-controls-vertical label[for="exp1"]::before,
+#exp2:checked ~ .deck-controls-vertical label[for="exp2"]::before,
+#exp3:checked ~ .deck-controls-vertical label[for="exp3"]::before {
+  background: #fff; 
+  box-shadow: 0 0 10px #66994f, 0 0 10px rgba(102, 153, 255, 0.9);
+}
+
+#exp1:checked ~ .deck-controls-vertical label[for="exp1"] span,
+#exp2:checked ~ .deck-controls-vertical label[for="exp2"] span,
+#exp3:checked ~ .deck-controls-vertical label[for="exp3"] span {
+  color: #fff;
+}
+
+#exp1:checked ~ .cassette-window .tape-reel { transform: translateX(0%); }
+#exp2:checked ~ .cassette-window .tape-reel { transform: translateX(-33.333%); }
+#exp3:checked ~ .cassette-window .tape-reel { transform: translateX(-66.666%); }
+
+#exp1:checked ~ .cassette-window .tape-reel #track1,
+#exp2:checked ~ .cassette-window .tape-reel #track2,
+#exp3:checked ~ .cassette-window .tape-reel #track3 { opacity: 1; }
+
+/* =========================================
+   B-2 TELEMETRY SKILLS RIG
+========================================= */
+
+.skills-section {
+    /* Uses your global padding variables if available, otherwise defaults */
+    padding: var(--section-padding-top, 70px) var(--section-padding-x, 5vw) var(--section-padding-bottom, 40px);
+    min-height: var(--section-height, 100vh);  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.telemetry-rig {
+    --screen-bg: #030405;
+    --text-main: #f0f0f0;
+    --text-dim: #777;
+    --danger-red: #ff3b30;
+    --aviation-yellow: #4f4f4f;
+    
+    width: 100%;
+    max-width: 950px;
+    font-family: 'Courier New', Courier, monospace; /* Overrides Space Grotesk for the terminal look */
+    
+    /* Heavy Titanium Chassis */
+    background-image: 
+        linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 30%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.35'/%3E%3C/svg%3E"), 
+        linear-gradient(135deg, #25282e 0%, #111215 100%);
+    border-radius: 12px;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 50px;
+    border: 1px solid #000;
+    box-shadow: 
+        0 50px 80px rgba(0,0,0,0.9),
+        inset 0 4px 8px rgba(255,255,255,0.1),
+        inset 0 -8px 20px rgba(0,0,0,0.8);
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Faux Structural Screws */
+.rig-screw {
+    position: absolute; width: 16px; height: 16px; border-radius: 50%;
+    background: linear-gradient(135deg, #555, #111);
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.4), inset 0 -1px 2px rgba(0,0,0,0.8), 0 3px 5px rgba(0,0,0,0.9);
+}
+.rig-screw::after {
+    content: ''; position: absolute; top: 7px; left: 2px; width: 12px; height: 2px; background: #050505;
+    transform: rotate(var(--rot, 45deg)); box-shadow: inset 0 1px 1px #000, 0 1px 0 rgba(255,255,255,0.2);
+}
+
+.rig-warning {
+    position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+    color: var(--danger-red); font-size: 0.65rem; font-weight: bold; letter-spacing: 2px;
+    opacity: 0.5; text-shadow: 0 0 5px rgba(255,0,0,0.5); text-align: center; width: 90%;
+}
+
+/* --- LEFT SIDE: HAZARD SCREEN --- */
+.hazard-frame {
+    background: repeating-linear-gradient(-45deg, #111, #111 15px, var(--aviation-yellow) 15px, var(--aviation-yellow) 30px);
+    padding: 6px; border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.9), inset 0 2px 5px rgba(255,255,255,0.4), 0 0 0 3px #000;
+}
+
+.screen-bezel {
+    background: #151517; border: 2px solid #2a2d34; border-radius: 4px; padding: 25px;
+    box-shadow: inset 0 5px 20px rgba(0,0,0,1); position: relative;
+}
+
+.crt-screen {
+    background: var(--screen-bg); height: 320px; border-radius: 6px; padding: 25px;
+    color: var(--text-main); overflow: hidden; position: relative;
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 1), 0 0 0 2px #000; box-sizing: border-box;
+}
+
+
+.data-feed { display: none; animation: bootUp 0.15s ease-out forwards; }
+@keyframes bootUp { 0% { opacity: 0; transform: translateY(2px); } 100% { opacity: 1; transform: translateY(0); } }
+
+.data-feed h3 {
+    margin: 0 0 15px 0; font-size: 1.4rem; text-transform: uppercase;
+    border-bottom: 2px solid #333; padding-bottom: 10px; letter-spacing: 2px;
+    text-shadow: 0 0 8px rgba(255,255,255,0.4);
+}
+
+.data-feed ul { list-style: none; padding: 0; margin: 0; line-height: 2; font-size: 0.95rem; color: #ccc; }
+.data-feed li::before { content: '>'; margin-right: 10px; font-weight: bold; color: #fff; animation: blink 1s infinite; }
+@keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0.2; } }
+
+.skill-meter {
+    width: 100%; height: 16px; background: #0a0a0c; border: 1px solid #333;
+    margin-bottom: 25px; border-radius: 2px; box-shadow: inset 0 2px 5px rgba(0,0,0,1);
+}
+.skill-fill {
+    height: 100%; background: linear-gradient(90deg, #777, #fff);
+    border-right: 2px solid #fff; box-shadow: 0 0 15px rgba(255,255,255,0.5);
+}
+
+/* --- RIGHT SIDE: ANALOG DIALS --- */
+.control-board { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-content: center; }
+.dial-container { display: flex; flex-direction: column; align-items: center; gap: 15px; cursor: pointer; }
+
+.dial-housing {
+    width: 110px; height: 110px; border-radius: 50%;
+    background: conic-gradient(#444 0%, #777 15%, #222 30%, #555 50%, #222 70%, #777 85%, #444 100%);
+    padding: 8px; box-shadow: 0 20px 30px rgba(0,0,0,0.9), inset 0 2px 4px rgba(255,255,255,0.4), inset 0 -3px 8px rgba(0,0,0,0.8);
+    position: relative; box-sizing: border-box;
+}
+
+.dial-face {
+    width: 100%; height: 100%; border-radius: 50%; background: radial-gradient(circle at center, #1a1c23 0%, #050505 100%);
+    box-shadow: inset 0 8px 20px rgba(0,0,0,1), inset 0 0 0 2px #000; position: relative; overflow: hidden;
+}
+
+.tick-marks {
+    position: absolute; top: 4px; left: 4px; right: 4px; bottom: 4px; border-radius: 50%;
+    background: repeating-conic-gradient(from -130deg, #666 0deg 1.5deg, transparent 1.5deg 7deg);
+    -webkit-mask-image: radial-gradient(transparent 68%, black 70%);
+}
+.tick-marks-major {
+    position: absolute; top: 4px; left: 4px; right: 4px; bottom: 4px; border-radius: 50%;
+    background: repeating-conic-gradient(from -130deg, #8f8f8f 0deg 3deg, transparent 3deg 15deg);
+    -webkit-mask-image: radial-gradient(transparent 62%, black 64%);
+}
+.tick-blocker {
+    position: absolute; bottom: -5px; left: 0; width: 100%; height: 35%;
+    background: radial-gradient(circle at top, transparent, #050505 50%); z-index: 1;
+}
+
+.dial-face-label {
+    position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%);
+    color: #2f2f2f; font-size: 0.6rem; font-weight: bold; letter-spacing: 1px; z-index: 2;
+}
+
+.dial-needle-wrapper {
+    position: absolute; top: 50%; left: 50%; width: 100px; height: 100px;
+    transform: translate(-50%, -50%) rotate(-130deg); transition: transform 1.2s cubic-bezier(0.25, 1.5, 0.5, 1); z-index: 4;
+}
+
+.dial-needle {
+    position: absolute; bottom: 50%; left: calc(50% - 2.5px); width: 5px; height: 42px;
+    background: linear-gradient(90deg, #888 0%, #eee 50%, #888 100%); border-radius: 2px 2px 0 0;
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.6);
+}
+.needle-tip {
+    position: absolute; top: 0; left: 0; width: 100%; height: 14px; background: #9f6f6f; border-radius: 2px 2px 0 0; transition: 0.3s;
+}
+
+.dial-hub {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 22px; height: 22px; border-radius: 50%;
+    background: conic-gradient(#444, #777, #222, #777, #444); box-shadow: 0 5px 10px rgba(0,0,0,0.9), inset 0 1px 2px rgba(255,255,255,0.5);
+    z-index: 5; display: flex; justify-content: center; align-items: center;
+}
+.hub-screw { width: 8px; height: 8px; border-radius: 50%; background: #222; box-shadow: inset 0 1px 2px #000; }
+.hub-screw::after { content: ''; display: block; width: 6px; height: 1.5px; background: #000; margin-top: 3px; margin-left: 1px; transform: rotate(20deg); }
+
+.dial-glass {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: 50%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 40%, rgba(255,255,255,0.05) 100%);
+    box-shadow: inset 0 2px 5px rgba(255,255,255,0.4); z-index: 10; pointer-events: none;
+}
+
+.engraved-plate {
+    background: linear-gradient(180deg, #2a2a2a 0%, #111 100%); border-radius: 3px; padding: 5px 15px; color: #a0a0a0;
+    font-size: 0.75rem; font-weight: 900; letter-spacing: 2px;
+    text-shadow: -1px -1px 0px #000, 1px 1px 0px rgba(255,255,255,0.1);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.8), inset 0 1px 1px rgba(255,255,255,0.3), 0 0 0 1px #000;
+    display: flex; align-items: center; gap: 12px; transition: all 0.3s ease;
+}
+.screw-mini { width: 6px; height: 6px; border-radius: 50%; background: #000; box-shadow: inset 0 1px 2px rgba(255,255,255,0.5); position: relative; }
+.screw-mini::after { content: ''; position: absolute; top: 2.5px; left: 1px; width: 4px; height: 1px; background: #333; transform: rotate(45deg); }
+
+/* --- HOVER MAGIC --- */
+.id-idle { display: block; }
+.telemetry-rig:has(.dial-container:hover) .id-idle { display: none; }
+.dial-container:hover .dial-needle-wrapper { transform: translate(-50%, -50%) rotate(var(--val)); }
+.dial-container:hover .needle-tip { background: var(--danger-red); box-shadow: 0 0 12px var(--danger-red), 0 0 4px var(--danger-red); }
+.dial-container:hover .engraved-plate { color: #fff; background: #1a1a1a; box-shadow: 0 2px 5px rgba(0,0,0,0.9), inset 0 1px 1px rgba(255,255,255,0.1), 0 0 0 1px #111; }
+.telemetry-rig:has(.dial-container[data-target="quant"]:hover) .id-quant { display: block; }
+.telemetry-rig:has(.dial-container[data-target="tech"]:hover)  .id-tech  { display: block; }
+.telemetry-rig:has(.dial-container[data-target="strat"]:hover) .id-strat { display: block; }
+.telemetry-rig:has(.dial-container[data-target="eng"]:hover)   .id-eng   { display: block; }
+
+/* --- RESPONSIVE MOBILE FIXES --- */
+@media (max-width: 850px) {
+    .telemetry-rig {
+        grid-template-columns: 1fr; /* Stacks screen on top, dials on bottom */
+        padding: 30px 20px;
+        gap: 30px;
+    }
+    .crt-screen { height: 280px; }
+}
+
+@media (max-width: 500px) {
+    .control-board {
+        grid-template-columns: 1fr 1fr; /* Keep 2x2 grid */
+        gap: 15px; /* Tighter gap for small screens */
+    }
+    .dial-housing { width: 90px; height: 90px; padding: 6px; }
+    .dial-needle-wrapper { width: 80px; height: 80px; }
+    .dial-needle { height: 35px; }
+    .engraved-plate { font-size: 0.6rem; padding: 4px 10px; gap: 8px; }
+    .data-feed h3 { font-size: 1.2rem; }
+    .data-feed ul { font-size: 0.85rem; }
+}
+
+
+/* =============================================
+   CONTACT
+   ============================================= */
+#contact {
+    background: transparent !important;
+    position: relative;
+    z-index: 2;
+    height: var(--section-height);
+    min-height: var(--section-height);
+}
+
+.contact-btn {
+    display: inline-block;
+    margin-top: var(--space-2xl);
+    padding: 20px 50px;
+    font-size: var(--text-xl);
+    font-weight: var(--heading-weight);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 60px;
+    text-decoration: none;
+    transition: all var(--transition-normal) ease;
+    position: relative;
+    overflow: hidden;
+    background: rgba(0,0,0,0.3);
+    pointer-events: auto;
+    cursor: none;
+}
+.contact-btn:hover { background: #fff; color: #000; }
+
+/* =============================================
+   PORTFOLIO — TERMINAL
+   ============================================= */
+#portfolio {
+    width: 100%;
+    height: 1000px;
+    max-height: 1000px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    overflow: hidden;
+    padding: none;
+    box-sizing: border-box;
+    scroll-snap-align: start;
+}
+
+#portfolio h2 {
+    font-size: var(--text-2xl);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: var(--space-lg);
+    color: #fff;
+    text-shadow: 0 0 20px rgba(255,255,255,0.2);
+    z-index: 3;
+}
+
+.room-layout {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1600px;
+    max-height: 1000px;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xl);
+    z-index: 3;
+    overflow: visible;
+}
+
+.left-wall {
+    flex: 0 0 auto;
+    width: 580px;
+    max-height: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.left-wall::-webkit-scrollbar { display: none; }
+
+.right-desk {
+    flex: 1;
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* TV Console */
+.tv-console {
+height: 100%
+    width: 100%;
+    max-width: var(--tv-max-width);
+    background: linear-gradient(135deg, #1f1f1f 0%, #0a0a0a 100%);
+    border-radius: 10px 10px 4px 4px;
+    padding: 1px 1px 2px 2px;
+    box-shadow:
+        0 30px 40px -10px var(--shadow-heavy),
+        inset 0 2px 1px rgba(255,255,255,0.15),
+        inset 0 -5px 15px var(--shadow-heavy),
+        inset 1px 0 2px rgba(255,255,255,0.05);
+    position: relative;
+    margin-bottom: var(--space-md);
+    border: 1px solid #000;
+}
+
+.tv-console::before {
+    content: '';
+    position: absolute;
+    top: 8px; left: 50%;
+    transform: translateX(-50%);
+    width: 150px; height: 6px;
+    background: repeating-linear-gradient(90deg, #000, #000 2px, transparent 2px, transparent 6px);
+    opacity: 0.5;
+}
+
+.tv-screen-container {
+    width: 100%;
+    aspect-ratio: var(--tv-screen-ratio);
+    max-height: var(--tv-screen-max-h);
+    background: #020202;
+    border-radius: var(--tv-radius);
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        inset 0 0 20px rgba(0,0,0,1),
+        inset 0 0 50px var(--shadow-heavy),
+        0 2px 1px rgba(255,255,255,0.1);
+    border: var(--tv-border) solid #030303;
+}
+
+.tv-glass-glare {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+        radial-gradient(circle at 50% 10%, rgba(255,255,255,0.08) 0%, transparent 40%),
+        linear-gradient(110deg, rgba(255,255,255,0.05) 0%, transparent 30%);
+    pointer-events: none;
+    z-index: 10;
+    border-radius: 10px;
+}
+
+.tv-scanlines {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(rgba(18,16,16,0) 50%, rgba(0,0,0,0.3) 50%);
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 9;
+    opacity: 0.005;
+}
+
+#pdf-viewer {
+    width: 100%; height: 100%;
+    border: none;
+    position: relative;
+    z-index: 5;
+    background: transparent;
+    opacity: 0;
+    transition: opacity var(--transition-slow) ease;
+    border-radius: 10px;
+}
+
+.tv-flicker { animation: tvOn 0.8s var(--ease-smooth) forwards; }
+
+@keyframes tvOn {
+    0% { background: #000; opacity: 1; transform: scale(0.95); }
+    10% { background: #fff; opacity: 0.8; transform: scale(1.02); }
+    30% { background: #000; opacity: 1; transform: scale(0.98); }
+    60% { background: var(--neon-cyan); opacity: 0.3; transform: scale(1); }
+    100% { background: transparent; opacity: 1; transform: scale(1); }
+}
+
+/* VCR Console */
+.vcr-console {
+    width: 80%;
+    height: var(--vcr-height);
+    background: #0d0d0d;
+    border-radius: 2px;
+    box-shadow:
+        0 8px 10px rgba(0,0,0,1),
+        inset 0 2px 1px rgba(255,255,255,0.1),
+        inset 0 -2px 5px rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border: 1px solid #000;
+    position: relative;
+}
+
+.vcr-console::before {
+    content: '';
+    position: absolute;
+    top: 25px; right: 235px;
+    width: 100px; height: 30px;
+    background: #000;
+    border-radius: 4px;
+    border: 1px solid #111;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,1), 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.vcr-slot-container {
+    width: 200px; height: 14px;
+    background: #000;
+    border-radius: 1px;
+    box-shadow: inset 0 8px 15px rgba(0,0,0,1), 0 1px 0 rgba(255,255,255,0.08);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid #050505;
+}
+
+.vcr-inserting-tape {
+    width: 150px; height: 14px;
+    background: #222;
+    border-bottom: 2px solid var(--neon-cyan);
+    position: absolute;
+    bottom: 20px;
+    transition: bottom 0.6s var(--ease-bounce);
+}
+.insert-anim { bottom: -20px !important; }
+
+.vcr-led {
+    font-family: var(--font-mono);
+    color: var(--neon-cyan);
+    font-size: var(--text-sm);
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px rgba(0, 243, 255, 0.4);
+    position: relative;
+    z-index: 2;
+    width: 65px;
+    text-align: center;
+    margin-right: var(--space-sm);
+}
+
+.eject-btn {
+    background: linear-gradient(to bottom, #222, #111);
+    color: #888;
+    border: 1px solid #000;
+    padding: 7px 14px;
+    border-radius: 3px;
+    font-family: var(--font-main);
+    font-weight: var(--heading-weight);
+    font-size: var(--text-xs);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.8), inset 0 1px 1px rgba(255,255,255,0.1);
+    text-shadow: 0 -1px 1px #000;
+}
+.eject-btn:hover { color: var(--neon-cyan); box-shadow: 0 4px 6px rgba(0,0,0,0.8), inset 0 1px 1px rgba(255,255,255,0.2), 0 0 15px rgba(0,243,255,0.2); }
+.eject-btn:active { transform: translateY(3px); box-shadow: 0 1px 2px rgba(0,0,0,0.8); }
+
+/* VHS Tapes */
+.vhs-library {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 16px 12px;
+    background: 
+        linear-gradient(180deg, rgba(0,0,0,0.3) 0%, transparent 5%),
+        linear-gradient(175deg, #0e0d0b 0%, #080706 100%);
+    border-radius: 4px;
+    border: 1px solid #111;
+    box-shadow:
+        inset 0 4px 15px rgba(0,0,0,0.9),
+        inset 0 -2px 8px rgba(0,0,0,0.5),
+        0 2px 0 rgba(255,255,255,0.02);
+}
+
+.vhs-shelf {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px 6px 12px 6px;
+    position: relative;
+    /* The actual shelf plank */
+    border-bottom: 4px solid #1a1714;
+    background: 
+        linear-gradient(180deg, transparent 0%, transparent 85%, rgba(30,25,18,0.3) 100%);
+    box-shadow: 
+        /* Shelf thickness — 3D stepped edge */
+        0 4px 0 #15120e,
+        0 6px 0 #100e0a,
+        0 8px 0 #0c0a08,
+        /* Shelf shadow cast downward */
+        0 12px 20px -4px rgba(0,0,0,0.9),
+        0 20px 30px -8px rgba(0,0,0,0.6),
+        /* Subtle light on top surface */
+        inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+/* Wood grain texture on the shelf edge */
+.vhs-shelf::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0; right: 0;
+    height: 4px;
+    background: 
+        repeating-linear-gradient(
+            90deg,
+            rgba(255,255,255,0.02) 0px,
+            rgba(255,255,255,0.04) 1px,
+            transparent 1px,
+            transparent 4px
+        ),
+        linear-gradient(90deg, #1a1714, #1e1a15, #1a1714);
+    border-radius: 0 0 1px 1px;
+}
+
+/* Metal bracket on each side */
+.vhs-shelf::before {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+}
+.vhs-tape {
+    width: 100%;
+    height: 28px;
+    background: linear-gradient(to bottom, #111 0%, #1a1a1a 10%, #111 100%);
+    border-top: 1px solid #2a2a2a;
+    border-bottom: 1px solid #000;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    transition: transform var(--transition-normal) var(--ease-bounce);
+    box-shadow:
+        0 4px 8px rgba(0,0,0,0.8),
+        inset 0 -2px 5px rgba(0,0,0,1),
+        inset 0 1px 1px rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.vhs-tape:hover { transform: translateX(15px) scale(1.01); }
+
+.vhs-label {
+    position: absolute;
+    left: 8%; right: 8%; top: 3px; bottom: 3px;
+    background: #e0e0e0;
+    border-radius: 2px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #fff;
+    transition: background var(--transition-normal) ease;
+}
+
+.vhs-tape:hover .vhs-label {
+    background: #fff;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+.vhs-title {
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    transform: none;
+    color: #050505;
+    font-size: var(--text-xs);
+    font-weight: var(--heading-weight);
+    letter-spacing: 1px;
+    pointer-events: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.vhs-accent {
+    position: absolute;
+    right: 5px;
+    width: 4px; height: 60%;
+    background: #555;
+    transition: all var(--transition-normal) ease;
+    border-radius: 1px;
+}
+
+.vhs-tape:hover .vhs-accent {
+    background: #fff;
+    box-shadow: 0 0 8px rgba(255,255,255,0.4);
+}
+/* =============================================
+   ANIMATIONS
+   ============================================= */
+.scrub-anim {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: transform 0.1s linear, opacity 0.1s linear;
+}
+
+/* =============================================
+   MOBILE
+   ============================================= */
+@media (max-width: 768px) {
+    #hero h1 { font-size: 15vw; }
+    .about-layout { grid-template-columns: 1fr; }
+    .carousel-3d-container { height: 300px; }
+    .carousel-card { width: 80vw; }
+    .nav-segment { display: none; }
+    .notch { width: 60%; }
+    .chart-container { width: 350px; height: 350px; }
+    .carousel-control.left { left: 0px; }
+    .carousel-control.right { right: 0px; }
+
+    #about { height: auto !important; min-height: auto !important; }
+    .about-cinematic { height: auto; }
+    .about-bg-img { position: relative; height: 65vh; object-position: top center; }
+    .about-gradient {
+        background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.9) 75%, rgba(0,0,0,1) 100%) !important;
+    }
+    .about-overlay-text {
+        position: relative; width: 100%; height: auto;
+        padding: 30px 25px 50px 25px; background: #000;
+    }
+    .about-overlay-text h2 { font-size: 2.2rem; }
+    .about-overlay-text p { font-size: 0.95rem; }
+
+.room-layout { flex-direction: column; align-items: center; gap: var(--space-md); }
+.left-wall { width: 100%; max-width: 100%; max-height: 200px; }
+.right-desk { width: 100%; max-width: 95vw; }
+}
+
+/* =============================================
+   FIX: ALLOW 3D ARCHIVES TO EXPAND SECTION HEIGHT
+   ============================================= */
+#education, 
+#experience, 
+#education .sticky-frame, 
+#experience .sticky-frame {
+    height: auto !important;
+    min-height: var(--section-height) !important;
+    max-height: none !important; /* Removes the strict limit */
+    overflow: visible !important; /* Prevents the clipping */
+    padding-bottom: 100px; /* Gives the 3D hover animation plenty of room */
+}
+
+    </style>
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.29/dist/lenis.min.js"></script>
+</head>
+<body>
+    <div id="video-manager">
+        <video id="vid-hero" class="bg-video active" muted loop playsinline>
+            <source src="https://www.pexels.com/download/video/30875537/?fps=24.0&h=720&w=1280" type="video/mp4">
+        </video>
+        <video id="vid-edu" class="bg-video" muted loop playsinline>
+            <source src="https://www.pexels.com/download/video/31624122/?fps=25.0&h=720&w=1280" type="video/mp4">
+        </video>
+        <video id="vid-skills" class="bg-video" muted loop playsinline>
+            <source src="https://www.pexels.com/download/video/32386523/?fps=100.0&h=720&w=1280" type="video/mp4">
+        </video>
+	<video id="vid-contact" class="bg-video" muted loop playsinline>
+        	<source src="https://www.pexels.com/download/video/2256133/?fps=24.0&h=720&w=960" type="video/mp4">
+    	</video>
+    </div>
+
+        <div id="spotlight"></div>
+    <div id="cursor"><div id="cursor-icon"></div></div>
+
+    <nav>
+        <div class="nav-segment left">
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+	    <a href="#experience">Experience</a>
+        </div>
+        
+        <div class="notch">
+    <div class="logo">
+        
+        <svg viewBox="40 40 390 390" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="silver" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#FFFFFF" />
+                    <stop offset="50%" stop-color="#E0E0E0" />
+                    <stop offset="100%" stop-color="#B0B0B0" />
+                </linearGradient>
+                <linearGradient id="obsidian" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#4a4a4a" />
+                    <stop offset="50%" stop-color="#000000" />
+                    <stop offset="100%" stop-color="#4a4a4a" />
+                </linearGradient>
+                <style>
+                    .logo-body { stroke: url(#obsidian); }
+                    .logo-highlight { stroke: #000000; stroke-opacity: 0.2; }
+                    @media (prefers-color-scheme: dark) {
+                        .logo-body { stroke: url(#silver); }
+                        .logo-highlight { stroke: #FFFFFF; stroke-opacity: 0.3; }
+                    }
+                </style>
+            </defs>
+            <path class="logo-body" d="M 225 91 L 225 305 L 198 305 L 199 330 L 298 330 L 297 305 L 272 304 L 270 230 C 419 227 391 66 278 69 L 273 69 L 267 69 L 200 70 L 200 91 L 219 91 Z M 274 115 C 360 106 358 201 272 188 L 271 121 Z M 163 119 C 45 121 45 274 169 280 L 225 280 L 225 245 L 190 245 C 135 244 126 160 190 155 L 225 155 L 225 120 L 183 119 Z" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+            <path class="logo-highlight" d="M175 275 C 175 220, 240 220, 240 275" stroke-width="4" stroke-linecap="round" transform="translate(2, -2)"/>
+        </svg>
+
+        <span class="brand-name">C H I N M A Y P A T I L</span>
+        
+    </div>
+</div>
+
+        <div class="nav-segment right">
+            <a href="#skills">Skills</a>
+            <a href="#playbook">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+<section id="hero" data-video="vid-hero">
+<div class="sticky-frame">
+    <h1 class="kinetic-text" data-speed="2"> 
+    	Scaling <br> Deep-Tech <br> Ventures
+	</h1>
+    
+    <p class="scrub-anim">
+        Engineering undergrad turned VC analyst. I deconstruct unit economics, size markets from scratch, and stress-test business models so capital flows to founders actually building the future.
+    </p>
+</div>
+</section>
+
+    <section id="about" data-video="none" style="padding: 0;">
+    <div class="about-cinematic">
+        
+        <!-- Full Bleed Background Image -->
+        <img src="about.jpg" alt="Chinmay Patil" class="about-bg-img">
+
+        <!-- Gradient Overlay to make right side readable -->
+        <div class="about-gradient"></div>
+
+        <!-- Text on the RIGHT -->
+        <div class="about-overlay-text scrub-anim">
+            
+            <div class="about-accent-line"></div>
+            
+            <h2>About Me</h2>
+
+            <p class="about-lead">
+                I sit at the intersection of mechanical engineering and venture capital, which means I can read a cap table and a stress-strain curve with equal fluency.
+            </p>
+
+            <p>
+                Currently finishing my Master's across UC Berkeley Haas School of Business, EDHEC Business Schoool and Sungkyunkwan GSB. Last summer I screened 150+ MedTech startups at CRB HealthTech Fund III (Barcelona), built valuation models from scratch, and co-authored an LP report covering a €7.5B market. Before that, I ran international acceleration programs at Incubateur HEC Paris for deep-tech founders from India, South Korea, and Japan — brokering commercial conversations with TotalEnergies, L'Oréal, and Thales.
+            </p>
+
+            <p>
+                My engineering background isn't decorative. It's why I can interrogate a robotics startup's BOM, challenge an AI company's inference cost assumptions, or evaluate whether a hardware moat is real. I believe the best investment decisions happen when financial rigor meets technical honesty.
+            </p>
+
+            <div class="about-location-tag">
+                Berkeley · Paris · Seoul · Pune
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section id="education" data-video="vid-edu">
+    <div class="sticky-frame">
+        
+        <h2 class="scrub-anim" style="margin-bottom: 5px; position: relative; z-index: 20;">Education</h2>
+        <p class="scrub-anim" style="color:#888; margin-bottom: 40px; font-size:0.9rem; position: relative; z-index: 20;">Print academic records</p>
+
+        <div class="synth-deck scrub-anim">
+            
+            <input type="radio" name="edu-group" id="edu1" checked>
+            <input type="radio" name="edu-group" id="edu2">
+            <input type="radio" name="edu-group" id="edu3">
+            <input type="radio" name="edu-group" id="edu4">
+
+            <div class="printer-section">
+                <div class="paper-zone">
+                    
+                    <div class="receipt" id="receipt1">
+                        <div class="receipt-header dot-matrix-text">
+                            <h3>UC Berkeley Haas School of Business</h3>
+                            <p>Global Access Program</p>
+                            <p>2025 - 2026</p>
+                        </div>
+                        <div class="receipt-body dot-matrix-text">
+                            <ul>
+                                It immerses students directly into the Silicon Valley innovation ecosystem. The curriculum focuses heavily on entrepreneurship, technology commercialization, and advanced financial strategies.
+<li>Focus: Deep Tech Deal Valuation and Market Scoping for Americas</Li> 
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="receipt" id="receipt2">
+                        <div class="receipt-header dot-matrix-text">
+                            <h3>Sungkyunkwan GSB</h3>
+                            <p>Master in Management Studies</p>
+                            <p>2024 H1</p>
+                        </div>
+                        <div class="receipt-body dot-matrix-text">
+                            <ul>
+                               It offers a deep dive into the fast-paced Asian corporate landscape and covers advanced management practices and global business strategy.
+                        <li>Focus: Equity Markets and Financial Risk Management</Li> 
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="receipt" id="receipt3">
+                        <div class="receipt-header dot-matrix-text">
+                            <h3>EDHEC Business School</h3>
+                            <p>Master in Management</p>
+                            <p>2023 H2</p>
+                        </div>
+                        <div class="receipt-body dot-matrix-text">
+                            <ul>
+                            A specialized Master in Management focusing on the intersection of global business and technological disruption. It equips students to lead innovation strategies and navigate complex digital transformations.
+                            <li>Focus: Accounting and Corporate Finance</Li> 
+							</ul>
+                        </div>
+                    </div>
+
+                    <div class="receipt" id="receipt4">
+                        <div class="receipt-header dot-matrix-text">
+                            <h3>VIT Pune</h3>
+                            <p>B.Tech Mechanical Engineering</p>
+                            <p>2017 - 2021</p>
+                        </div>
+                        <div class="receipt-body dot-matrix-text">
+                            <ul>
+                                It provides a rigorous foundation in core technical principles and applied physical sciences. The curriculum emphasizes hands-on engineering, advanced manufacturing, and complex system design.
+                                <li>Focus: Calculus, Differential Equations, Mechanics, Computational Software and Manufacturing</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="printer-slit"></div>
+            </div>
+
+            <div class="control-board">
+                <label for="edu1" class="synth-btn">2025 UC Berkeley</label>
+                <label for="edu2" class="synth-btn">2024 SKK GSB</label>
+                <label for="edu3" class="synth-btn">2023 EDHEC</label>
+                <label for="edu4" class="synth-btn">2017 VIT Pune</label>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="experience" data-video="none">
+    <div class="sticky-frame">
+        
+        <h2 class="scrub-anim" style="margin-bottom: 5px; position: relative; z-index: 20;">Experience</h2>
+        <p class="scrub-anim" style="color:#888; margin-bottom: 40px; font-size:0.9rem; position: relative; z-index: 20;">Playback career data</p>
+
+        <div class="tape-deck-side scrub-anim">
+            
+            <input type="radio" name="exp-deck" id="exp1" checked>
+            <input type="radio" name="exp-deck" id="exp2">
+            <input type="radio" name="exp-deck" id="exp3">
+
+            <div class="cassette-window">
+                <div class="tape-reel">
+                    
+                    <div class="job-track" id="track1">
+                        <h3>CRB HealthTech Fund III</h3>
+                        <h4>V Analyst • Jun - Aug 2025</h4>
+                        <ul>
+                            I pre-screened over 150 early-stage startups for pipeline and built financial models, including DCFs and 3-statement projections, to build Investment Memos. My market research report also helped the firm identify high-potential players in Silver-Economy sector.
+                        </ul>
+                    </div>
+
+                    <div class="job-track" id="track2">
+                        <h3>Incubateur HEC Paris</h3>
+                        <h4>Program Officer • 2024 - 2025</h4>
+                        <ul>
+                            I managed the operational roadmap and strategic partnerships for a portfolio of 57 international startups. By connecting founders with essential resources and corporate partners like TotalEnergies, I directly accelerated their growth and market entry in the European ecosystem.
+                        </ul>
+                    </div>
+
+                    <div class="job-track" id="track3">
+                        <h3>APTARA INC</h3>
+                        <h4>Instructional Designer • 2021 - 2023</h4>
+                        <ul>
+                            I designed and developed technical training e-learning content and curriculum for global enterprise clients like PwC and KPMG. By translating complex technical information into highly digestible learning modules, I helped organizations upgrade to the latest system tools faster.
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="deck-controls-vertical">
+                <label for="exp1" class="tape-btn"><span>2025</span></label>
+                <label for="exp2" class="tape-btn"><span>2024</span></label>
+                <label for="exp3" class="tape-btn"><span>2021</span></label>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="skills" class="skills-section" data-video="vid-skills">
+    <div class="sticky-frame">
+        
+        <h2 class="scrub-anim" style="margin-bottom: 5px; position: relative; z-index: 20;">Skills</h2>
+        <p class="scrub-anim" style="color:#888; margin-bottom: 40px; font-size:0.9rem; position: relative; z-index: 20;">Hover over dials to discover</p>
+
+        <div class="telemetry-rig scrub-anim">
+            
+            <div class="rig-screw" style="top: 20px; left: 20px; --rot: 12deg;"></div>
+            <div class="rig-screw" style="top: 20px; right: 20px; --rot: -85deg;"></div>
+            <div class="rig-screw" style="bottom: 20px; left: 20px; --rot: 45deg;"></div>
+            <div class="rig-screw" style="bottom: 20px; right: 20px; --rot: 110deg;"></div>
+            
+            <div class="rig-warning">WARNING - HIGHLY SKILLED ASSET / AUTHORIZED PERSONNEL ONLY</div>
+
+            <div class="hazard-frame">
+                <div class="screen-bezel">
+                    <div class="crt-screen">
+                        
+                        <div class="data-feed id-idle">
+                            <h3 style="color: var(--text-dim); border-bottom-color: #333;">SYSTEM IDLE</h3>
+                            <p style="color: var(--text-main);">AWAITING TELEMETRY LINK...</p>
+                            <p style="color: var(--text-dim); font-size: 0.8rem; margin-top: 30px;">
+                                [INSTRUCTION] <br>
+                                Engage analog dials on the right panel to initialize data stream.
+                            </p>
+                        </div>
+
+                        <!-- FINANCE & VC DATA (CRB HealthTech) -->
+                        <div class="data-feed id-quant">
+                            <h3>FINANCE & VC</h3>
+                            <div class="skill-meter"><div class="skill-fill" style="width: 95%;"></div></div>
+                            <ul style="font-size: 0.85rem; line-height: 1.4;">
+                                <li><strong>Financial Valuation Modeling (LBO and DCF)</strong></li>
+                                <li><strong>Digital Health Startup Deal Sourcing</strong></li>
+                                <li><strong>Investment Committee Due Diligence Memos</strong></li>
+                                <li><strong>Cap Table and Waterfall Return Modeling</strong></li>
+                            </ul>
+                        </div>
+
+                        <!-- OPERATIONS DATA (Station F / TechEquity) -->
+                        <div class="data-feed id-tech">
+                            <h3>STARTUP OPS</h3>
+                            <div class="skill-meter"><div class="skill-fill" style="width: 90%;"></div></div>
+                            <ul style="font-size: 0.85rem; line-height: 1.4;">
+                                <li><strong>Startup Portfolio KPI and OKR Management</strong></li>
+                                <li><strong>Corporate Partnerships and Cloud Sponsor Deals</strong></li>
+                                <li><strong>Go-To-Market B2B Sales Strategy Playbooks</strong></li>
+                                <li><strong>Global Pitch Competitions and Demo Days</strong></li>
+                            </ul>
+                        </div>
+
+                        <!-- INSTRUCTIONAL & TECH COMM (Aptara / IndiaAI) -->
+                        <div class="data-feed id-strat">
+                            <h3>TECH & INSTRUCTION</h3>
+                            <div class="skill-meter"><div class="skill-fill" style="width: 85%;"></div></div>
+                            <ul style="font-size: 0.85rem; line-height: 1.4;">
+                                <li><strong>Machine Learning and Python Curriculum Development</strong></li>
+                                <li><strong>Fortune 500 Enterprise B2B Technical Onboarding</strong></li>
+                                <li><strong>SCORM Compliant Interactive E-Learning Architecture</strong></li>
+                                <li><strong>Multi-Stakeholder AI Policy Ecosystem Building</strong></li>
+                            </ul>
+                        </div>
+
+                        <!-- MECHANICAL ENGINEERING (VIT / Formula Student) -->
+                        <div class="data-feed id-eng">
+                            <h3>MECH ENGINEERING</h3>
+                            <div class="skill-meter"><div class="skill-fill" style="width: 88%;"></div></div>
+                            <ul style="font-size: 0.85rem; line-height: 1.4;">
+                                <li><strong>Formula Student Race Car Aerodynamics Design</strong></li>
+                                <li><strong>SolidWorks and ANSYS FEA/CFD Simulation</strong></li>
+                                <li><strong>Advanced CNC Machining and Carbon-Fiber Layup</strong></li>
+                                <li><strong>Track-Day Telemetry and Powertrain Validation</strong></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-board">
+                
+                <!-- FINANCE DIAL -->
+                <div class="dial-container" data-target="quant" style="--val: 120deg;">
+                    <div class="dial-housing">
+                        <div class="dial-face">
+                            <div class="tick-marks-major"></div>
+                            <div class="tick-marks"></div>
+                            <div class="tick-blocker"></div>
+                            <div class="dial-face-label">FIN</div>
+                            <div class="dial-needle-wrapper">
+                                <div class="dial-needle"><div class="needle-tip"></div></div>
+                            </div>
+                            <div class="dial-hub"><div class="hub-screw"></div></div>
+                        </div>
+                        <div class="dial-glass"></div>
+                    </div>
+                    <div class="engraved-plate">
+                        <div class="screw-mini"></div> FINANCE <div class="screw-mini"></div>
+                    </div>
+                </div>
+
+                <!-- OPERATIONS DIAL -->
+                <div class="dial-container" data-target="tech" style="--val: 100deg;">
+                    <div class="dial-housing">
+                        <div class="dial-face">
+                            <div class="tick-marks-major"></div>
+                            <div class="tick-marks"></div>
+                            <div class="tick-blocker"></div>
+                            <div class="dial-face-label">OPS</div>
+                            <div class="dial-needle-wrapper">
+                                <div class="dial-needle"><div class="needle-tip"></div></div>
+                            </div>
+                            <div class="dial-hub"><div class="hub-screw"></div></div>
+                        </div>
+                        <div class="dial-glass"></div>
+                    </div>
+                    <div class="engraved-plate">
+                        <div class="screw-mini"></div> GROWTH <div class="screw-mini"></div>
+                    </div>
+                </div>
+
+                <!-- INSTRUCTION / TECH DIAL -->
+                <div class="dial-container" data-target="strat" style="--val: 75deg;">
+                    <div class="dial-housing">
+                        <div class="dial-face">
+                            <div class="tick-marks-major"></div>
+                            <div class="tick-marks"></div>
+                            <div class="tick-blocker"></div>
+                            <div class="dial-face-label">EDU</div>
+                            <div class="dial-needle-wrapper">
+                                <div class="dial-needle"><div class="needle-tip"></div></div>
+                            </div>
+                            <div class="dial-hub"><div class="hub-screw"></div></div>
+                        </div>
+                        <div class="dial-glass"></div>
+                    </div>
+                    <div class="engraved-plate">
+                        <div class="screw-mini"></div> RELATIONS <div class="screw-mini"></div>
+                    </div>
+                </div>
+
+                <!-- ENGINEERING DIAL -->
+                <div class="dial-container" data-target="eng" style="--val: 85deg;">
+                    <div class="dial-housing">
+                        <div class="dial-face">
+                            <div class="tick-marks-major"></div>
+                            <div class="tick-marks"></div>
+                            <div class="tick-blocker"></div>
+                            <div class="dial-face-label">ENG</div>
+                            <div class="dial-needle-wrapper">
+                                <div class="dial-needle"><div class="needle-tip"></div></div>
+                            </div>
+                            <div class="dial-hub"><div class="hub-screw"></div></div>
+                        </div>
+                        <div class="dial-glass"></div>
+                    </div>
+                    <div class="engraved-plate">
+                        <div class="screw-mini"></div> ENGINEERING <div class="screw-mini"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="portfolio" data-video="none">
+<div class="sticky-frame">
+        
+        <h2 class="scrub-anim" style="margin-bottom: 5px; position: relative; z-index: 20;">Projects and Blogs</h2>
+        <p class="scrub-anim" style="color:#888; margin-bottom: 10px; font-size:0.9rem; position: relative; z-index: 20;">Click on VCR tapes to play</p>
+
+        <div class="room-layout scrub-anim">
+            
+            <div class="left-wall">
+                <div class="vhs-library" id="vhs-library">
+                    </div>
+            </div>
+
+            <div class="right-desk">
+                <div class="tv-console" id="main-tv">
+                    <div class="tv-screen-container" id="tv-screen">
+                        <div class="tv-glass-glare"></div>
+                        <div class="tv-scanlines"></div>
+                        <iframe id="pdf-viewer" src=""></iframe>
+                    </div>
+                </div>
+
+                <div class="vcr-console">
+                    <div class="vcr-slot-container">
+                        <div class="vcr-inserting-tape" id="anim-tape"></div>
+                    </div>
+                    <div class="vcr-led" id="vcr-led">12:00</div>
+                    <button class="eject-btn" onclick="ejectTape()">⏏ EJECT</button>
+                </div>
+            </div>
+</div>
+</div>
+
+        </div>
+    </section>
+
+
+    <section id="contact" data-video="vid-contact">
+    <h2 class="scrub-anim">Let's Talk</h2>
+    <p class="scrub-anim" style="color: #aaa; margin-top: 20px; font-size: 1.2rem;">Open to conversations about deep-tech investing, portfolio strategy, and what's worth building next.</p>
+    <a href="https://www.linkedin.com/in/chinmay-rajendra-patil/" target="_blank" class="contact-btn scrub-anim">Connect on LinkedIn</a>
+</section>
+
+
+    <script>
+        const videos = {
+            'vid-hero': document.getElementById('vid-hero'),
+            'vid-edu': document.getElementById('vid-edu'),
+            'vid-skills': document.getElementById('vid-skills'),
+	    'vid-contact': document.getElementById('vid-contact')
+        };
+        videos['vid-hero'].play();
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const videoId = entry.target.getAttribute('data-video');
+                    Object.values(videos).forEach(vid => vid.classList.remove('active'));
+                    if (videoId && videos[videoId]) {
+                        videos[videoId].classList.add('active');
+                        videos[videoId].play();
+                    } 
+                }
+            });
+        }, { threshold: 0.4 });
+        document.querySelectorAll('section').forEach(section => sectionObserver.observe(section));
+
+   
+        const cursor = document.getElementById('cursor');
+        const spotlight = document.getElementById('spotlight');
+        window.addEventListener('mousemove', (e) => {
+            window.mouseX = e.clientX; window.mouseY = e.clientY;
+            cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
+            spotlight.style.left = e.clientX + 'px'; spotlight.style.top = e.clientY + 'px';
+        });
+
+        const scrubElements = document.querySelectorAll('.scrub-anim, .scrub-anim-fade');
+        const kineticTexts = document.querySelectorAll('.kinetic-text');
+        function onScroll() {
+            const viewportHeight = window.innerHeight;
+            const scrollY = window.scrollY;
+            scrubElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const distFromBottom = viewportHeight - rect.top;
+                if (distFromBottom > 0 && rect.bottom > 0) {
+                    let slideVal = 100 - (distFromBottom * 0.15);
+                    if (slideVal < 0) slideVal = 0;
+                    let opVal = distFromBottom / 350; if (opVal > 1) opVal = 1;
+                    if (el.classList.contains('scrub-anim-fade')) { el.style.opacity = opVal; }
+                    else { el.style.transform = `translateY(${slideVal}px)`; el.style.opacity = opVal; }
+                } else if (distFromBottom <= 0) {
+                    if (!el.classList.contains('scrub-anim-fade')) el.style.transform = `translateY(100px)`;
+                    el.style.opacity = 0;
+                }
+            });
+            /* FIND THIS PART IN YOUR SCRIPT AND REPLACE IT */
+kineticTexts.forEach(text => {
+    const speed = text.getAttribute('data-speed') || 1;
+    
+    // 1. Keep the moving effect (Parallax)
+    text.style.transform = `translateY(${scrollY * 0.2 * speed}px)`;
+    
+    // 2. NEW: Fade it out as you scroll
+    // The '400' controls how fast it vanishes. 
+    // Lower number (e.g., 200) = vanishes instantly. Higher (e.g., 600) = stays longer.
+    let opacity = 1 - (scrollY / 400); 
+    
+    // Ensure opacity never goes below 0
+    if (opacity < 0) opacity = 0;
+    
+    text.style.opacity = opacity;
+});
+        }
+        window.addEventListener('scroll', onScroll);
+        onScroll();
+ 	// =============================================
+// VHS TAPE LIBRARY — PORTFOLIO
+// =============================================
+const portfolioItems = [
+    { title: "MedTech Fund III", pdf: "01.pdf" },
+    { title: "Market Sizing €7.5B", pdf: "02.pdf" },
+    { title: "LP Report Q3", pdf: "03.pdf" },
+    { title: "DCF Model", pdf: "04.pdf" },
+    { title: "IC Memo Alpha", pdf: "05.pdf" },
+    { title: "Pipeline Tracker", pdf: "06.pdf" },
+    { title: "Tech DD Report", pdf: "07.pdf" },
+    { title: "Comp Analysis", pdf: "08.pdf" },
+    { title: "Term Sheet Rev", pdf: "09.pdf" },
+    { title: "Startup Screen", pdf: "10.pdf" },
+    { title: "BOM Teardown", pdf: "11.pdf" },
+    { title: "SaaS Benchmark", pdf: "12.pdf" },
+    { title: "Inference Cost", pdf: "13.pdf" },
+    { title: "Cap Table Model", pdf: "14.pdf" },
+    { title: "Waterfall Dist", pdf: "15.pdf" },
+    { title: "Sensitivity Mod", pdf: "16.pdf" },
+    { title: "Monte Carlo Sim", pdf: "17.pdf" },
+    { title: "Cohort Analysis", pdf: "18.pdf" },
+    { title: "Unit Economics", pdf: "19.pdf" },
+    { title: "Burn Rate Proj", pdf: "20.pdf" },
+    { title: "Patent Review", pdf: "21.pdf" },
+    { title: "Robotics BOM", pdf: "22.pdf" },
+    { title: "AI Infra Audit", pdf: "23.pdf" },
+    { title: "Regulatory Map", pdf: "24.pdf" },
+    { title: "Growth Model", pdf: "25.pdf" },
+    { title: "Thesis Deep-Tech", pdf: "26.pdf" },
+    { title: "Portfolio Const", pdf: "27.pdf" },
+    { title: "Exit Analysis", pdf: "28.pdf" },
+];
+
+const tapesPerColumn = Math.ceil(portfolioItems.length / 5);
+const vhsLibrary = document.getElementById('vhs-library');
+
+if (vhsLibrary) {
+    for (let col = 0; col < 5; col++) {
+        const shelf = document.createElement('div');
+        shelf.className = 'vhs-shelf';
+
+        const start = col * tapesPerColumn;
+        const end = Math.min(start + tapesPerColumn, portfolioItems.length);
+        const columnItems = portfolioItems.slice(start, end);
+
+        columnItems.forEach(item => {
+            const tape = document.createElement('div');
+            tape.className = 'vhs-tape';
+            tape.onclick = () => loadTape(item.pdf, item.title);
+
+            tape.innerHTML = `
+                <div class="vhs-label">
+                    <span class="vhs-title">${item.title}</span>
+                </div>
+                <div class="vhs-accent"></div>
+            `;
+
+            shelf.appendChild(tape);
+        });
+
+        vhsLibrary.appendChild(shelf);
+    }
+}
+
+// =============================================
+// VCR TAPE LOADING
+// =============================================
+let currentTape = null;
+
+function loadTape(pdfUrl, title) {
+    const viewer = document.getElementById('pdf-viewer');
+    const led = document.getElementById('vcr-led');
+    const animTape = document.getElementById('anim-tape');
+    const tvScreen = document.getElementById('tv-screen');
+
+    if (currentTape) {
+        viewer.style.opacity = '0';
+        viewer.src = '';
+    }
+
+    animTape.classList.remove('insert-anim');
+    void animTape.offsetWidth;
+    animTape.classList.add('insert-anim');
+
+    led.textContent = 'LOAD';
+    led.style.color = 'var(--neon-cyan)';
+
+    tvScreen.classList.remove('tv-flicker');
+    void tvScreen.offsetWidth;
+    tvScreen.classList.add('tv-flicker');
+
+    setTimeout(() => {
+        viewer.src = pdfUrl;
+        viewer.style.opacity = '1';
+        led.textContent = '▶ PLAY';
+        currentTape = title;
+    }, 800);
+}
+
+function ejectTape() {
+    const viewer = document.getElementById('pdf-viewer');
+    const led = document.getElementById('vcr-led');
+    const animTape = document.getElementById('anim-tape');
+
+    viewer.style.opacity = '0';
+    setTimeout(() => { viewer.src = ''; }, 500);
+
+    animTape.classList.remove('insert-anim');
+    led.textContent = '12:00';
+    currentTape = null;
+}
+    </script>
+</body>
+</html>
