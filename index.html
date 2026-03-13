@@ -1430,7 +1430,7 @@ height: 500px;
 </section>
 
 
-<section id="education" data-video="vid-edu">
+<section id="education">
     <div class="sticky-frame">
         
         <h2 class="scrub-anim" style="margin-bottom: 5px; position: relative; z-index: 20;">Education</h2>
@@ -1559,15 +1559,14 @@ height: 500px;
                             </p>
                         </div>
 
-                        <!-- FINANCE & VC DATA (CRB HealthTech) -->
                         <div class="data-feed id-quant">
                             <h3>FINANCE & VC</h3>
                             <div class="skill-meter"><div class="skill-fill" style="width: 95%;"></div></div>
                             <ul style="font-size: 0.85rem; line-height: 1.4;">
-                                <li><strong>Financial Valuation Modeling (LBO and DCF)</strong></li>
-                                <li><strong>Digital Health Startup Deal Sourcing</strong></li>
+                                <li><strong>3-Statement and DCF Financial Modeling</strong></li>
+                                <li><strong>Early-Stage Tech Startup Deal Sourcing</strong></li>
                                 <li><strong>Investment Committee Due Diligence Memos</strong></li>
-                                <li><strong>Cap Table and Waterfall Return Modeling</strong></li>
+                                <li><strong>Cap Table and Scenario Return Analysis</strong></li>
                             </ul>
                         </div>
 
@@ -1576,10 +1575,10 @@ height: 500px;
                             <h3>STARTUP OPS</h3>
                             <div class="skill-meter"><div class="skill-fill" style="width: 90%;"></div></div>
                             <ul style="font-size: 0.85rem; line-height: 1.4;">
-                                <li><strong>Startup Portfolio KPI and OKR Management</strong></li>
-                                <li><strong>Corporate Partnerships and Cloud Sponsor Deals</strong></li>
-                                <li><strong>Go-To-Market B2B Sales Strategy Playbooks</strong></li>
-                                <li><strong>Global Pitch Competitions and Demo Days</strong></li>
+                                <li><strong>Portfolio Roadmap and KPI Management</strong></li>
+                                <li><strong>Strategic Corporate Partnerships and Resource Allocation</strong></li>
+                                <li><strong>Go-To-Market B2B Growth Strategies</strong></li>
+                                <li><strong>Large-Scale Tech Summit Event Logistics</strong></li>
                             </ul>
                         </div>
 
@@ -1588,10 +1587,10 @@ height: 500px;
                             <h3>TECH & INSTRUCTION</h3>
                             <div class="skill-meter"><div class="skill-fill" style="width: 85%;"></div></div>
                             <ul style="font-size: 0.85rem; line-height: 1.4;">
+                                <li><strong>Scalable Technical Training Content Design</strong></li>
                                 <li><strong>Machine Learning and Python Curriculum Development</strong></li>
-                                <li><strong>Fortune 500 Enterprise B2B Technical Onboarding</strong></li>
-                                <li><strong>SCORM Compliant Interactive E-Learning Architecture</strong></li>
-                                <li><strong>Multi-Stakeholder AI Policy Ecosystem Building</strong></li>
+                                <li><strong>Enterprise Client Technical Integrations</strong></li>
+                                <li><strong>National AI Ecosystem Community Building</strong></li>
                             </ul>
                         </div>
 
@@ -1600,10 +1599,10 @@ height: 500px;
                             <h3>MECH ENGINEERING</h3>
                             <div class="skill-meter"><div class="skill-fill" style="width: 88%;"></div></div>
                             <ul style="font-size: 0.85rem; line-height: 1.4;">
-                                <li><strong>Formula Student Race Car Aerodynamics Design</strong></li>
-                                <li><strong>SolidWorks and ANSYS FEA/CFD Simulation</strong></li>
-                                <li><strong>Advanced CNC Machining and Carbon-Fiber Layup</strong></li>
-                                <li><strong>Track-Day Telemetry and Powertrain Validation</strong></li>
+                                <li><strong>Formula Student Automotive Systems Engineering</strong></li>
+                                <li><strong>CAD Prototyping and 3D Modeling</strong></li>
+                                <li><strong>Thermodynamics and Applied Physical Sciences</strong></li>
+                                <li><strong>Hardware Testing and Performance Telemetry</strong></li>
                             </ul>
                         </div>
 
@@ -1927,9 +1926,9 @@ function ejectTape() {
 }
 
 // ==========================================
-// CAROUSEL LOGIC
+// CAROUSEL LOGIC (UPDATED FOR UNIQUE BACKGROUNDS)
 // ==========================================
-function initCarousel(carouselId, sectionId) {
+function initCarousel(carouselId, sectionId, backgroundImages) {
     const wrapper = document.getElementById(carouselId);
     if (!wrapper) return;
     
@@ -1937,25 +1936,23 @@ function initCarousel(carouselId, sectionId) {
     const prevBtn = wrapper.querySelector('.prev-btn');
     const nextBtn = wrapper.querySelector('.next-btn');
     const section = document.getElementById(sectionId);
-    
-    // Translucent radial gradients to tint the video/particles behind it
-    const backgrounds = [
-        'radial-gradient(circle at center, rgba(0, 243, 255, 0.08) 0%, rgba(0,0,0,0) 70%)',
-        'radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0%, rgba(0,0,0,0) 70%)',
-        'radial-gradient(circle at center, rgba(255, 126, 95, 0.08) 0%, rgba(0,0,0,0) 70%)',
-        'radial-gradient(circle at center, rgba(56, 239, 125, 0.08) 0%, rgba(0,0,0,0) 70%)'
-    ];
 
     let currentIndex = 0;
     const cards = track.querySelectorAll('.card');
     const totalCards = cards.length;
 
-    // Smooth background tint transition for the section
+    // Smooth transition for the section background
     section.style.transition = "background 0.8s ease-in-out";
 
     function updateCarousel() {
+        // Slide the cards
         track.style.transform = `translateX(-${currentIndex * 100}%)`;
-        section.style.background = backgrounds[currentIndex];
+        
+        // Change the background image of the section with a dark overlay
+        section.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${backgroundImages[currentIndex]}')`;
+        section.style.backgroundSize = "cover";
+        section.style.backgroundPosition = "center";
+        section.style.backgroundRepeat = "no-repeat";
     }
 
     nextBtn.addEventListener('click', () => {
@@ -1971,10 +1968,29 @@ function initCarousel(carouselId, sectionId) {
     updateCarousel(); // Initialize first state
 }
 
-// Initialize both carousels
+// ==========================================
+// INITIALIZE WITH DIFFERENT IMAGES
+// ==========================================
 document.addEventListener("DOMContentLoaded", () => {
-    initCarousel('edu-carousel', 'education');
-    initCarousel('exp-carousel', 'experience');
+    
+    // 1. Put your 4 Education background images here
+    const educationImages = [
+        "haas.jpg", // Card 1: Berkeley
+        "skk.jpg",      // Card 2: SKK GSB
+        "edhec.jpg",    // Card 3: EDHEC
+        "vit.jpg"       // Card 4: VIT Pune
+    ];
+
+    // 2. Put your 4 Experience background images here
+    const experienceImages = [
+        "crb.jpg",  // Card 1: VC Analyst
+        "hec.jpg",      // Card 2: Incubateur HEC
+        "aptara.jpg"          // Card 3: Aptara
+    ];
+
+    // Start both carousels with their unique image lists!
+    initCarousel('edu-carousel', 'education', educationImages);
+    initCarousel('exp-carousel', 'experience', experienceImages);
 });
     </script>
 </body>
