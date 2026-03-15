@@ -22,8 +22,6 @@ The site is built completely without heavy UI libraries, relying on advanced CSS
 * CSS3: Advanced styling including `clip-path`, `linear-gradient` shading, layered `box-shadow` for 3D depth, and CSS animations.
 * Vanilla JavaScript (ES6): Lightweight DOM manipulation for the custom carousel logic and background synchronization. No external libraries or dependencies.
 
-🚀 Running Locally
-
 🤝 Let's Connect
 
 Feel free to reach out if you want to discuss tech, business strategy, or this project!
