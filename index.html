@@ -83,8 +83,7 @@
     --transition-glacial: 1s;
 
     /* 9. PORTFOLIO TERMINAL */
-    --tv-max-width: 1400px;
-    --tv-screen-ratio: 1 / 1;
+    --tv-max-width: 1500px;
     --tv-screen-max-h: calc(var(--section-height) - 10px);
     --tv-border: 12px;
     --tv-radius: 14px;
@@ -582,7 +581,7 @@ h2 { font-size: var(--text-3xl); }
 /* The Cards */
 .card {
     min-width: 100%;
-    height: 240px;
+    height: 340px;
     position: relative;
     border-radius: 12px;
     box-sizing: border-box;
@@ -632,9 +631,9 @@ h2 { font-size: var(--text-3xl); }
     gap: 12px;
     margin-bottom: 8px;
 }
-.tl-role { font-size: 1.2rem; font-weight: 700; color: #fff; line-height: 1.2; }
-.tl-date { font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; color: #fff; white-space: nowrap; }
-.tl-meta { font-size: 1rem; color: #fff; margin-bottom: 12px; font-weight: 600; }
+.tl-role { font-size: 1.9rem; font-weight: 700; color: #fff; line-height: 1.2; }
+.tl-date { font-size: 1.15rem; letter-spacing: 1px; text-transform: uppercase; color: #fff; white-space: nowrap; }
+.tl-meta { font-size: 1.2rem; color: #fff; margin-bottom: 12px; font-weight: 600; }
 .tl-desc { font-size: 0.95rem; line-height: 1.5; color: #fff; }
 
 @media (max-width: 768px) {
@@ -982,8 +981,8 @@ h2 { font-size: var(--text-3xl); }
    ============================================= */
 #portfolio {
     width: 100%;
-    height: 1400px;
-    max-height: 1000px;
+    height: 1500px;
+    max-height: 1100px;
     position: relative;
     z-index: 2;
     display: flex;
@@ -1029,7 +1028,7 @@ background-attachment: fixed;
 
 .left-wall {
     flex: 0 0 auto;
-    width: 580px;
+    width: 620px;
     max-height: 1400px;
     display: flex;
     flex-direction: column;
@@ -1052,8 +1051,8 @@ background-attachment: fixed;
 
 /* TV Console */
 .tv-console {
-height: 500px;
-    width: 500px;
+    width: 630px;
+height: 520px;
     max-width: var(--tv-max-width);
     background: linear-gradient(135deg, #1f1f1f 0%, #0a0a0a 100%);
     border-radius: 10px 10px 4px 4px;
@@ -1080,7 +1079,7 @@ height: 500px;
 
 .tv-screen-container {
     width: 100%;
-    aspect-ratio: var(--tv-screen-ratio);
+    height: 95%;
     max-height: var(--tv-screen-max-h);
     background: #020202;
     border-radius: var(--tv-radius);
@@ -1240,7 +1239,7 @@ height: 500px;
     display: flex;
     height: 100%;
     flex-direction: column;
-    gap: 6px;
+    gap: 2px;
     padding: 8px 6px 12px 6px;
     position: relative;
     /* The actual shelf plank */
@@ -1291,7 +1290,7 @@ height: 500px;
 }
 .vhs-tape {
     width: 100%;
-    height: 28px;
+    height: 21px;
     background: linear-gradient(to bottom, #111 0%, #1a1a1a 10%, #111 100%);
     border-top: 1px solid #2a2a2a;
     border-bottom: 1px solid #000;
@@ -1493,7 +1492,7 @@ height: 500px;
 <section id="hero" data-video="vid-hero">
 <div class="sticky-frame">
     <h1 class="kinetic-text liquid-glass-text" data-speed="2"> 
-    	Building <br> Scaling <br> Investing
+    	Building. <br> Scaling. <br> Investing.
 	</h1>
     
     <p class="scrub-anim">
@@ -1553,17 +1552,17 @@ height: 500px;
                 <div class="card-glass"></div><div class="card-texture"></div>
                 <div class="card-content">
                     <div class="tl-top"><div class="tl-role">UC Berkeley Haas School of Business</div><div class="tl-date">2025–2026</div></div>
-                    <div class="tl-meta">Global Access Program</div>
-                    <div class="tl-desc">It immerses students directly into the Silicon Valley innovation ecosystem. The curriculum focuses heavily on entrepreneurship, technology commercialization, and advanced financial strategies. <li>Focus: Deep Tech Deal Valuation and Market Scoping for Americas</Li> </div>
+                    <div class="tl-meta"><br> Global Access Program</div>
+                    <div class="tl-desc">It immerses students directly into the Silicon Valley innovation ecosystem. The curriculum focuses heavily on entrepreneurship, technology commercialization, and advanced financial strategies. <br> <br> Focus: Deep Tech Deal Valuation and Market Scoping for Americas. </div>
                 </div>
             </div>
             <div class="card">
                 <div class="card-glass"></div><div class="card-texture"></div>
                 <div class="card-content">
                     <div class="tl-top"><div class="tl-role">Sungkyunkwan GSB</div><div class="tl-date">2024 H1</div></div>
-                    <div class="tl-meta">Master in Management Studies</div>
+                    <div class="tl-meta"><br> Master in Management Studies</div>
                     <div class="tl-desc">It offers a deep dive into the fast-paced Asian corporate landscape and covers advanced management practices and global business strategy.
-                        <li>Focus: Equity Markets and Financial Risk Management</Li> 
+                        <br> <br>Focus: Equity Markets and Financial Risk Management.
 </div>
                 </div>
             </div>
@@ -1571,18 +1570,18 @@ height: 500px;
                 <div class="card-glass"></div><div class="card-texture"></div>
                 <div class="card-content">
                     <div class="tl-top"><div class="tl-role">EDHEC Business School</div><div class="tl-date">2023 H2</div></div>
-                    <div class="tl-meta">Master in Management</div>
+                    <div class="tl-meta"><br> Master in Management</div>
                     <div class="tl-desc"> A specialized Master in Management focusing on the intersection of global business and technological disruption. It equips students to lead innovation strategies and navigate complex digital transformations.
-                            <li>Focus: Accounting and Corporate Finance</Li> </div>
+                            <br> <br>Focus: Accounting and Corporate Finance. </div>
                 </div>
             </div>
             <div class="card">
                 <div class="card-glass"></div><div class="card-texture"></div>
                 <div class="card-content">
                     <div class="tl-top"><div class="tl-role">VIT Pune</div><div class="tl-date">2017–2021</div></div>
-                    <div class="tl-meta">B.Tech Mechanical Engineering</div>
+                    <div class="tl-meta"><br> B.Tech Mechanical Engineering</div>
                     <div class="tl-desc">It provides a rigorous foundation in core technical principles and applied physical sciences. The curriculum emphasizes hands-on engineering, advanced manufacturing, and complex system design.
-                                <li>Focus: Calculus, Differential Equations, Mechanics, Computational Software and Manufacturing</li>
+                                <br> <br>Focus: Calculus, Differential Equations, Mechanics, Computational Software and Manufacturing.
 </div>
                 </div>
             </div>
@@ -1609,7 +1608,7 @@ height: 500px;
                 <div class="card-glass"></div><div class="card-texture"></div>
                 <div class="card-content">
                     <div class="tl-top"><div class="tl-role">CRB HealthTech Fund III · Barcelona</div><div class="tl-date">Q3-2025</div></div>
-                    <div class="tl-meta">Visiting Analyst </div>
+                    <div class="tl-meta"><br> Visiting Analyst </div>
                     <div class="tl-desc">I pre-screened over 150 early-stage startups for pipeline and built financial models, including DCFs and 3-statement projections, to build Investment Memos. My market research report also helped the firm identify high-potential players in Silver-Economy sector.
 </div>
                 </div>
@@ -1618,7 +1617,7 @@ height: 500px;
                 <div class="card-glass"></div><div class="card-texture"></div>
                 <div class="card-content">
                     <div class="tl-top"><div class="tl-role">Incubateur HEC Paris . Paris</div><div class="tl-date">2024–2025</div></div>
-                    <div class="tl-meta">International Program Manager</div>
+                    <div class="tl-meta"><br> International Program Manager</div>
                     <div class="tl-desc">I managed the operational roadmap and strategic partnerships for a portfolio of 57 international startups. By connecting founders with essential resources and corporate partners like TotalEnergies, I directly accelerated their growth and market entry in the European ecosystem.
 </div>
                 </div>
@@ -1627,7 +1626,7 @@ height: 500px;
                 <div class="card-glass"></div><div class="card-texture"></div>
                 <div class="card-content">
                     <div class="tl-top"><div class="tl-role">Aptara Inc.</div><div class="tl-date">2021–2023</div></div>
-                    <div class="tl-meta">Instructional Designer · Pune</div>
+                    <div class="tl-meta"><br> Instructional Designer · Pune</div>
                     <div class="tl-desc"> I designed and developed technical training e-learning content and curriculum for global enterprise clients like PwC and KPMG. By translating complex technical information into highly digestible learning modules, I helped organizations upgrade to the latest system tools faster.</div>
                 </div>
             </div>
