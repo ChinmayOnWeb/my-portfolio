@@ -206,9 +206,9 @@ section {
 #skills {
     position: relative;
     width: 100%;
-    height: var(--section-height) !important;
-    min-height: var(--section-height) !important;
-    max-height: var(--section-height) !important;
+    height: 120vh !important;
+    //min-height: var(--section-height) !important;
+    //max-height: var(--section-height) !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -651,7 +651,8 @@ h2 { font-size: var(--text-3xl); }
 .skills-section {
     /* Uses your global padding variables if available, otherwise defaults */
     padding: var(--section-padding-top, 70px) var(--section-padding-x, 5vw) var(--section-padding-bottom, 40px);
-    min-height: var(--section-height, 100vh);  
+    height: 140vh;
+    //min-height: var(--section-height, 100vh);  
     display: flex;
     justify-content: center;
     align-items: center;
@@ -755,7 +756,7 @@ h2 { font-size: var(--text-3xl); }
     --text-dim: #777;
     --danger-red: #ff3b30;
     --aviation-yellow: #4f4f4f;
-    
+    height: 80vh;
     width: 100%;
     max-width: 950px;
     //font-family: 'Courier New', Courier, monospace; /* Overrides Space Grotesk for the terminal look */
@@ -809,7 +810,7 @@ h2 { font-size: var(--text-3xl); }
 }
 
 .crt-screen {
-    background: var(--screen-bg); height: 320px; border-radius: 6px; padding: 25px;
+    background: var(--screen-bg); height: 420px; border-radius: 6px; padding: 25px;
     color: var(--text-main); overflow: hidden; position: relative;
     box-shadow: inset 0 0 40px rgba(0, 0, 0, 1), 0 0 0 2px #000; box-sizing: border-box;
 }
@@ -1681,10 +1682,10 @@ height: 520px;
                             <h3>FINANCIAL ANALYSIS</h3>
                             <div class="skill-meter"><div class="skill-fill" style="width: 95%;"></div></div>
                             <ul style="font-size: 0.85rem; line-height: 1.4;">
-                                <li><strong>3-Statement and DCF Modeling [CRB HEALTHTECH FUND III]</strong></li><br>
-                                <li><strong>Accretion/dilution analysis and LBO [UC BERKELEY HAAS]</strong></li><br>
-                                <li><strong>Investment Committee Due Diligence Memos [CRB HEALTHTECH FUND III]</strong></li><br>
-                                <li><strong>Cap Table and Scenario Return Analysis [CRB HEALTHTECH FUND III]</strong></li>
+                                <li><strong>3-Statement and DCF Modeling <br>[CRB HEALTHTECH FUND III]</strong></li><br>
+                                <li><strong>Accretion/dilution analysis and LBO <br>[UC BERKELEY HAAS]</strong></li><br>
+                                <li><strong>Investment Committee Due Diligence Memos <br>[CRB HEALTHTECH FUND III]</strong></li><br>
+                                <li><strong>Cap Table and Scenario Return Analysis <br>[CRB HEALTHTECH FUND III]</strong></li>
                             </ul>
                         </div>
 
@@ -1693,10 +1694,10 @@ height: 520px;
                             <h3>PARTNERSHIPS AND OPS</h3>
                             <div class="skill-meter"><div class="skill-fill" style="width: 90%;"></div></div>
                             <ul style="font-size: 0.85rem; line-height: 1.4;">
-                                <li><strong>Portfolio Roadmap and KPI Management [INCUBATEUR HEC PARIS]</strong></li><br>
-                                <li><strong>Strategic Corporate Partnerships and Resource Allocation [INCUBATEUR HEC PARIS]</strong></li><br>
-                                <li><strong>Go-To-Market B2B Growth Strategies [INCUBATEUR HEC PARIS]</strong></li><br>
-                                <li><strong>Large-Scale Tech Event Logistics [DeveloperWeek 2026 & TechEquity AI Summit 2025]</strong></li>
+                                <li><strong>Portfolio Roadmap and KPI Management <br>[INCUBATEUR HEC PARIS]</strong></li><br>
+                                <li><strong>Strategic Corporate Partnerships and Resource Allocation <br>[INCUBATEUR HEC PARIS]</strong></li><br>
+                                <li><strong>Go-To-Market B2B Growth Strategies <br>[INCUBATEUR HEC PARIS]</strong></li><br>
+                                <li><strong>Large-Scale Tech Event Logistics <br>[DeveloperWeek 2026 & TechEquity AI Summit 2025]</strong></li>
                             </ul>
                         </div>
 
@@ -1705,10 +1706,10 @@ height: 520px;
                             <h3>TECHNICAL & AI</h3>
                             <div class="skill-meter"><div class="skill-fill" style="width: 85%;"></div></div>
                             <ul style="font-size: 0.85rem; line-height: 1.4;">
-                                <li><strong>Generative AI Workflow and Agent Development [INCUBATEUR HEC PARIS & UC BERKELEY HAAS]</strong></li><br>
-                                <li><strong>Python Data Analysis and Web Scraping [UC BERKELEY HAAS]</strong></li><br>
-                                <li><strong>Full-Stack Application Prototyping with Streamlit [UC BERKELEY HAAS]</strong></li><br>
-                                <li><strong>Advanced Excel and PowerBI Visualization [CRB HEALTHTECH FUND III and UC BERKELEY HAAS]</strong></li>
+                                <li><strong>Generative AI Workflow and Agent Development <br>[INCUBATEUR HEC PARIS & UC BERKELEY HAAS]</strong></li><br>
+                                <li><strong>Python Data Analysis and Web Scraping <br>[UC BERKELEY HAAS]</strong></li><br>
+                                <li><strong>Full-Stack Application Prototyping with Streamlit <br>[UC BERKELEY HAAS]</strong></li><br>
+                                <li><strong>Advanced Excel and PowerBI Visualization <br>[CRB HEALTHTECH FUND III and UC BERKELEY HAAS]</strong></li>
                             </ul>
                         </div>
 
@@ -1717,10 +1718,10 @@ height: 520px;
                             <h3>MECH ENGINEERING</h3>
                             <div class="skill-meter"><div class="skill-fill" style="width: 88%;"></div></div>
                             <ul style="font-size: 0.85rem; line-height: 1.4;">
-                                <li><strong>Formula Automotive Systems Engineering [VIT PUNE]</strong></li><br>
-                                <li><strong>CAD Prototyping and 3D Modeling [VIT PUNE]</strong></li><br>
-                                <li><strong>Thermodynamics and Applied Physical Sciences [VIT PUNE]</strong></li><br>
-                                <li><strong>Hardware Testing and Performance Telemetry [VIT PUNE]</strong></li>
+                                <li><strong>Formula Automotive Systems Engineering <br>[VIT PUNE]</strong></li><br>
+                                <li><strong>CAD Prototyping and 3D Modeling <br>[VIT PUNE]</strong></li><br>
+                                <li><strong>Thermodynamics and Applied Physical Sciences <br>[VIT PUNE]</strong></li><br>
+                                <li><strong>Hardware Testing and Performance Telemetry <br>[VIT PUNE]</strong></li>
                             </ul>
                         </div>
 
@@ -1731,7 +1732,7 @@ height: 520px;
             <div class="control-board">
                 
                 <!-- FINANCE DIAL -->
-                <div class="dial-container" data-target="quant" style="--val: 120deg;">
+                <div class="dial-container" data-target="quant" style="--val: 55deg;">
                     <div class="dial-housing">
                         <div class="dial-face">
                             <div class="tick-marks-major"></div>
@@ -1751,7 +1752,7 @@ height: 520px;
                 </div>
 
                 <!-- OPERATIONS DIAL -->
-                <div class="dial-container" data-target="tech" style="--val: 100deg;">
+                <div class="dial-container" data-target="tech" style="--val: 120deg;">
                     <div class="dial-housing">
                         <div class="dial-face">
                             <div class="tick-marks-major"></div>
@@ -1771,7 +1772,7 @@ height: 520px;
                 </div>
 
                 <!-- INSTRUCTION / TECH DIAL -->
-                <div class="dial-container" data-target="strat" style="--val: 75deg;">
+                <div class="dial-container" data-target="strat" style="--val: 10deg;">
                     <div class="dial-housing">
                         <div class="dial-face">
                             <div class="tick-marks-major"></div>
@@ -1786,12 +1787,12 @@ height: 520px;
                         <div class="dial-glass"></div>
                     </div>
                     <div class="engraved-plate">
-                        <div class="screw-mini"></div> RELATIONS <div class="screw-mini"></div>
+                        <div class="screw-mini"></div> OPS <div class="screw-mini"></div>
                     </div>
                 </div>
 
                 <!-- ENGINEERING DIAL -->
-                <div class="dial-container" data-target="eng" style="--val: 85deg;">
+                <div class="dial-container" data-target="eng" style="--val: 115deg;">
                     <div class="dial-housing">
                         <div class="dial-face">
                             <div class="tick-marks-major"></div>
