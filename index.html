@@ -299,6 +299,17 @@ section {
     z-index: 9998;
 }
 
+@media (hover: none), (pointer: coarse) {
+    * {
+        cursor: auto !important;
+    }
+
+    #cursor,
+    #spotlight {
+        display: none !important;
+    }
+}
+
 /* =============================================
    NAV — NOTCH SYSTEM
    ============================================= */
@@ -956,6 +967,25 @@ h2 {
     background: linear-gradient(180deg, rgba(4,5,6,0.98), rgba(2,2,3,1)); height: 420px; border-radius: 10px; padding: 25px;
     color: var(--text-main); overflow: hidden; position: relative;
     box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255,255,255,0.06); box-sizing: border-box;
+}
+
+.crt-screen .data-feed {
+    height: 100%;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.crt-screen .data-feed::-webkit-scrollbar {
+    width: 6px;
+}
+
+.crt-screen .data-feed::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+}
+
+.crt-screen .data-feed::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.18);
+    border-radius: 999px;
 }
 
 
@@ -1745,6 +1775,337 @@ height: 520px;
     .left-wall { 
         /* Allow the scroll area to be a bit taller on mobile so users can see the stacked shelves */
         max-height: 400px; 
+    }
+}
+
+@media (max-width: 900px) {
+    html {
+        scroll-snap-type: none;
+    }
+
+    section {
+        height: auto;
+        min-height: auto;
+        padding: 92px 20px 48px;
+        overflow: visible;
+    }
+
+    #hero,
+    #contact,
+    #skills {
+        height: auto !important;
+        min-height: 100svh !important;
+        max-height: none !important;
+    }
+
+    #education,
+    #experience,
+    #about {
+        min-height: auto !important;
+    }
+
+    #education .sticky-frame,
+    #experience .sticky-frame {
+        justify-content: center;
+        align-items: center;
+        min-height: calc(100svh - 140px);
+    }
+
+    .sticky-frame {
+        height: auto;
+        max-height: none;
+        overflow: visible;
+        padding-top: 0;
+    }
+
+    nav {
+        padding: 8px 12px 0;
+    }
+
+    .notch {
+        width: auto;
+        max-width: calc(100vw - 24px);
+        padding: 14px 20px;
+        border-radius: 20px;
+        border-top: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .brand-name {
+        font-size: 0.95rem;
+        letter-spacing: 0.18em;
+    }
+
+    #hero .sticky-frame {
+        min-height: calc(100svh - 100px);
+        justify-content: center;
+        gap: 18px;
+    }
+
+    #hero h1 {
+        font-size: clamp(3.2rem, 13vw, 5.6rem);
+        line-height: 0.98;
+        letter-spacing: 1px;
+    }
+
+    #hero p {
+        max-width: 100%;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .about-cinematic {
+        min-height: auto;
+    }
+
+    .about-overlay-text {
+        width: min(100%, 640px);
+        min-height: auto;
+        padding: 72px 24px 56px;
+    }
+
+    .about-overlay-text h2 {
+        font-size: clamp(2.2rem, 8vw, 3rem);
+    }
+
+    .about-overlay-text p {
+        font-size: 0.98rem;
+        line-height: 1.7;
+    }
+
+    .carousel-wrapper {
+        width: 100%;
+        margin-top: 12px;
+    }
+
+    .telemetry-rig {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .crt-screen {
+        height: 300px;
+    }
+
+    .rig-warning {
+        position: static;
+        transform: none;
+        margin-top: 12px;
+    }
+
+    #portfolio {
+        min-height: auto;
+        padding: 92px 20px 56px;
+    }
+
+    #portfolio .sticky-frame {
+        padding-bottom: 48px;
+    }
+
+    .room-layout {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .left-wall,
+    .right-desk {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .left-wall {
+        max-height: 460px;
+    }
+
+    .vhs-library {
+        height: auto;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .tv-console {
+        width: 100%;
+        height: min(68vh, 520px);
+    }
+
+    .vcr-console {
+        width: 100%;
+    }
+
+    #contact {
+        text-align: center;
+    }
+
+    .contact-btn {
+        width: min(100%, 320px);
+        text-align: center;
+        padding: 18px 28px;
+    }
+}
+
+@media (max-width: 640px) {
+    body {
+        width: 100%;
+    }
+
+    .notch {
+        padding: 12px 16px;
+        border-radius: 18px;
+    }
+
+    .notch .logo {
+        gap: 10px;
+    }
+
+    .notch .logo svg {
+        height: 24px;
+    }
+
+    .brand-name {
+        font-size: 0.78rem;
+        letter-spacing: 0.14em;
+    }
+
+    #hero h1 {
+        font-size: clamp(2.8rem, 14vw, 4.3rem);
+    }
+
+    #hero p {
+        font-size: 0.95rem;
+    }
+
+    #about {
+        background-position: 18% center !important;
+    }
+
+    .about-overlay-text {
+        padding: 72px 20px 48px;
+    }
+
+    .about-location-tag {
+        letter-spacing: 0.18em;
+        line-height: 1.8;
+    }
+
+    .carousel-viewport {
+        padding: 18px 0 12px;
+    }
+
+    .carousel-track {
+        height: 380px;
+    }
+
+    .card {
+        width: min(86vw, 360px);
+        min-width: min(86vw, 360px);
+        height: 320px;
+        top: 14px;
+    }
+
+    .card.is-prev,
+    .card.is-next {
+        opacity: 0.12;
+    }
+
+    .card.is-prev { transform: translateX(calc(-50% - 56%)) translateY(26px) scale(0.72); }
+    .card.is-next { transform: translateX(calc(-50% + 56%)) translateY(26px) scale(0.72); }
+
+    .card-content {
+        padding: 20px 18px 18px;
+    }
+
+    .tl-role {
+        font-size: 1.38rem;
+        max-width: 100%;
+    }
+
+    .tl-date {
+        font-size: 0.72rem;
+    }
+
+    .tl-meta {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    .tl-desc {
+        font-size: 0.84rem;
+        line-height: 1.5;
+        max-width: 100%;
+    }
+
+    .telemetry-rig {
+        padding: 22px 16px;
+        gap: 22px;
+        border-radius: 16px;
+    }
+
+    .screen-bezel,
+    .crt-screen {
+        padding: 16px;
+    }
+
+    .crt-screen {
+        height: 240px;
+    }
+
+    .data-feed ul {
+        font-size: 0.8rem;
+        line-height: 1.7;
+    }
+
+    .control-board {
+        gap: 16px;
+    }
+
+    #portfolio {
+        padding: 88px 16px 48px;
+    }
+
+    .left-wall {
+        max-height: 380px;
+    }
+
+    .tv-console {
+        height: min(54vh, 360px);
+    }
+
+    .tv-overlay {
+        top: 12px;
+        left: 12px;
+        width: min(220px, calc(100% - 24px));
+        padding: 10px 11px;
+    }
+
+    .tv-overlay.is-playing {
+        max-width: 190px;
+        padding: 8px 10px;
+    }
+
+    .vcr-console {
+        height: auto;
+        min-height: 76px;
+        padding: 12px 14px;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .vcr-console::before {
+        display: none;
+    }
+
+    .vcr-led {
+        margin-right: 0;
+    }
+
+    .vhs-shelf {
+        padding-right: 10px;
+    }
+
+    .contact-btn {
+        font-size: 1rem;
     }
 }
 
