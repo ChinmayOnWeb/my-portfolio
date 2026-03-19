@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chinmay Patil | Investments and Growth Strategy</title>
+    <title>Chinmay Patil | Investing, Growth, and Deep-Tech Strategy</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -88,7 +88,7 @@
     --tv-border: 12px;
     --tv-radius: 14px;
     --vcr-height: 85px;
-    --tape-width: 36px;
+    --tape-width: 56px;
     --tape-height: 140px;
     --shelf-gap: 18px;
     --tapes-per-shelf: 7;
@@ -441,50 +441,48 @@ h2 { font-size: var(--text-3xl); }
    ============================================= */
 #about {
     background-color: #000 !important;
+    background-image:
+        linear-gradient(
+            to right,
+            rgba(0,0,0,0) 0%,
+            rgba(0,0,0,0.15) 30%,
+            rgba(0,0,0,0.65) var(--about-gradient-start),
+            rgba(0,0,0,0.88) 65%,
+            rgba(0,0,0,0.95) 80%,
+            rgba(0,0,0,1) 100%
+        ),
+        url('about.jpg');
+    background-size: cover;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     padding: 0 !important;
     min-height: var(--section-height) !important;
-    height: var(--section-height) !important;
+    height: auto !important;
     display: block !important;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .about-cinematic {
     position: relative;
-    width: 100%; height: 100vh;
-    overflow: hidden;
+    width: 100%;
+    min-height: 145vh;
+    overflow: visible;
 }
 
 .about-bg-img {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    object-position: left center;
-    display: block;
-    z-index: 1;
+    display: none;
 }
 
 .about-gradient {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 2;
-    background: linear-gradient(
-        to right,
-        rgba(0,0,0,0) 0%,
-        rgba(0,0,0,0.15) 30%,
-        rgba(0,0,0,0.65) var(--about-gradient-start),
-        rgba(0,0,0,0.88) 65%,
-        rgba(0,0,0,0.95) 80%,
-        rgba(0,0,0,1) 100%
-    );
+    display: none;
 }
 
 .about-overlay-text {
-    position: absolute;
-    top: 0; right: 0;
+    position: relative;
+    margin-left: auto;
     width: var(--about-text-width);
-    height: 100%;
+    min-height: 145vh;
     z-index: 3;
     display: flex;
     flex-direction: column;
@@ -982,8 +980,9 @@ h2 { font-size: var(--text-3xl); }
    ============================================= */
 #portfolio {
     width: 100%;
-    height: 1500px;
-    max-height: 1100px;
+    min-height: calc(var(--section-height) + 180px);
+    height: auto;
+    max-height: none;
     position: relative;
     z-index: 2;
     display: flex;
@@ -991,8 +990,8 @@ h2 { font-size: var(--text-3xl); }
     align-items: center;
     justify-content: center;
     
-    overflow: hidden;
-    padding: none;
+    overflow: visible;
+    padding: 0;
     box-sizing: border-box;
     scroll-snap-align: start;
     background-image: 
@@ -1002,6 +1001,14 @@ background-size: cover;
 background-position: center;
 background-repeat: no-repeat;
 background-attachment: fixed;
+}
+
+#portfolio .sticky-frame {
+    height: auto !important;
+    min-height: 100%;
+    max-height: none !important;
+    overflow: visible !important;
+    padding-bottom: 96px;
 }
 
 #portfolio h2 {
@@ -1014,13 +1021,24 @@ background-attachment: fixed;
     z-index: 3;
 }
 
+.portfolio-intro {
+    max-width: 780px;
+    margin: 0 auto 32px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 1rem;
+    line-height: 1.7;
+    position: relative;
+    z-index: 20;
+}
+
 .room-layout {
     display: flex;
     flex-direction: row;
     width: 100%;
     max-width: 1600px;
-    max-height: 1400px;
-    align-items: center;
+    max-height: none;
+    align-items: flex-start;
     justify-content: center;
     gap: var(--space-xl);
     z-index: 3;
@@ -1030,7 +1048,7 @@ background-attachment: fixed;
 .left-wall {
     flex: 0 0 auto;
     width: 620px;
-    max-height: 1400px;
+    max-height: 1600px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -1047,7 +1065,8 @@ background-attachment: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    gap: 14px;
 }
 
 /* TV Console */
@@ -1091,6 +1110,106 @@ height: 520px;
         inset 0 0 50px var(--shadow-heavy),
         0 2px 1px rgba(255,255,255,0.1);
     border: var(--tv-border) solid #030303;
+}
+
+.tv-placeholder {
+    position: absolute;
+    inset: 0;
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.74);
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.06), transparent 45%),
+        linear-gradient(180deg, rgba(6, 6, 8, 0.2), rgba(6, 6, 8, 0.65));
+    transition: opacity var(--transition-normal) ease;
+}
+
+.tv-placeholder.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.tv-placeholder-copy {
+    max-width: 420px;
+}
+
+.tv-placeholder-copy strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.tv-placeholder-copy p {
+    font-size: 0.98rem;
+    line-height: 1.7;
+}
+
+.tv-overlay {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    z-index: 8;
+    width: min(290px, calc(100% - 36px));
+    padding: 12px 14px;
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 6px;
+    background: linear-gradient(180deg, rgba(12, 12, 14, 0.84), rgba(12, 12, 14, 0.94));
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 10px 24px rgba(0,0,0,0.35);
+    backdrop-filter: blur(6px);
+    text-align: left;
+    transition: transform var(--transition-normal) ease, opacity var(--transition-normal) ease;
+}
+
+.tv-overlay.is-hidden {
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+}
+
+.tv-overlay.is-playing {
+    width: auto;
+    max-width: 250px;
+    padding: 10px 12px;
+}
+
+.tv-overlay-label {
+    display: inline-block;
+    margin-bottom: 6px;
+    color: rgba(255,255,255,0.52);
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.tv-overlay h3 {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    line-height: 1.3;
+    color: #fff;
+}
+
+.tv-overlay-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.tv-overlay p {
+    color: rgba(255,255,255,0.7);
+    line-height: 1.45;
+    font-size: 0.82rem;
+}
+
+.tv-overlay.is-playing p {
+    display: none;
 }
 
 .tv-glass-glare {
@@ -1220,7 +1339,7 @@ height: 520px;
 /* VHS Tapes */
 .vhs-library {
     width: 100%;
-    height: 600px;
+    height: 760px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
@@ -1236,62 +1355,96 @@ height: 520px;
         0 2px 0 rgba(255,255,255,0.02);
 }
 
+/* Container for each bay */
+.shelf-unit {
+    display: flex;
+    flex-direction: column;
+    /* Lock the height to match your TV console (520px) */
+    height: 100%;
+    max-height: 520px; 
+}
+
+/* 🪨 The Engraved Hardware Label */
+.shelf-label {
+    font-family: var(--font-mono, 'Courier New', monospace);
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    
+    /* 1. The Recessed Plaque Box */
+    background: #6f6f6f;
+    margin-bottom: 8px;
+    padding: 10px 5px;
+    border-radius: 3px;
+    border-top: 1px solid #000;
+    box-shadow: 
+        inset 0 4px 10px rgba(0, 0, 0, 1),      /* Deep shadow inside the groove */
+        0 1px 0 rgba(255, 255, 255, 0.05);      /* Subtle light hitting the bottom edge */
+    
+    /* 2. The Engraved Text Effect */
+    color: #111; /* Extremely dark text, essentially the color of the shadows */
+    text-shadow: 
+        -1px -1px 1px rgba(0, 0, 0, 0.9),       /* Dark shadow on top left of text */
+         1px  1px 1px rgba(255, 255, 255, 0.15); /* Light reflection on bottom right */
+    
+    /* 3. Keep it strictly fixed at the top */
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
+}
+
 .vhs-shelf {
     display: flex;
-    height: 100%;
     flex-direction: column;
-    gap: 2px;
-    padding: 8px 6px 12px 6px;
+    
+    /* THE SCROLL FIXES */
+    justify-content: flex-start; /* Tapes must stack from the top down */
+    overflow-y: auto;            /* Turns on the scrollbar */
+    flex-grow: 1;                /* Fills the remaining bay height */
+    min-height: 0;               /* CRITICAL: Forces flexbox to allow scrolling */
+    
+    gap: 6px;
+    padding: 10px 12px 14px 6px; /* Right padding makes room for the scrollbar */
     position: relative;
-    /* The actual shelf plank */
+    
+    /* The actual shelf plank (Keep your existing design!) */
     border-bottom: 4px solid #1a1714;
-    background: 
-        linear-gradient(180deg, transparent 0%, transparent 85%, rgba(30,25,18,0.3) 100%);
+    background: linear-gradient(180deg, transparent 0%, transparent 85%, rgba(30,25,18,0.3) 100%);
     box-shadow: 
-        /* Shelf thickness — 3D stepped edge */
-        0 4px 0 #15120e,
-        0 6px 0 #100e0a,
-        0 8px 0 #0c0a08,
-        /* Shelf shadow cast downward */
-        0 12px 20px -4px rgba(0,0,0,0.9),
-        0 20px 30px -8px rgba(0,0,0,0.6),
-        /* Subtle light on top surface */
+        0 4px 0 #15120e, 0 6px 0 #100e0a, 0 8px 0 #0c0a08,
+        0 12px 20px -4px rgba(0,0,0,0.9), 0 20px 30px -8px rgba(0,0,0,0.6),
         inset 0 1px 0 rgba(255,255,255,0.04);
 }
 
-/* Wood grain texture on the shelf edge */
-.vhs-shelf::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0; right: 0;
-    height: 4px;
-    background: 
-        repeating-linear-gradient(
-            90deg,
-            rgba(255,255,255,0.02) 0px,
-            rgba(255,255,255,0.04) 1px,
-            transparent 1px,
-            transparent 4px
-        ),
-        linear-gradient(90deg, #1a1714, #1e1a15, #1a1714);
-    border-radius: 0 0 1px 1px;
+/* =========================================
+   TACTICAL SCROLLBAR FOR THE SHELVES
+========================================= */
+.vhs-shelf::-webkit-scrollbar {
+    width: 6px; /* Super slim profile */
 }
 
-/* Metal bracket on each side */
-.vhs-shelf::before {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+.vhs-shelf::-webkit-scrollbar-track {
+    background: #0a0a0a; /* Dark machined groove */
+    border-left: 1px solid #1a1a1a;
+    border-radius: 3px;
 }
+
+.vhs-shelf::-webkit-scrollbar-thumb {
+    background: #333; /* Matte metal slider */
+    border-radius: 3px;
+    border: 1px solid #444;
+}
+
+.vhs-shelf::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-cyan, #00f3ff); /* Lights up when grabbed */
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
+}
+
 .vhs-tape {
     width: 100%;
-    height: 21px;
+    min-height: 34px;
     background: linear-gradient(to bottom, #111 0%, #1a1a1a 10%, #111 100%);
     border-top: 1px solid #2a2a2a;
     border-bottom: 1px solid #000;
@@ -1310,9 +1463,18 @@ height: 520px;
 
 .vhs-tape:hover { transform: translateX(15px) scale(1.01); }
 
+.vhs-tape.is-active {
+    transform: translateX(12px);
+    box-shadow:
+        0 0 0 1px rgba(159, 232, 112, 0.55),
+        0 10px 18px rgba(0,0,0,0.75),
+        inset 0 -2px 5px rgba(0,0,0,1),
+        inset 0 1px 1px rgba(255,255,255,0.05);
+}
+
 .vhs-label {
     position: absolute;
-    left: 8%; right: 8%; top: 3px; bottom: 3px;
+    left: 8%; right: 8%; top: 5px; bottom: 5px;
     background: #e0e0e0;
     border-radius: 2px;
     box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
@@ -1328,12 +1490,17 @@ height: 520px;
     box-shadow: 0 0 10px rgba(255,255,255,0.2);
 }
 
+.vhs-tape.is-active .vhs-label {
+    background: #f4ffd8;
+    box-shadow: 0 0 16px rgba(159, 232, 112, 0.28);
+}
+
 .vhs-title {
     writing-mode: horizontal-tb;
     text-orientation: mixed;
     transform: none;
     color: #050505;
-    font-size: var(--text-xs);
+    font-size: var(--text-sm);
     font-weight: var(--heading-weight);
     letter-spacing: 1px;
     pointer-events: none;
@@ -1355,6 +1522,22 @@ height: 520px;
     background: #fff;
     box-shadow: 0 0 8px rgba(255,255,255,0.4);
 }
+
+.vhs-tape.is-active .vhs-accent {
+    background: #9FE870;
+    box-shadow: 0 0 10px rgba(159, 232, 112, 0.35);
+}
+
+.portfolio-pill {
+    padding: 6px 10px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.03);
+    color: rgba(255,255,255,0.75);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
 /* =============================================
    ANIMATIONS
    ============================================= */
@@ -1378,12 +1561,15 @@ height: 520px;
     .carousel-control.left { left: 0px; }
     .carousel-control.right { right: 0px; }
 
-    #about { height: auto !important; min-height: auto !important; }
-    .about-cinematic { height: auto; }
-    .about-bg-img { position: relative; height: 65vh; object-position: top center; }
-    .about-gradient {
-        background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.9) 75%, rgba(0,0,0,1) 100%) !important;
+    #about {
+        height: auto !important;
+        min-height: auto !important;
+        background-attachment: scroll !important;
+        background-position: top center !important;
     }
+    .about-cinematic { height: auto; }
+    .about-bg-img { display: none; }
+    .about-gradient { display: none; }
     .about-overlay-text {
         position: relative; width: 100%; height: auto;
         padding: 30px 25px 50px 25px; background: #000;
@@ -1394,6 +1580,16 @@ height: 520px;
 .room-layout { flex-direction: column; align-items: center; gap: var(--space-md); }
 .left-wall { width: 100%; max-width: 100%; max-height: 200px; }
 .right-desk { width: 100%; max-width: 95vw; }
+.vhs-library { 
+        grid-template-columns: 1fr; 
+        height: auto; 
+        gap: 30px; 
+    }
+    
+    .left-wall { 
+        /* Allow the scroll area to be a bit taller on mobile so users can see the stacked shelves */
+        max-height: 400px; 
+    }
 }
 
 /* =========================================
@@ -1485,7 +1681,7 @@ height: 520px;
 
         <div class="nav-segment right">
             <a href="#skills">Skills</a>
-            <a href="#playbook">Projects</a>
+            <a href="#portfolio">Projects</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
@@ -1497,7 +1693,7 @@ height: 520px;
 	</h1>
     
     <p class="scrub-anim">
-        Engineering undergrad turned financial analyst. I deconstruct unit economics, size markets from scratch, and stress-test business models so capital flows to businesses actually building the future.
+        I work across investing, growth, and deep tech. My edge is being able to pressure-test markets, business models, and technical claims with equal curiosity.
     </p>
 </div>
 </section>
@@ -1516,18 +1712,18 @@ height: 520px;
             
             <div class="about-accent-line"></div>
             
-            <h2>About Me</h2>
+            <h2>About</h2>
 
             <p class="about-lead">
-                I sit at the intersection of mechanical engineering and investing, which means I can read a 10-K and a stress-strain curve with equal fluency.
+                I bring an engineer's precision to investing and an investor's judgment to technical problems.
             </p>
 
             <p>
-                Currently finishing my Master's across UC Berkeley Haas School of Business, EDHEC Business Schoool and Sungkyunkwan GSB. Last summer I screened 150+ MedTech startups at CRB HealthTech Fund III (Barcelona), built valuation models from scratch, and co-authored an LP report covering a €7.5B market. Before that, I ran international acceleration programs at Incubateur HEC Paris for deep-tech founders from India, South Korea, and Japan, brokering commercial conversations with French CAC-40 companies.
+                I'm currently completing my master's across UC Berkeley Haas, EDHEC, and Sungkyunkwan GSB. At CRB HealthTech Fund III, I screened 150+ MedTech startups, built valuation models from scratch, and contributed to an LP-facing report on a large, fast-growing market. Before that, at Incubateur HEC Paris, I worked with international deep-tech founders and helped shape the partnerships, operating structure, and support systems behind their growth.
             </p>
 
             <p>
-                My engineering background is the foundation of my experiences. It's why I can interrogate a physical product-based company's BOM, challenge an AI company's inference cost assumptions, or evaluate whether a hardware moat is real. I believe the best investment decisions happen when financial rigor meets technical honesty.
+                That range lets me move comfortably between technical detail and commercial judgment. I care about ideas with depth, businesses with substance, and decisions that still make sense after the excitement wears off.
             </p>
 
             <div class="about-location-tag">
@@ -1543,7 +1739,7 @@ height: 520px;
     <div class="sticky-frame">
         
         <h2 class="scrub-anim" style="margin-bottom: 5px; position: relative; z-index: 20;">Education</h2>
-        <p class="scrub-anim" style="color:#888; margin-bottom: 40px; font-size:0.9rem; position: relative; z-index: 20;">Click the button to show academics</p>
+        <p class="scrub-anim" style="color:#888; margin-bottom: 40px; font-size:0.9rem; position: relative; z-index: 20;">A cross-continental foundation in business, finance, and engineering.</p>
 <div class="carousel-wrapper" id="edu-carousel">
     <button class="arrow-btn prev-btn">&#10094;</button>
     
@@ -1598,7 +1794,7 @@ height: 520px;
     <div class="sticky-frame">
         
         <h2 class="scrub-anim" style="margin-bottom: 5px; position: relative; z-index: 20;">Experience</h2>
-        <p class="scrub-anim" style="color:#888; margin-bottom: 40px; font-size:0.9rem; position: relative; z-index: 20;">Click on button to see career</p>
+        <p class="scrub-anim" style="color:#888; margin-bottom: 40px; font-size:0.9rem; position: relative; z-index: 20;">Work that spans investing, operator roles, and technical communication.</p>
 
 <div class="carousel-wrapper" id="exp-carousel">
     <button class="arrow-btn prev-btn">&#10094;</button>
@@ -1644,7 +1840,7 @@ height: 520px;
     <div class="sticky-frame">
         
         <h2 class="scrub-anim" style="margin-bottom: 5px; position: relative; z-index: 20;">Skills</h2>
-        <p class="scrub-anim" style="color:#888; margin-bottom: 40px; font-size:0.9rem; position: relative; z-index: 20;">Hover over dials to discover</p>
+        <p class="scrub-anim" style="color:#888; margin-bottom: 40px; font-size:0.9rem; position: relative; z-index: 20;">The mix I bring across analysis, operations, and technical depth.</p>
 
     <div class="cockpit-deco deco-led led-red blink" style="top: 16%; left: 10%;"></div>
     <div class="cockpit-deco deco-label" style="top: 21%; left: 7%;">SKILLSET STATUS</div>
@@ -1819,14 +2015,33 @@ height: 520px;
 <section id="portfolio" data-video="none">
 <div class="sticky-frame">
         
-        <h2 class="scrub-anim" style="margin-bottom: 5px; position: relative; z-index: 20;">Projects and Blogs</h2>
-        <p class="scrub-anim" style="color:#888; margin-bottom: 40px; font-size:0.9rem; position: relative; z-index: 20;">Click on VCR tapes to play</p>
+        <h2 class="scrub-anim" style="margin-bottom: 8px; position: relative; z-index: 20;">Selected Work</h2>
+        <p class="portfolio-intro scrub-anim">A small archive of writing, models, and code that reflects how I think: curious, analytical, and biased toward work that holds up in the details. Pick a tape and explore.</p>
 
         <div class="room-layout scrub-anim">
             
             <div class="left-wall">
-                <div class="vhs-library" id="vhs-library">
-                    </div>
+               <div class="vhs-library" id="vhs-library">
+    
+    <div class="shelf-unit">
+        <div class="shelf-label">/// WRITING</div>
+        <div class="vhs-shelf" id="shelf-reads">
+            </div>
+    </div>
+
+    <div class="shelf-unit">
+        <div class="shelf-label">/// MODELS</div>
+        <div class="vhs-shelf" id="shelf-finance">
+            </div>
+    </div>
+
+    <div class="shelf-unit">
+        <div class="shelf-label">/// CODE</div>
+        <div class="vhs-shelf" id="shelf-github">
+            </div>
+    </div>
+
+</div>
             </div>
 
             <div class="right-desk">
@@ -1834,7 +2049,22 @@ height: 520px;
                     <div class="tv-screen-container" id="tv-screen">
                         <div class="tv-glass-glare"></div>
                         <div class="tv-scanlines"></div>
+                        <div class="tv-placeholder" id="tv-placeholder">
+                            <div class="tv-placeholder-copy">
+                                <strong>Archive Ready</strong>
+                                <p>Choose a tape from the archive to open it on screen.</p>
+                            </div>
+                        </div>
                         <iframe id="pdf-viewer" src=""></iframe>
+                        <div class="tv-overlay" id="tv-overlay">
+                            <span class="tv-overlay-label">Selection</span>
+                            <h3 id="portfolio-meta-title">Choose a tape from the archive</h3>
+                            <div class="tv-overlay-grid" id="portfolio-meta-grid">
+                                <span class="portfolio-pill">Curated</span>
+                                <span class="portfolio-pill">Selected Work</span>
+                            </div>
+                            <p id="portfolio-meta-summary">This archive is less about volume and more about signal. Each piece is here because it says something useful about how I analyze, build, and decide.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -1855,7 +2085,7 @@ height: 520px;
 
     <section id="contact" data-video="vid-contact">
     <h2 class="scrub-anim">Let's Talk</h2>
-    <p class="scrub-anim" style="color: #aaa; margin-top: 20px; font-size: 1.2rem;">Open to conversations about deep-tech investing, portfolio strategy, and what's worth building next.</p>
+    <p class="scrub-anim" style="color: #aaa; margin-top: 20px; font-size: 1.2rem;">I'm especially interested in deep-tech, thoughtful capital, and ambitious ideas with real staying power.</p>
     <a href="https://www.linkedin.com/in/chinmay-rajendra-patil/" target="_blank" class="contact-btn scrub-anim">Connect on LinkedIn</a>
 </section>
 
@@ -1931,10 +2161,13 @@ kineticTexts.forEach(text => {
         }
         window.addEventListener('scroll', onScroll);
         onScroll();
- 	// =============================================
-// VHS TAPE LIBRARY — PORTFOLIO
+
 // =============================================
-const portfolioItems = [
+// VHS TAPE LIBRARY DATA
+// =============================================
+
+// 1. Your 5 Min Reads
+const readsItems = [
     { title: "CSR Challenges", pdf: "5FF/Post1.pdf" },
     { title: "Mezzanine Finance", pdf: "5FF/Post2.pdf" },
     { title: "Bankruptcy: Spirit Air", pdf: "5FF/Post3.pdf" },
@@ -1963,53 +2196,124 @@ const portfolioItems = [
     { title: "Cash Flow Engineering", pdf: "5FF/Post26.pdf" },
     { title: "2026 Silver Commodity Analysis ", pdf: "5FF/Post27.pdf" },
     { title: "[EMPTY]", pdf: "5FF/Post28.pdf" },
-];
+    { title: "DCF: Apple 2025", pdf: "Finance/Apple_DCF.pdf" },
+    { title: "LBO: Private Equity", pdf: "Finance/LBO_Model.pdf" },
+    { title: "Portfolio Source", pdf: "Github/Portfolio_Readme.pdf" },
+    { title: "Algo-Trader Script", pdf: "Github/Algo_Script.pdf" }
+].map(item => ({
+    ...item,
+    type: "Writing",
+    year: "Archive",
+    summary: "A short research note from the writing archive, included to show analytical range, market judgment, and concise thinking."
+}));
 
-const tapesPerColumn = Math.ceil(portfolioItems.length / 5);
-const vhsLibrary = document.getElementById('vhs-library');
+// 2. Your Financial Models
+const financeItems = [];
 
-if (vhsLibrary) {
-    for (let col = 0; col < 5; col++) {
-        const shelf = document.createElement('div');
-        shelf.className = 'vhs-shelf';
+// 3. Your GitHub Repos
+const githubItems = [];
 
-        const start = col * tapesPerColumn;
-        const end = Math.min(start + tapesPerColumn, portfolioItems.length);
-        const columnItems = portfolioItems.slice(start, end);
+// =============================================
+// SHELF BUILDER LOGIC
+// =============================================
 
-        columnItems.forEach(item => {
-            const tape = document.createElement('div');
-            tape.className = 'vhs-tape';
-            tape.onclick = () => loadTape(item.pdf, item.title);
+// This function takes an array of tapes and injects them into a specific shelf ID
+function populateShelf(tapeArray, targetShelfId) {
+    const shelf = document.getElementById(targetShelfId);
+    if (!shelf) return;
 
-            tape.innerHTML = `
-                <div class="vhs-label">
-                    <span class="vhs-title">${item.title}</span>
-                </div>
-                <div class="vhs-accent"></div>
-            `;
+    tapeArray.forEach(item => {
+        const tape = document.createElement('div');
+        tape.className = 'vhs-tape';
+        tape.onclick = () => loadTape(item, tape);
 
-            shelf.appendChild(tape);
-        });
+        tape.innerHTML = `
+            <div class="vhs-label">
+                <span class="vhs-title">${item.title}</span>
+            </div>
+            <div class="vhs-accent"></div>
+        `;
 
-        vhsLibrary.appendChild(shelf);
-    }
+        shelf.appendChild(tape);
+    });
 }
+
+// Fire the function for all 3 bays when the page loads!
+document.addEventListener("DOMContentLoaded", () => {
+    populateShelf(readsItems, 'shelf-reads');
+    populateShelf(financeItems, 'shelf-finance');
+    populateShelf(githubItems, 'shelf-github');
+});
 
 // =============================================
 // VCR TAPE LOADING
 // =============================================
 let currentTape = null;
 
-function loadTape(pdfUrl, title) {
+let activeTapeElement = null;
+let overlayHideTimer = null;
+
+function updatePortfolioMeta(item) {
+    const title = document.getElementById('portfolio-meta-title');
+    const grid = document.getElementById('portfolio-meta-grid');
+    const summary = document.getElementById('portfolio-meta-summary');
+
+    if (!title || !grid || !summary) return;
+
+    title.textContent = item.title;
+    grid.innerHTML = `
+        <span class="portfolio-pill">${item.type || 'Selected Work'}</span>
+        <span class="portfolio-pill">${item.year || 'Archive'}</span>
+    `;
+    summary.textContent = item.summary || 'A selected piece of work from the archive.';
+}
+
+function resetPortfolioMeta() {
+    const title = document.getElementById('portfolio-meta-title');
+    const grid = document.getElementById('portfolio-meta-grid');
+    const summary = document.getElementById('portfolio-meta-summary');
+
+    if (!title || !grid || !summary) return;
+
+    title.textContent = 'Choose a tape from the archive';
+    grid.innerHTML = `
+        <span class="portfolio-pill">Curated</span>
+        <span class="portfolio-pill">Selected Work</span>
+    `;
+    summary.textContent = 'This archive is less about volume and more about signal. Each piece is here because it says something useful about how I analyze, build, and decide.';
+}
+
+function loadTape(item, tapeElement) {
     const viewer = document.getElementById('pdf-viewer');
     const led = document.getElementById('vcr-led');
     const animTape = document.getElementById('anim-tape');
     const tvScreen = document.getElementById('tv-screen');
+    const placeholder = document.getElementById('tv-placeholder');
+    const overlay = document.getElementById('tv-overlay');
+
+    if (overlayHideTimer) {
+        clearTimeout(overlayHideTimer);
+        overlayHideTimer = null;
+    }
 
     if (currentTape) {
         viewer.style.opacity = '0';
         viewer.src = '';
+    }
+
+    if (activeTapeElement) {
+        activeTapeElement.classList.remove('is-active');
+    }
+    if (tapeElement) {
+        tapeElement.classList.add('is-active');
+        activeTapeElement = tapeElement;
+    }
+
+    updatePortfolioMeta(item);
+    if (placeholder) placeholder.classList.add('is-hidden');
+    if (overlay) {
+        overlay.classList.add('is-playing');
+        overlay.classList.remove('is-hidden');
     }
 
     animTape.classList.remove('insert-anim');
@@ -2024,10 +2328,15 @@ function loadTape(pdfUrl, title) {
     tvScreen.classList.add('tv-flicker');
 
     setTimeout(() => {
-        viewer.src = pdfUrl;
+        viewer.src = item.pdf;
         viewer.style.opacity = '1';
         led.textContent = '▶ PLAY';
-        currentTape = title;
+        currentTape = item.title;
+        if (overlay) {
+            overlayHideTimer = setTimeout(() => {
+                overlay.classList.add('is-hidden');
+            }, 2000);
+        }
     }, 800);
 }
 
@@ -2035,6 +2344,13 @@ function ejectTape() {
     const viewer = document.getElementById('pdf-viewer');
     const led = document.getElementById('vcr-led');
     const animTape = document.getElementById('anim-tape');
+    const placeholder = document.getElementById('tv-placeholder');
+    const overlay = document.getElementById('tv-overlay');
+
+    if (overlayHideTimer) {
+        clearTimeout(overlayHideTimer);
+        overlayHideTimer = null;
+    }
 
     viewer.style.opacity = '0';
     setTimeout(() => { viewer.src = ''; }, 500);
@@ -2042,6 +2358,18 @@ function ejectTape() {
     animTape.classList.remove('insert-anim');
     led.textContent = '12:00';
     currentTape = null;
+    if (placeholder) placeholder.classList.remove('is-hidden');
+    if (overlay) {
+        overlay.classList.remove('is-playing');
+        overlay.classList.remove('is-hidden');
+    }
+
+    if (activeTapeElement) {
+        activeTapeElement.classList.remove('is-active');
+        activeTapeElement = null;
+    }
+
+    resetPortfolioMeta();
 }
 
 // ==========================================
@@ -2115,3 +2443,4 @@ document.addEventListener("DOMContentLoaded", () => {
     </script>
 </body>
 </html>
+
